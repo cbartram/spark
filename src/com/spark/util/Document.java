@@ -57,4 +57,8 @@ public class Document {
     public Matcher match(Pattern pattern) {
         return pattern == null ? null : pattern.matcher(text);
     }
+
+    public String getText() {
+        return text;
+    }
 }
