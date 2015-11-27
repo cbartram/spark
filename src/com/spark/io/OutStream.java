@@ -9,7 +9,7 @@ import java.io.OutputStream;
  * @author Ian
  * @version 1.0
  */
-public class OutStream {
+public class OutStream implements AutoCloseable {
     public static final OutStream NIL = new OutStream();
     private final OutputStream stream;
 
@@ -21,15 +21,15 @@ public class OutStream {
         this.stream = stream;
     }
 
-    public boolean close() {
+    @Override
+    public void close() {
         if (stream == null)
-            return false;
+            return;
         try {
             stream.close();
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
+
 }

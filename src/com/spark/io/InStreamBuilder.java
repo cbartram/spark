@@ -10,13 +10,18 @@ import java.net.URL;
  * @author Ian
  * @version 1.0
  */
-public class InStreamBuilder extends StreamBuilder {
+public class InStreamBuilder extends StreamBuilder<InStreamBuilder> {
     protected InStreamBuilder(String path) throws MalformedURLException {
         super(path);
     }
 
     protected InStreamBuilder(URL url) {
         super(url);
+    }
+
+    @Override
+    protected InStreamBuilder getThis() {
+        return this;
     }
 
     public InStream open() {

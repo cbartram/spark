@@ -14,7 +14,7 @@ import java.util.Map;
  * @author Ian
  * @version 1.0
  */
-public class StreamBuilder {
+public abstract class StreamBuilder<S extends StreamBuilder> {
     public static final int DEFAULT_CONNECT_TIMEOUT = 10000;
     private final URL url;
     private final Map<String, String> requests = new HashMap<>();
@@ -32,6 +32,8 @@ public class StreamBuilder {
             throw new IllegalArgumentException();
         this.url = url;
     }
+
+    protected abstract S getThis();
 
     public int getConnectTimeout() {
         return connect;
@@ -53,35 +55,35 @@ public class StreamBuilder {
         return proxy;
     }
 
-    public StreamBuilder proxy(Proxy proxy) {
+    public S proxy(Proxy proxy) {
         this.proxy = proxy;
-        return this;
+        return getThis();
     }
 
-    public StreamBuilder cache(boolean useCache) {
+    public S cache(boolean useCache) {
         this.cache = useCache;
-        return this;
+        return getThis();
     }
 
-    public StreamBuilder timeout(int read) {
+    public S timeout(int read) {
         return timeout(DEFAULT_CONNECT_TIMEOUT, read);
     }
 
-    public StreamBuilder timeout(int connect, int read) {
+    public S timeout(int connect, int read) {
         this.connect = connect;
         this.read = read;
-        return this;
+        return getThis();
     }
 
-    public StreamBuilder property(Map<String, String> properties) {
+    public S property(Map<String, String> properties) {
         if (properties != null)
             requests.putAll(properties);
-        return this;
+        return getThis();
     }
 
-    public StreamBuilder property(String key, String value) {
+    public S property(String key, String value) {
         requests.put(key, value);
-        return this;
+        return getThis();
     }
 
     protected URLConnection build() throws IOException {

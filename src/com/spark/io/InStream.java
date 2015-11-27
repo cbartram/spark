@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
@@ -19,7 +21,7 @@ import java.util.jar.JarInputStream;
  * @author Ian
  * @version 1.0
  */
-public class InStream {
+public class InStream implements AutoCloseable {
     public static final InStream NIL = new InStream();
     private final InputStream stream;
 
@@ -130,6 +132,31 @@ public class InStream {
         return stream == null ? -1 : stream.available();
     }
 
+    public Map<String, Class<?>> readMappedClasses() {
+        if (stream == null)
+            return new HashMap<>();
+        try {
+            JarInputStream jis = new JarInputStream(stream);
+            Map<String, Class<?>> classes = new HashMap<>();
+            JarEntry entry;
+            while ((entry = jis.getNextJarEntry()) != null) {
+                String name = entry.getName();
+                if (!name.endsWith(".class"))
+                    continue;
+                try {
+                    Class<?> c = Class.forName(name.replace('/', '.').substring(0, name.length() - 6));
+                    classes.put(c.getName(), c);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+            return classes;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new HashMap<>();
+        }
+    }
+
     public Class<?>[] readClasses() {
         if (stream == null)
             return new Class[0];
@@ -151,6 +178,39 @@ public class InStream {
         } catch (IOException e) {
             e.printStackTrace();
             return new Class[0];
+        }
+    }
+
+    public Map<String, ClassNode> readMappedNodes() {
+        return readMappedNodes(ClassReader.SKIP_DEBUG);
+    }
+
+    public Map<String, ClassNode> readMappedNodes(int flags) {
+        if (stream == null)
+            return new HashMap<>();
+        try {
+            JarInputStream jis = new JarInputStream(stream);
+            Map<String, ClassNode> nodes = new HashMap<>();
+            JarEntry entry;
+            while ((entry = jis.getNextJarEntry()) != null) {
+                if (!entry.getName().endsWith(".class"))
+                    continue;
+                try {
+                    byte[] buffer = new byte[(int) entry.getSize()];
+                    if (jis.read(buffer) == -1)
+                        continue;
+                    ClassReader reader = new ClassReader(buffer);
+                    ClassNode node = new ClassNode();
+                    reader.accept(node, flags);
+                    nodes.put(node.name, node);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return nodes;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new HashMap<>();
         }
     }
 
@@ -187,15 +247,14 @@ public class InStream {
         }
     }
 
-    public boolean close() {
+    @Override
+    public void close() {
         if (stream == null)
-            return false;
+            return;
         try {
             stream.close();
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
 
