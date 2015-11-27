@@ -84,7 +84,17 @@ public class StreamBuilder {
         return this;
     }
 
-    protected URLConnection connect() throws IOException {
-        return url.openConnection();
+    protected URLConnection build() throws IOException {
+        URLConnection connection = url.openConnection();
+        int connect = getConnectTimeout();
+        if (connect > 0)
+            connection.setConnectTimeout(connect);
+        int read = getReadTimeout();
+        if (read > 0)
+            connection.setReadTimeout(read);
+        connection.setUseCaches(isUsingCache());
+        for (Map.Entry<String, String> entry : getRequestProperties().entrySet())
+            connection.setRequestProperty(entry.getKey(), entry.getValue());
+        return connection;
     }
 }
