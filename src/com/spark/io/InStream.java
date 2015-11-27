@@ -130,7 +130,7 @@ public class InStream {
         return stream == null ? -1 : stream.available();
     }
 
-    public Class<?>[] classes() {
+    public Class<?>[] readClasses() {
         if (stream == null)
             return new Class[0];
         try {
@@ -154,11 +154,11 @@ public class InStream {
         }
     }
 
-    public ClassNode[] nodes() {
-        return nodes(ClassReader.SKIP_DEBUG);
+    public ClassNode[] readNodes() {
+        return readNodes(ClassReader.SKIP_DEBUG);
     }
 
-    public ClassNode[] nodes(int flags) {
+    public ClassNode[] readNodes(int flags) {
         if (stream == null)
             return new ClassNode[0];
         try {
