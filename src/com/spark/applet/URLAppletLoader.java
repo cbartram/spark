@@ -9,13 +9,13 @@ import java.net.URLClassLoader;
 import java.util.Map;
 
 /**
- * ReflectionAppletLoader
+ * URLAppletLoader
  *
  * @author Ian
  * @version 1.0
  */
-public class ReflectionAppletLoader extends AppletLoader {
-    public ReflectionAppletLoader(GameType type, int world) {
+public class URLAppletLoader extends AppletLoader {
+    public URLAppletLoader(GameType type, int world) {
         super(type, world);
     }
 

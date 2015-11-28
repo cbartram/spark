@@ -2,7 +2,7 @@ package test;
 
 import com.spark.applet.AppletLoader;
 import com.spark.applet.GameStub;
-import com.spark.applet.ReflectionAppletLoader;
+import com.spark.applet.URLAppletLoader;
 import com.spark.io.GamepackReader;
 import com.spark.util.GameType;
 
@@ -19,7 +19,7 @@ import java.util.Map;
 public class Loader {
     public static void main(String[] args) throws Exception {
         GamepackReader reader = new GamepackReader(GameType.OLDSCHOOL, 1);
-        AppletLoader loader = new ReflectionAppletLoader(reader.getType(), reader.getWorld());
+        AppletLoader loader = new URLAppletLoader(reader.getType(), reader.getWorld());
         Map<String, String> parameters = reader.readParameters();
         JFrame frame = new JFrame(parameters.get(GameStub.WINDOW_TITLE));
         Applet applet = loader.load(parameters);
