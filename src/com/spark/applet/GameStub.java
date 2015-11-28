@@ -41,6 +41,7 @@ public class GameStub extends AbstractAppletStub {
         applet.setMaximumSize(new Dimension(Integer.parseInt(getParameter(APPLET_MAXIMUM_WIDTH)), Integer.parseInt(getParameter(APPLET_MAXIMUM_HEIGHT))));
         applet.setMinimumSize(new Dimension(Integer.parseInt(getParameter(APPLET_MINIMUM_WIDTH)), Integer.parseInt(getParameter(APPLET_MINIMUM_HEIGHT))));
         applet.setSize(applet.getMinimumSize());
+        applet.setPreferredSize(applet.getSize());
     }
 
     @Override

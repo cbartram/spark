@@ -40,7 +40,7 @@ public class GamepackReader {
                 int splitIndex = string.indexOf('=', index);
                 if (splitIndex == -1)
                     continue;
-                parameters.put(string.substring(0, splitIndex), string.substring(splitIndex + 1));
+                parameters.put(string.substring(index, splitIndex), string.substring(splitIndex + 1));
             }
             return parameters;
         }

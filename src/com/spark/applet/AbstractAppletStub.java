@@ -33,5 +33,4 @@ public abstract class AbstractAppletStub implements AppletStub {
     public void appletResize(int width, int height) {
         applet.setSize(new Dimension(width, height));
     }
-
 }
