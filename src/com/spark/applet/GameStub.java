@@ -14,7 +14,7 @@ import java.util.Map;
  * @version 1.0
  */
 public class GameStub extends AbstractAppletStub {
-    private final Map<String, String> parameters;
+    private final Map<String, String> configuration;
     private final AppletContext context;
     public static final String APPLET_MAXIMUM_HEIGHT = "applet_maxheight";
     public static final String APPLET_MAXIMUM_WIDTH = "applet_maxwidth";
@@ -28,16 +28,16 @@ public class GameStub extends AbstractAppletStub {
     public static final String WINDOW_PREFERRED_WIDTH = "window_preferredwidth";
     public static final String WINDOW_TITLE = "title";
 
-    public GameStub(Applet applet, Map<String, String> parameters) {
-        this(applet, null, parameters);
+    public GameStub(Applet applet, Map<String, String> configuration) {
+        this(applet, null, configuration);
     }
 
-    public GameStub(Applet applet, AppletContext context, Map<String, String> parameters) {
+    public GameStub(Applet applet, AppletContext context, Map<String, String> configuration) {
         super(applet);
-        if (parameters == null)
+        if (configuration == null)
             throw new IllegalArgumentException();
         this.context = context;
-        this.parameters = parameters;
+        this.configuration = configuration;
         applet.setMaximumSize(new Dimension(Integer.parseInt(getParameter(APPLET_MAXIMUM_WIDTH)), Integer.parseInt(getParameter(APPLET_MAXIMUM_HEIGHT))));
         applet.setMinimumSize(new Dimension(Integer.parseInt(getParameter(APPLET_MINIMUM_WIDTH)), Integer.parseInt(getParameter(APPLET_MINIMUM_HEIGHT))));
         applet.setSize(applet.getMinimumSize());
@@ -61,7 +61,7 @@ public class GameStub extends AbstractAppletStub {
 
     @Override
     public String getParameter(String name) {
-        return parameters.get(name);
+        return configuration.get(name);
     }
 
     @Override

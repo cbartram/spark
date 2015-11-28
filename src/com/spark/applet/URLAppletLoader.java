@@ -20,19 +20,19 @@ public class URLAppletLoader extends AbstractAppletLoader {
     }
 
     @Override
-    public Applet load(Map<String, String> parameters) throws Exception {
-        String initialClassName = parameters.get(GameStub.INITIAL_CLASS);
+    public Applet load(Map<String, String> configuration) throws Exception {
+        String initialClassName = configuration.get(GameStub.INITIAL_CLASS);
         if (initialClassName == null)
-            throw new ClassNotFoundException("Unable to find initial class in parameters.");
-        String gamepack = parameters.get(GameStub.INITIAL_JAR);
+            throw new ClassNotFoundException("Unable to find initial class in configuration.");
+        String gamepack = configuration.get(GameStub.INITIAL_JAR);
         if (gamepack == null)
-            throw new IllegalArgumentException("No gamepack specified in parameters.");
+            throw new IllegalArgumentException("No gamepack specified in configuration.");
         URLClassLoader loader = new URLClassLoader(new URL[]{new URL(String.format(getType().getGamepack(), getWorld(), gamepack))});
         Class<?> c = loader.loadClass(initialClassName.replace(".class", ""));
         if (!Applet.class.isAssignableFrom(c))
             throw new ClassCastException("Unable to cast initial class to Applet.");
         Applet applet = (Applet) c.newInstance();
-        applet.setStub(new GameStub(applet, parameters));
+        applet.setStub(new GameStub(applet, configuration));
         applet.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         applet.setBackground(Color.BLACK);
         applet.init();

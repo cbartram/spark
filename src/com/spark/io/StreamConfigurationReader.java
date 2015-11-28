@@ -7,24 +7,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * StreamGamepackReader
+ * StreamConfigurationReader
  *
  * @author Ian
  * @version 1.0
  */
-public class StreamGamepackReader extends AbstractGamepackReader {
-    public StreamGamepackReader(GameType type, int world) {
+public class StreamConfigurationReader extends AbstractConfigurationReader {
+    public StreamConfigurationReader(GameType type, int world) {
         super(type, world);
     }
 
     @Override
-    public Map<String, String> readParameters() throws Exception {
+    public Map<String, String> readConfiguration() throws Exception {
         try (InStream stream = Stream.in(String.format(getType().getConfig(), getWorld()))
                 .timeout(StreamBuilder.DEFAULT_CONNECT_TIMEOUT, StreamBuilder.DEFAULT_CONNECT_TIMEOUT)
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .open()) {
             String[] strings = stream.readLines();
-            Map<String, String> parameters = new HashMap<>();
+            Map<String, String> configuration = new HashMap<>();
             for (String string : strings) {
                 if (!string.contains("="))
                     continue;
@@ -34,9 +34,9 @@ public class StreamGamepackReader extends AbstractGamepackReader {
                 int splitIndex = string.indexOf('=', index);
                 if (splitIndex == -1)
                     continue;
-                parameters.put(string.substring(index, splitIndex), string.substring(splitIndex + 1));
+                configuration.put(string.substring(index, splitIndex), string.substring(splitIndex + 1));
             }
-            return parameters;
+            return configuration;
         }
     }
 }

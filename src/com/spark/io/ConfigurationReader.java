@@ -5,13 +5,13 @@ import com.spark.util.GameType;
 import java.util.Map;
 
 /**
- * GamepackReader
+ * ConfigurationReader
  *
  * @author Ian
  * @version 1.0
  */
-public interface GamepackReader {
-    public Map<String, String> readParameters() throws Exception;
+public interface ConfigurationReader {
+    public Map<String, String> readConfiguration() throws Exception;
 
     public GameType getType();
 

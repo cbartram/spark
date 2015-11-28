@@ -16,5 +16,5 @@ public interface AppletLoader {
 
     public int getWorld();
 
-    public Applet load(Map<String, String> parameters) throws Exception;
+    public Applet load(Map<String, String> configuration) throws Exception;
 }

@@ -3,16 +3,16 @@ package com.spark.io;
 import com.spark.util.GameType;
 
 /**
- * AbstractGamepackReader
+ * AbstractConfigurationReader
  *
  * @author Ian
  * @version 1.0
  */
-public abstract class AbstractGamepackReader implements GamepackReader {
+public abstract class AbstractConfigurationReader implements ConfigurationReader {
     private final GameType type;
     private final int world;
 
-    public AbstractGamepackReader(GameType type, int world) {
+    public AbstractConfigurationReader(GameType type, int world) {
         if (type == null || world <= 0)
             throw new IllegalArgumentException();
         this.type = type;
