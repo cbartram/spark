@@ -4,10 +4,7 @@ import com.spark.util.Document;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.tree.ClassNode;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,78 +34,58 @@ public class InStream implements AutoCloseable {
         return stream;
     }
 
-    public Document readDocument() {
+    public Document readDocument() throws IOException {
         return readDocument('\n');
     }
 
-    public Document readDocument(String delimiter) {
+    public Document readDocument(String delimiter) throws IOException {
         return new Document(readLines(delimiter));
     }
 
-    public Document readDocument(char delimiter) {
+    public Document readDocument(char delimiter) throws IOException {
         return new Document(readLines(delimiter));
     }
 
-    public String[] readLines() {
+    public String[] readLines() throws IOException {
         if (stream == null)
             return new String[0];
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         List<String> lines = new ArrayList<>();
         String line;
-        try {
-            while ((line = reader.readLine()) != null)
-                lines.add(line);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new String[0];
-        }
+        while ((line = reader.readLine()) != null)
+            lines.add(line);
         return lines.toArray(new String[lines.size()]);
     }
 
-    public String readLines(char delimiter) {
+    public String readLines(char delimiter) throws IOException {
         if (stream == null)
             return null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         StringBuilder builder = new StringBuilder();
         String line;
-        try {
-            while ((line = reader.readLine()) != null)
-                builder.append(line).append(delimiter);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        while ((line = reader.readLine()) != null)
+            builder.append(line).append(delimiter);
         return builder.toString();
     }
 
-    public String readLines(String delimiter) {
+    public String readLines(String delimiter) throws IOException {
         if (stream == null)
             return null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         StringBuilder builder = new StringBuilder();
         String line;
-        try {
-            while ((line = reader.readLine()) != null)
-                builder.append(line).append(delimiter);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        while ((line = reader.readLine()) != null)
+            builder.append(line).append(delimiter);
         return builder.toString();
     }
 
-    public byte[] readFully() {
+    public byte[] readFully() throws IOException {
         if (stream == null)
             return new byte[0];
-        try {
-            byte[] data = new byte[stream.available()];
-            if (stream.read(data) == -1)
-                return new byte[0];
-            return data;
-        } catch (IOException e) {
-            e.printStackTrace();
+        byte[] data = new byte[stream.available()];
+        if (stream.read(data) == -1)
             return new byte[0];
-        }
+        return data;
     }
 
     public int read() throws IOException {
@@ -132,130 +109,120 @@ public class InStream implements AutoCloseable {
         return stream == null ? -1 : stream.available();
     }
 
-    public Map<String, Class<?>> readMappedClasses() {
+    public Map<String, Class<?>> readMappedClasses() throws IOException {
         if (stream == null)
             return new HashMap<>();
-        try {
-            JarInputStream jis = new JarInputStream(stream);
-            Map<String, Class<?>> classes = new HashMap<>();
-            JarEntry entry;
-            while ((entry = jis.getNextJarEntry()) != null) {
-                String name = entry.getName();
-                if (!name.endsWith(".class"))
-                    continue;
-                try {
-                    Class<?> c = Class.forName(name.replace('/', '.').substring(0, name.length() - 6));
-                    classes.put(c.getName(), c);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+        JarInputStream jis = new JarInputStream(stream);
+        Map<String, Class<?>> classes = new HashMap<>();
+        JarEntry entry;
+        while ((entry = jis.getNextJarEntry()) != null) {
+            String name = entry.getName();
+            if (!name.endsWith(".class"))
+                continue;
+            try {
+                Class<?> c = Class.forName(name.replace('/', '.').substring(0, name.length() - 6));
+                classes.put(c.getName(), c);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-            return classes;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new HashMap<>();
         }
+        return classes;
     }
 
-    public Class<?>[] readClasses() {
+    public Class<?>[] readClasses() throws IOException {
         if (stream == null)
             return new Class[0];
-        try {
-            JarInputStream jis = new JarInputStream(stream);
-            List<Class<?>> classes = new ArrayList<>();
-            JarEntry entry;
-            while ((entry = jis.getNextJarEntry()) != null) {
-                String name = entry.getName();
-                if (!name.endsWith(".class"))
-                    continue;
-                try {
-                    classes.add(Class.forName(name.replace('/', '.').substring(0, name.length() - 6)));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+        JarInputStream jis = new JarInputStream(stream);
+        List<Class<?>> classes = new ArrayList<>();
+        JarEntry entry;
+        while ((entry = jis.getNextJarEntry()) != null) {
+            String name = entry.getName();
+            if (!name.endsWith(".class"))
+                continue;
+            try {
+                classes.add(Class.forName(name.replace('/', '.').substring(0, name.length() - 6)));
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-            return classes.toArray(new Class[classes.size()]);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new Class[0];
         }
+        return classes.toArray(new Class[classes.size()]);
     }
 
-    public Map<String, ClassNode> readMappedNodes() {
+    public Map<String, ClassNode> readMappedNodes() throws IOException {
         return readMappedNodes(ClassReader.SKIP_DEBUG);
     }
 
-    public Map<String, ClassNode> readMappedNodes(int flags) {
+    public Map<String, ClassNode> readMappedNodes(int flags) throws IOException {
         if (stream == null)
             return new HashMap<>();
-        try {
-            JarInputStream jis = new JarInputStream(stream);
-            Map<String, ClassNode> nodes = new HashMap<>();
-            JarEntry entry;
-            while ((entry = jis.getNextJarEntry()) != null) {
-                if (!entry.getName().endsWith(".class"))
-                    continue;
-                try {
-                    byte[] buffer = new byte[(int) entry.getSize()];
-                    if (jis.read(buffer) == -1)
-                        continue;
-                    ClassReader reader = new ClassReader(buffer);
-                    ClassNode node = new ClassNode();
-                    reader.accept(node, flags);
-                    nodes.put(node.name, node);
-                } catch (IOException e) {
-                    e.printStackTrace();
+        JarInputStream jis = new JarInputStream(stream);
+        Map<String, ClassNode> nodes = new HashMap<>();
+        JarEntry entry;
+        while ((entry = jis.getNextJarEntry()) != null) {
+            if (!entry.getName().endsWith(".class"))
+                continue;
+            byte[] buffer;
+            long size = entry.getSize();
+            if (size == -1) {
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                int next;
+                while ((next = jis.read()) != -1) {
+                    stream.write(next);
                 }
+                buffer = stream.toByteArray();
+            } else {
+                buffer = new byte[(int) size];
+                if (jis.read(buffer) == -1)
+                    continue;
             }
-            return nodes;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new HashMap<>();
+            ClassReader reader = new ClassReader(buffer);
+            ClassNode node = new ClassNode();
+            reader.accept(node, flags);
+            nodes.put(node.name, node);
         }
+        return nodes;
     }
 
-    public ClassNode[] readNodes() {
+    public ClassNode[] readNodes() throws IOException {
         return readNodes(ClassReader.SKIP_DEBUG);
     }
 
-    public ClassNode[] readNodes(int flags) {
+    public ClassNode[] readNodes(int flags) throws IOException {
         if (stream == null)
             return new ClassNode[0];
-        try {
-            JarInputStream jis = new JarInputStream(stream);
-            List<ClassNode> nodes = new ArrayList<>();
-            JarEntry entry;
-            while ((entry = jis.getNextJarEntry()) != null) {
-                if (!entry.getName().endsWith(".class"))
-                    continue;
-                try {
-                    byte[] buffer = new byte[(int) entry.getSize()];
-                    if (jis.read(buffer) == -1)
-                        continue;
-                    ClassReader reader = new ClassReader(buffer);
-                    ClassNode node = new ClassNode();
-                    reader.accept(node, flags);
-                    nodes.add(node);
-                } catch (IOException e) {
-                    e.printStackTrace();
+        JarInputStream jis = new JarInputStream(stream);
+        List<ClassNode> nodes = new ArrayList<>();
+        JarEntry entry;
+        while ((entry = jis.getNextJarEntry()) != null) {
+            if (!entry.getName().endsWith(".class"))
+                continue;
+            byte[] buffer;
+            long size = entry.getSize();
+            if (size == -1) {
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                int next;
+                while ((next = jis.read()) != -1) {
+                    stream.write(next);
                 }
+                buffer = stream.toByteArray();
+            } else {
+                buffer = new byte[(int) size];
+                if (jis.read(buffer) == -1)
+                    continue;
             }
-            return nodes.toArray(new ClassNode[nodes.size()]);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ClassNode[0];
+            ClassReader reader = new ClassReader(buffer);
+            ClassNode node = new ClassNode();
+            reader.accept(node, flags);
+            nodes.add(node);
         }
+        return nodes.toArray(new ClassNode[nodes.size()]);
     }
 
     @Override
-    public void close() {
+    public void close() throws IOException {
         if (stream == null)
             return;
-        try {
-            stream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        stream.close();
     }
 
     public synchronized void mark(int readlimit) {
