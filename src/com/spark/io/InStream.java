@@ -34,6 +34,50 @@ public class InStream implements AutoCloseable {
         return stream;
     }
 
+    public int read() throws IOException {
+        return stream == null ? -1 : stream.read();
+    }
+
+    public int read(byte[] b) throws IOException {
+        return stream == null ? -1 : stream.read(b);
+    }
+
+    public int read(byte[] b, int off, int len) throws IOException {
+        return stream == null ? -1 : stream.read(b, off, len);
+    }
+
+    public long skip(long n) throws IOException {
+        return stream == null ? -1 : stream.skip(n);
+    }
+
+
+    public int available() throws IOException {
+        return stream == null ? -1 : stream.available();
+    }
+
+    @Override
+    public void close() throws IOException {
+        if (stream == null)
+            return;
+        stream.close();
+    }
+
+    public synchronized void mark(int readlimit) {
+        if (stream == null)
+            return;
+        stream.mark(readlimit);
+    }
+
+    public synchronized void reset() throws IOException {
+        if (stream == null)
+            return;
+        stream.reset();
+    }
+
+    public boolean markSupported() {
+        return stream != null && stream.markSupported();
+    }
+
     public Document readDocument() throws IOException {
         return readDocument('\n');
     }
@@ -58,14 +102,7 @@ public class InStream implements AutoCloseable {
     }
 
     public String readLines(char delimiter) throws IOException {
-        if (stream == null)
-            return null;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-        StringBuilder builder = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null)
-            builder.append(line).append(delimiter);
-        return builder.toString();
+        return readLines(String.valueOf(delimiter));
     }
 
     public String readLines(String delimiter) throws IOException {
@@ -86,27 +123,6 @@ public class InStream implements AutoCloseable {
         if (stream.read(data) == -1)
             return new byte[0];
         return data;
-    }
-
-    public int read() throws IOException {
-        return stream == null ? -1 : stream.read();
-    }
-
-    public int read(byte[] b) throws IOException {
-        return stream == null ? -1 : stream.read(b);
-    }
-
-    public int read(byte[] b, int off, int len) throws IOException {
-        return stream == null ? -1 : stream.read(b, off, len);
-    }
-
-    public long skip(long n) throws IOException {
-        return stream == null ? -1 : stream.skip(n);
-    }
-
-
-    public int available() throws IOException {
-        return stream == null ? -1 : stream.available();
     }
 
     public Map<String, Class<?>> readMappedClasses() throws IOException {
@@ -216,28 +232,5 @@ public class InStream implements AutoCloseable {
             nodes.add(node);
         }
         return nodes.toArray(new ClassNode[nodes.size()]);
-    }
-
-    @Override
-    public void close() throws IOException {
-        if (stream == null)
-            return;
-        stream.close();
-    }
-
-    public synchronized void mark(int readlimit) {
-        if (stream == null)
-            return;
-        stream.mark(readlimit);
-    }
-
-    public synchronized void reset() throws IOException {
-        if (stream == null)
-            return;
-        stream.reset();
-    }
-
-    public boolean markSupported() {
-        return stream != null && stream.markSupported();
     }
 }
