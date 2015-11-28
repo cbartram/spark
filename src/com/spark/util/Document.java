@@ -21,10 +21,12 @@ public class Document {
     }
 
     public String[] find(String regex) {
-        return find(Pattern.compile(regex));
+        return regex == null ? new String[0] : find(Pattern.compile(regex));
     }
 
     public String[] find(Pattern pattern) {
+        if (pattern == null)
+            return new String[0];
         Matcher matcher = match(pattern);
         if (!matcher.find())
             return new String[0];
@@ -35,10 +37,12 @@ public class Document {
     }
 
     public String[][] findAll(String regex) {
-        return findAll(Pattern.compile(regex));
+        return regex == null ? new String[0][] : findAll(Pattern.compile(regex));
     }
 
     public String[][] findAll(Pattern pattern) {
+        if (pattern == null)
+            return new String[0][];
         Matcher matcher = match(pattern);
         List<String[]> matches = new ArrayList<>();
         while (matcher.find()) {
@@ -51,7 +55,7 @@ public class Document {
     }
 
     public Matcher match(String regex) {
-        return match(Pattern.compile(regex));
+        return regex == null ? null : match(Pattern.compile(regex));
     }
 
     public Matcher match(Pattern pattern) {
