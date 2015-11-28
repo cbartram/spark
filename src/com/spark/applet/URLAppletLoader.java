@@ -14,7 +14,7 @@ import java.util.Map;
  * @author Ian
  * @version 1.0
  */
-public class URLAppletLoader extends AppletLoader {
+public class URLAppletLoader extends AbstractAppletLoader {
     public URLAppletLoader(GameType type, int world) {
         super(type, world);
     }

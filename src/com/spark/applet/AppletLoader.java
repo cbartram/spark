@@ -11,24 +11,10 @@ import java.util.Map;
  * @author Ian
  * @version 1.0
  */
-public abstract class AppletLoader {
-    private final GameType type;
-    private final int world;
+public interface AppletLoader {
+    public GameType getType();
 
-    protected AppletLoader(GameType type, int world) {
-        if (type == null || world <= 0)
-            throw new IllegalArgumentException();
-        this.type = type;
-        this.world = world;
-    }
+    public int getWorld();
 
-    public GameType getType() {
-        return type;
-    }
-
-    public int getWorld() {
-        return world;
-    }
-
-    public abstract Applet load(Map<String, String> parameters) throws Exception;
+    public Applet load(Map<String, String> parameters) throws Exception;
 }
