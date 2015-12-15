@@ -1,4 +1,4 @@
-package com.spark.io;
+package com.spark.io.archive;
 
 import com.spark.util.Document;
 import org.objectweb.asm.ClassReader;
@@ -13,20 +13,20 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
 /**
- * InStream
+ * ArchiveReader
  *
  * @author Ian
  * @version 1.0
  */
-public class InStream implements AutoCloseable {
-    public static final InStream NIL = new InStream();
+public class ArchiveReader implements AutoCloseable {
+    public static final ArchiveReader NIL = new ArchiveReader();
     private final InputStream stream;
 
-    private InStream() {
+    private ArchiveReader() {
         this(null);
     }
 
-    protected InStream(InputStream stream) {
+    protected ArchiveReader(InputStream stream) {
         this.stream = stream;
     }
 
@@ -49,7 +49,6 @@ public class InStream implements AutoCloseable {
     public long skip(long n) throws IOException {
         return stream == null ? -1 : stream.skip(n);
     }
-
 
     public int available() throws IOException {
         return stream == null ? -1 : stream.available();
@@ -182,9 +181,8 @@ public class InStream implements AutoCloseable {
             if (size == -1) {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 int next;
-                while ((next = jis.read()) != -1) {
+                while ((next = jis.read()) != -1)
                     stream.write(next);
-                }
                 buffer = stream.toByteArray();
             } else {
                 buffer = new byte[(int) size];
@@ -217,9 +215,8 @@ public class InStream implements AutoCloseable {
             if (size == -1) {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 int next;
-                while ((next = jis.read()) != -1) {
+                while ((next = jis.read()) != -1)
                     stream.write(next);
-                }
                 buffer = stream.toByteArray();
             } else {
                 buffer = new byte[(int) size];

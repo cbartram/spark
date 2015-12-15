@@ -2,6 +2,8 @@ package com.spark.util;
 
 import org.objectweb.asm.tree.ClassNode;
 
+import java.io.IOException;
+
 /**
  * Injector
  *
@@ -9,5 +11,5 @@ import org.objectweb.asm.tree.ClassNode;
  * @version 1.0
  */
 public interface Injector {
-    public void modify(ClassNode[] nodes);
+    public void modify(ClassNode[] nodes) throws IOException;
 }

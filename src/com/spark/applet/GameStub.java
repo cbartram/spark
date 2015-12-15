@@ -13,9 +13,7 @@ import java.util.Map;
  * @author Ian
  * @version 1.0
  */
-public class GameStub extends AbstractAppletStub {
-    private final Map<String, String> configuration;
-    private final AppletContext context;
+public class GameStub extends ActiveAppletStub {
     public static final String APPLET_MAXIMUM_HEIGHT = "applet_maxheight";
     public static final String APPLET_MAXIMUM_WIDTH = "applet_maxwidth";
     public static final String APPLET_MINIMUM_HEIGHT = "applet_minheight";
@@ -27,6 +25,8 @@ public class GameStub extends AbstractAppletStub {
     public static final String WINDOW_PREFERRED_HEIGHT = "window_preferredheight";
     public static final String WINDOW_PREFERRED_WIDTH = "window_preferredwidth";
     public static final String WINDOW_TITLE = "title";
+    private final Map<String, String> configuration;
+    private final AppletContext context;
 
     public GameStub(Applet applet, Map<String, String> configuration) {
         this(applet, null, configuration);

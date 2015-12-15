@@ -1,4 +1,4 @@
-package com.spark.applet;
+package com.spark.io.applet;
 
 import com.spark.util.GameType;
 

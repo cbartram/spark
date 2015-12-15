@@ -5,16 +5,16 @@ import java.applet.AppletStub;
 import java.awt.*;
 
 /**
- * AbstractAppletStub
+ * ActiveAppletStub
  *
  * @author Ian
  * @version 1.0
  */
-public abstract class AbstractAppletStub implements AppletStub {
+public abstract class ActiveAppletStub implements AppletStub {
     private boolean active;
     private Applet applet;
 
-    protected AbstractAppletStub(Applet applet) {
+    protected ActiveAppletStub(Applet applet) {
         if (applet == null)
             throw new IllegalArgumentException();
         this.applet = applet;

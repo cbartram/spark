@@ -1,9 +1,10 @@
-package com.spark.applet;
+package com.spark.io.applet;
 
-import com.spark.asm.ASMClassLoader;
-import com.spark.io.InStream;
-import com.spark.io.Stream;
-import com.spark.io.StreamBuilder;
+import com.spark.applet.GameStub;
+import com.spark.io.archive.Archive;
+import com.spark.io.archive.ArchiveReader;
+import com.spark.io.archive.ArchiveStreamBuilder;
+import com.spark.lang.ClassCreator;
 import com.spark.net.UserAgent;
 import com.spark.util.GameType;
 import com.spark.util.Injector;
@@ -59,21 +60,23 @@ public class InjectionAppletLoader extends AbstractAppletLoader {
 
     @Override
     public Applet load(Map<String, String> configuration) throws Exception {
+        if (configuration == null)
+            throw new IllegalArgumentException();
         String initialClassName = configuration.get(GameStub.INITIAL_CLASS);
         if (initialClassName == null)
             throw new ClassNotFoundException("Unable to find initial class in configuration.");
         String gamepack = configuration.get(GameStub.INITIAL_JAR);
         if (gamepack == null)
             throw new IllegalArgumentException("No gamepack specified in configuration.");
-        try (InStream stream = Stream.in(String.format(getType().getGamepack(), getWorld(), gamepack))
-                .timeout(StreamBuilder.DEFAULT_CONNECT_TIMEOUT, StreamBuilder.DEFAULT_CONNECT_TIMEOUT)
+        try (ArchiveReader reader = Archive.reader(String.format(getType().getGamepack(), getWorld(), gamepack))
+                .timeout(ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT, ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT)
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .open()) {
-            ClassNode[] nodes = stream.readNodes();
+            ClassNode[] nodes = reader.readNodes();
             Injector injector = getInjector();
             if (injector != null)
                 injector.modify(nodes);
-            ClassLoader loader = new ASMClassLoader(nodes);
+            ClassLoader loader = new ClassCreator(nodes);
             Class<?> c = loader.loadClass(initialClassName.replace(".class", ""));
             if (!Applet.class.isAssignableFrom(c))
                 throw new ClassCastException("Unable to cast initial class to Applet.");

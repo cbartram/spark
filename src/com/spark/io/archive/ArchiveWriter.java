@@ -1,23 +1,23 @@
-package com.spark.io;
+package com.spark.io.archive;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * InStream
+ * ArchiveWriter
  *
  * @author Ian
  * @version 1.0
  */
-public class OutStream implements AutoCloseable {
-    public static final OutStream NIL = new OutStream();
+public class ArchiveWriter implements AutoCloseable {
+    public static final ArchiveWriter NIL = new ArchiveWriter();
     private final OutputStream stream;
 
-    private OutStream() {
+    private ArchiveWriter() {
         this(null);
     }
 
-    protected OutStream(OutputStream stream) {
+    protected ArchiveWriter(OutputStream stream) {
         this.stream = stream;
     }
 

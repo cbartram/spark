@@ -1,4 +1,4 @@
-package com.spark.io;
+package com.spark.io.archive;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -14,7 +14,7 @@ import java.util.Map;
  * @author Ian
  * @version 1.0
  */
-public abstract class StreamBuilder<S extends StreamBuilder> {
+public abstract class ArchiveStreamBuilder<S extends ArchiveStreamBuilder> {
     public static final int DEFAULT_CONNECT_TIMEOUT = 10000;
     private final URL url;
     private final Map<String, String> requests = new HashMap<>();
@@ -23,11 +23,11 @@ public abstract class StreamBuilder<S extends StreamBuilder> {
     private boolean cache;
     private Proxy proxy;
 
-    protected StreamBuilder(String path) throws MalformedURLException {
+    protected ArchiveStreamBuilder(String path) throws MalformedURLException {
         this(new URL(path));
     }
 
-    protected StreamBuilder(URL url) {
+    protected ArchiveStreamBuilder(URL url) {
         if (url == null)
             throw new IllegalArgumentException();
         this.url = url;

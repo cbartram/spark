@@ -1,4 +1,4 @@
-package com.spark.asm;
+package com.spark.lang;
 
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
@@ -12,23 +12,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * ASMClassLoader
+ * ClassCreator
  *
  * @author Ian
  * @version 1.0
  */
-public class ASMClassLoader extends ClassLoader {
+public class ClassCreator extends ClassLoader {
     private final Map<String, Class<?>> classes = new HashMap<>();
     private final Map<String, ClassNode> nodes = new HashMap<>();
     private final ProtectionDomain domain;
     private final Permissions permissions;
     private boolean allowReloading;
 
-    public ASMClassLoader() {
+    public ClassCreator() {
         this(false);
     }
 
-    public ASMClassLoader(boolean allowReloading) {
+    public ClassCreator(boolean allowReloading) {
         this.allowReloading = allowReloading;
         Permissions permissions = new Permissions();
         permissions.add(new AllPermission());
@@ -36,28 +36,16 @@ public class ASMClassLoader extends ClassLoader {
         domain = new ProtectionDomain(new CodeSource(null, (Certificate[]) null), this.permissions);
     }
 
-    public ASMClassLoader(ClassNode[] nodes) {
+    public ClassCreator(ClassNode[] nodes) {
         this(nodes, false);
     }
 
-    public ASMClassLoader(ClassNode[] nodes, boolean allowReloading) {
+    public ClassCreator(ClassNode[] nodes, boolean allowReloading) {
         this(allowReloading);
         if (nodes == null)
             return;
         for (ClassNode node : nodes)
             this.nodes.put(node.name, node);
-    }
-
-    protected byte[] nodeToBytes(ClassNode node) {
-        ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
-        node.accept(cw);
-        return cw.toByteArray();
-    }
-
-    protected Class<?> nodeToClass(ClassNode node) {
-        byte[] b = nodeToBytes(node);
-        return defineClass(node.name.replace('/', '.'), b, 0, b.length,
-                getDomain());
     }
 
     public void add(ClassNode node) {
@@ -84,16 +72,29 @@ public class ASMClassLoader extends ClassLoader {
         try {
             return getSystemClassLoader().loadClass(name);
         } catch (Exception e) {
+            boolean reload = allowReloading();
             String key = name.replace('.', '/');
-            if (!allowReloading() && classes.containsKey(key))
+            if (!reload && classes.containsKey(key))
                 return classes.get(key);
             ClassNode node = nodes.get(key);
             if (node == null)
                 throw new ClassNotFoundException();
-            Class<?> c = nodeToClass(node);
-            classes.put(key, c);
+            ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+            node.accept(cw);
+            byte[] b = cw.toByteArray();
+            Class<?> c = defineClass(node.name.replace('/', '.'), b, 0, b.length, getDomain());
+            if (!reload)
+                classes.put(key, c);
             return c;
         }
+    }
+
+    public ClassNode[] getNodes() {
+        return nodes.values().toArray(new ClassNode[nodes.size()]);
+    }
+
+    public Class<?>[] getClasses() {
+        return classes.values().toArray(new Class[classes.size()]);
     }
 
     public ProtectionDomain getDomain() {

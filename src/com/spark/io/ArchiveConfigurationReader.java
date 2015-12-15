@@ -1,5 +1,8 @@
 package com.spark.io;
 
+import com.spark.io.archive.Archive;
+import com.spark.io.archive.ArchiveReader;
+import com.spark.io.archive.ArchiveStreamBuilder;
 import com.spark.net.UserAgent;
 import com.spark.util.GameType;
 
@@ -7,20 +10,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * StreamConfigurationReader
+ * ArchiveConfigurationReader
  *
  * @author Ian
  * @version 1.0
  */
-public class StreamConfigurationReader extends AbstractConfigurationReader {
-    public StreamConfigurationReader(GameType type, int world) {
+public class ArchiveConfigurationReader extends AbstractConfigurationReader {
+    public ArchiveConfigurationReader(GameType type, int world) {
         super(type, world);
     }
 
     @Override
     public Map<String, String> readConfiguration() throws Exception {
-        try (InStream stream = Stream.in(String.format(getType().getConfig(), getWorld()))
-                .timeout(StreamBuilder.DEFAULT_CONNECT_TIMEOUT, StreamBuilder.DEFAULT_CONNECT_TIMEOUT)
+        try (ArchiveReader stream = Archive.reader(String.format(getType().getConfig(), getWorld()))
+                .timeout(ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT, ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT)
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .open()) {
             String[] strings = stream.readLines();
