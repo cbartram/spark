@@ -1,6 +1,5 @@
 package com.spark.io.archive;
 
-import com.spark.util.Document;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.tree.ClassNode;
 
@@ -75,18 +74,6 @@ public class ArchiveReader implements AutoCloseable {
 
     public boolean markSupported() {
         return stream != null && stream.markSupported();
-    }
-
-    public Document readDocument() throws IOException {
-        return readDocument('\n');
-    }
-
-    public Document readDocument(String delimiter) throws IOException {
-        return new Document(readLines(delimiter));
-    }
-
-    public Document readDocument(char delimiter) throws IOException {
-        return new Document(readLines(delimiter));
     }
 
     public String[] readLines() throws IOException {
