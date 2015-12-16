@@ -4,7 +4,7 @@ import com.spark.io.archive.Archive;
 import com.spark.io.archive.ArchiveReader;
 import com.spark.io.archive.ArchiveStreamBuilder;
 import com.spark.net.UserAgent;
-import com.spark.util.GameType;
+import com.spark.util.GamepackQuery;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,14 +15,12 @@ import java.util.Map;
  * @author Ian
  * @version 1.0
  */
-public class ArchiveConfigurationReader extends AbstractConfigurationReader {
-    public ArchiveConfigurationReader(GameType type, int world) {
-        super(type, world);
-    }
-
+public class ArchiveConfigurationReader implements ConfigurationReader {
     @Override
-    public Map<String, String> readConfiguration() throws Exception {
-        try (ArchiveReader stream = Archive.reader(String.format(getType().getConfig(), getWorld()))
+    public Map<String, String> readConfiguration(GamepackQuery query) throws Exception {
+        if (query == null)
+            throw new IllegalArgumentException();
+        try (ArchiveReader stream = Archive.reader(String.format(query.getType().getConfig(), query.getWorld()))
                 .timeout(ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT, ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT)
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .open()) {

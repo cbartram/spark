@@ -17,7 +17,7 @@ public class ArchiveWriter implements AutoCloseable {
         this(null);
     }
 
-    protected ArchiveWriter(OutputStream stream) {
+    public ArchiveWriter(OutputStream stream) {
         this.stream = stream;
     }
 

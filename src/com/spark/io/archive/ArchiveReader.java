@@ -25,7 +25,7 @@ public class ArchiveReader implements AutoCloseable {
         this(null);
     }
 
-    protected ArchiveReader(InputStream stream) {
+    public ArchiveReader(InputStream stream) {
         this.stream = stream;
     }
 

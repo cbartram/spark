@@ -1,6 +1,6 @@
 package com.spark.io;
 
-import com.spark.util.GameType;
+import com.spark.util.GamepackQuery;
 
 import java.util.Map;
 
@@ -11,9 +11,6 @@ import java.util.Map;
  * @version 1.0
  */
 public interface ConfigurationReader {
-    public Map<String, String> readConfiguration() throws Exception;
+    public Map<String, String> readConfiguration(GamepackQuery query) throws Exception;
 
-    public GameType getType();
-
-    public int getWorld();
 }
