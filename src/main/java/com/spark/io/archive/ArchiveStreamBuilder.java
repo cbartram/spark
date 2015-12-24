@@ -19,6 +19,7 @@ public abstract class ArchiveStreamBuilder<S extends ArchiveStreamBuilder> {
     private final URL url;
     private final Map<String, String> requests = new HashMap<>();
     private int connect = -1;
+
     private int read = -1;
     private boolean cache;
     private Proxy proxy;

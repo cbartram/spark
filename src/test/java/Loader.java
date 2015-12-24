@@ -1,5 +1,3 @@
-package test;
-
 import com.spark.applet.AppletCreator;
 import com.spark.applet.GameStub;
 import com.spark.applet.StandardAppletCreator;
@@ -16,6 +14,7 @@ import org.objectweb.asm.tree.MethodNode;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,7 +28,7 @@ public class Loader {
         ConfigurationReader reader = new ArchiveConfigurationReader();
         AppletLoader loader = new InjectionAppletLoader(new TestInjector());
         AppletCreator creator = new StandardAppletCreator();
-        GamepackQuery query = new GamepackQuery(GameType.OLDSCHOOL, 2);
+        GamepackQuery query = new GamepackQuery(GameType.RS3, 2);
         Map<String, String> configuration = reader.readConfiguration(query);
         JFrame frame = new JFrame(configuration.get(GameStub.WINDOW_TITLE));
         frame.setContentPane(creator.create(loader.load(query, configuration), configuration));
@@ -44,7 +43,7 @@ public class Loader {
         @Override
         public void modify(ClassNode[] nodes) throws IOException {
             for (ClassNode node : nodes) {
-                for (MethodNode method : node.methods) {
+                for (MethodNode method : (List<MethodNode>) node.methods) {
                     InstructionReader reader = new InstructionReader(method.instructions);
                     StringBuilder builder = new StringBuilder(method.name + " :: ");
                     reader.read(builder, " ");

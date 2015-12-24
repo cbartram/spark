@@ -48,7 +48,7 @@ public class InjectionAppletLoader implements AppletLoader {
                 .timeout(ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT, ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT)
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .open()) {
-            ClassNode[] nodes = reader.readNodes();
+            ClassNode[] nodes = reader.readNodes(configuration.get("0"), configuration.get("-1"));
             Injector injector = getInjector();
             if (injector != null)
                 injector.modify(nodes);
