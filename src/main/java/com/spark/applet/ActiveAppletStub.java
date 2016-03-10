@@ -7,8 +7,8 @@ import java.awt.*;
 /**
  * ActiveAppletStub
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public abstract class ActiveAppletStub implements AppletStub {
     private boolean active;

@@ -6,8 +6,8 @@ import java.util.Map;
 /**
  * AppletCreator
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public interface AppletCreator {
     public Applet create(Class<? extends Applet> c, Map<String, String> configuration) throws Exception;

@@ -18,8 +18,8 @@ import java.util.zip.GZIPInputStream;
 /**
  * ArchiveReader
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public class ArchiveReader implements AutoCloseable {
     public static final ArchiveReader NIL = new ArchiveReader();

@@ -7,8 +7,8 @@ import java.io.IOException;
 /**
  * Injector
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public interface Injector {
     public void modify(ClassNode[] nodes) throws IOException;

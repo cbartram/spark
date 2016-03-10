@@ -3,8 +3,8 @@ package com.spark.util;
 /**
  * GamepackQuery
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public class GamepackQuery {
     private final GameType type;

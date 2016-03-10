@@ -6,8 +6,8 @@ import java.io.OutputStream;
 /**
  * ArchiveWriter
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public class ArchiveWriter implements AutoCloseable {
     public static final ArchiveWriter NIL = new ArchiveWriter();

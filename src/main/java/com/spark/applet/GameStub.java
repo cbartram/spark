@@ -10,8 +10,8 @@ import java.util.Map;
 /**
  * GameStub
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public class GameStub extends ActiveAppletStub {
     public static final String APPLET_MAXIMUM_HEIGHT = "applet_maxheight";

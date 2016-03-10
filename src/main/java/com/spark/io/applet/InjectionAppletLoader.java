@@ -16,8 +16,8 @@ import java.util.Map;
 /**
  * InjectionAppletLoader
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public class InjectionAppletLoader implements AppletLoader {
     private Injector injector;

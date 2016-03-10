@@ -11,8 +11,8 @@ import java.util.Map;
 /**
  * ConnectionBuilder
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public abstract class ArchiveStreamBuilder<S extends ArchiveStreamBuilder> {
     public static final int DEFAULT_CONNECT_TIMEOUT = 10000;

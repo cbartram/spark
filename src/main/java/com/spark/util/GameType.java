@@ -3,8 +3,8 @@ package com.spark.util;
 /**
  * GameType
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public enum GameType {
     OLDSCHOOL("http://oldschool%d.runescape.com/jav_config.ws", "http://oldschool%d.runescape.com/%s"),

@@ -14,8 +14,8 @@ import java.util.Map;
 /**
  * ClassCreator
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public class ClassCreator extends ClassLoader {
     private final Map<String, Class<?>> classes = new HashMap<>();

@@ -7,8 +7,8 @@ import java.net.URL;
 /**
  * ArchiveReaderBuilder
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public class ArchiveReaderBuilder extends ArchiveStreamBuilder<ArchiveReaderBuilder> {
     protected ArchiveReaderBuilder(String path) throws MalformedURLException {

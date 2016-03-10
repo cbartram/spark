@@ -20,8 +20,8 @@ import java.util.Map;
 /**
  * Loader
  *
- * @author Ian
- * @version 1.0
+ * @author Ian Caffey
+ * @since 1.0
  */
 public class Loader {
     public static void main(String[] args) throws Exception {
