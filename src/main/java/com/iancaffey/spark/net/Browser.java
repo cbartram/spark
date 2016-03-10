@@ -1,4 +1,4 @@
-package com.spark.net;
+package com.iancaffey.spark.net;
 
 /**
  * Browser

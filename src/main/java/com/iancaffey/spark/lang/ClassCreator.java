@@ -1,4 +1,4 @@
-package com.spark.lang;
+package com.iancaffey.spark.lang;
 
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;

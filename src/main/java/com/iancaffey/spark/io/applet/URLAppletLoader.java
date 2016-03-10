@@ -1,7 +1,7 @@
-package com.spark.io.applet;
+package com.iancaffey.spark.io.applet;
 
-import com.spark.applet.GameStub;
-import com.spark.util.GamepackQuery;
+import com.iancaffey.spark.applet.GameStub;
+import com.iancaffey.spark.util.GamepackQuery;
 
 import java.applet.Applet;
 import java.net.URL;

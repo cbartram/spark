@@ -1,6 +1,6 @@
-package com.spark.io;
+package com.iancaffey.spark.io;
 
-import com.spark.util.GamepackQuery;
+import com.iancaffey.spark.util.GamepackQuery;
 
 import java.util.Map;
 

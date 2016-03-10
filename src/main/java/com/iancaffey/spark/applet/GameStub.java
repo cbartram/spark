@@ -1,4 +1,4 @@
-package com.spark.applet;
+package com.iancaffey.spark.applet;
 
 import java.applet.Applet;
 import java.applet.AppletContext;

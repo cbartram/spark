@@ -1,14 +1,14 @@
-import com.spark.applet.AppletCreator;
-import com.spark.applet.GameStub;
-import com.spark.applet.StandardAppletCreator;
-import com.spark.io.ArchiveConfigurationReader;
-import com.spark.io.ConfigurationReader;
-import com.spark.io.InstructionReader;
-import com.spark.io.applet.AppletLoader;
-import com.spark.io.applet.InjectionAppletLoader;
-import com.spark.util.GameType;
-import com.spark.util.GamepackQuery;
-import com.spark.util.Injector;
+import com.iancaffey.spark.applet.AppletCreator;
+import com.iancaffey.spark.applet.GameStub;
+import com.iancaffey.spark.applet.StandardAppletCreator;
+import com.iancaffey.spark.io.ArchiveConfigurationReader;
+import com.iancaffey.spark.io.ConfigurationReader;
+import com.iancaffey.spark.io.InstructionReader;
+import com.iancaffey.spark.io.applet.AppletLoader;
+import com.iancaffey.spark.io.applet.InjectionAppletLoader;
+import com.iancaffey.spark.util.GameType;
+import com.iancaffey.spark.util.GamepackQuery;
+import com.iancaffey.spark.util.Injector;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.MethodNode;
 

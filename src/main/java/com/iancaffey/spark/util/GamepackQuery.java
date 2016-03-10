@@ -1,4 +1,4 @@
-package com.spark.util;
+package com.iancaffey.spark.util;
 
 /**
  * GamepackQuery

@@ -1,4 +1,4 @@
-package com.spark.util;
+package com.iancaffey.spark.util;
 
 import org.objectweb.asm.tree.ClassNode;
 

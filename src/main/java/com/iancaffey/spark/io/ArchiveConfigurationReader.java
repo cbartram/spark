@@ -1,10 +1,10 @@
-package com.spark.io;
+package com.iancaffey.spark.io;
 
-import com.spark.io.archive.Archive;
-import com.spark.io.archive.ArchiveReader;
-import com.spark.io.archive.ArchiveStreamBuilder;
-import com.spark.net.UserAgent;
-import com.spark.util.GamepackQuery;
+import com.iancaffey.spark.io.archive.ArchiveStreamBuilder;
+import com.iancaffey.spark.net.UserAgent;
+import com.iancaffey.spark.io.archive.Archive;
+import com.iancaffey.spark.io.archive.ArchiveReader;
+import com.iancaffey.spark.util.GamepackQuery;
 
 import java.util.HashMap;
 import java.util.Map;

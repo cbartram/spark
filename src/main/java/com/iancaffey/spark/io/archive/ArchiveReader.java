@@ -1,4 +1,4 @@
-package com.spark.io.archive;
+package com.iancaffey.spark.io.archive;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.tree.ClassNode;

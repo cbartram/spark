@@ -1,13 +1,13 @@
-package com.spark.io.applet;
+package com.iancaffey.spark.io.applet;
 
-import com.spark.applet.GameStub;
-import com.spark.io.archive.Archive;
-import com.spark.io.archive.ArchiveReader;
-import com.spark.io.archive.ArchiveStreamBuilder;
-import com.spark.lang.ClassCreator;
-import com.spark.net.UserAgent;
-import com.spark.util.GamepackQuery;
-import com.spark.util.Injector;
+import com.iancaffey.spark.util.Injector;
+import com.iancaffey.spark.applet.GameStub;
+import com.iancaffey.spark.io.archive.Archive;
+import com.iancaffey.spark.io.archive.ArchiveReader;
+import com.iancaffey.spark.io.archive.ArchiveStreamBuilder;
+import com.iancaffey.spark.lang.ClassCreator;
+import com.iancaffey.spark.net.UserAgent;
+import com.iancaffey.spark.util.GamepackQuery;
 import org.objectweb.asm.tree.ClassNode;
 
 import java.applet.Applet;
