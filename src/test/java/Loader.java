@@ -22,7 +22,7 @@ public class Loader {
         AppletCreator creator = new StandardAppletCreator();
         GamepackQuery query = new GamepackQuery(GameType.OLDSCHOOL, 2);
         Configuration configuration = reader.configure(query);
-        JFrame frame = new JFrame(configuration.get(GameStub.WINDOW_TITLE));
+        JFrame frame = new JFrame(configuration.get(Configuration.WINDOW_TITLE));
         frame.setContentPane(creator.create(loader.load(configuration), configuration));
         frame.pack();
         frame.setLocationRelativeTo(null);

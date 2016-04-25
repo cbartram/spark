@@ -19,10 +19,10 @@ public class URLAppletLoader implements AppletLoader {
     public Class<? extends Applet> load(Configuration configuration) throws Exception {
         if (configuration == null)
             throw new IllegalArgumentException();
-        String initialClassName = configuration.get(GameStub.INITIAL_CLASS);
+        String initialClassName = configuration.get(Configuration.INITIAL_CLASS);
         if (initialClassName == null)
             throw new ClassNotFoundException("Unable to find initial class in configuration.");
-        String gamepack = configuration.get(GameStub.INITIAL_JAR);
+        String gamepack = configuration.get(Configuration.INITIAL_JAR);
         if (gamepack == null)
             throw new IllegalArgumentException("No gamepack specified in configuration.");
         URLClassLoader loader = new URLClassLoader(new URL[]{new URL(String.format(configuration.query().getType().getGamepack(), configuration.query().getWorld(), gamepack))});
