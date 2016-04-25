@@ -1,8 +1,9 @@
-package com.iancaffey.spark.applet;
+package com.iancaffey.spark.util;
+
+import com.iancaffey.spark.applet.GameStub;
 
 import java.applet.Applet;
 import java.awt.*;
-import java.util.Map;
 
 /**
  * StandardAppletCreator
@@ -12,7 +13,7 @@ import java.util.Map;
  */
 public class StandardAppletCreator implements AppletCreator {
     @Override
-    public Applet create(Class<? extends Applet> c, Map<String, String> configuration) throws Exception {
+    public Applet create(Class<? extends Applet> c, Configuration configuration) throws Exception {
         Applet applet = c.newInstance();
         applet.setStub(new GameStub(applet, configuration));
         applet.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));

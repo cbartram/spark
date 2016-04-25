@@ -1,4 +1,4 @@
-package com.iancaffey.spark.io.archive;
+package com.iancaffey.spark.io;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -24,11 +24,11 @@ public abstract class ArchiveStreamBuilder<S extends ArchiveStreamBuilder> {
     private boolean cache;
     private Proxy proxy;
 
-    protected ArchiveStreamBuilder(String path) throws MalformedURLException {
+    ArchiveStreamBuilder(String path) throws MalformedURLException {
         this(new URL(path));
     }
 
-    protected ArchiveStreamBuilder(URL url) {
+    ArchiveStreamBuilder(URL url) {
         if (url == null)
             throw new IllegalArgumentException();
         this.url = url;

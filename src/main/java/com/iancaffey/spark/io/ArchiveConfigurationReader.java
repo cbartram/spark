@@ -1,9 +1,11 @@
 package com.iancaffey.spark.io;
 
-import com.iancaffey.spark.io.archive.ArchiveStreamBuilder;
+import com.iancaffey.spark.io.Archive;
+import com.iancaffey.spark.io.ArchiveReader;
+import com.iancaffey.spark.io.ArchiveStreamBuilder;
 import com.iancaffey.spark.net.UserAgent;
-import com.iancaffey.spark.io.archive.Archive;
-import com.iancaffey.spark.io.archive.ArchiveReader;
+import com.iancaffey.spark.util.Configuration;
+import com.iancaffey.spark.util.ConfigurationReader;
 import com.iancaffey.spark.util.GamepackQuery;
 
 import java.util.HashMap;
@@ -17,7 +19,7 @@ import java.util.Map;
  */
 public class ArchiveConfigurationReader implements ConfigurationReader {
     @Override
-    public Map<String, String> readConfiguration(GamepackQuery query) throws Exception {
+    public Configuration configure(GamepackQuery query) throws Exception {
         if (query == null)
             throw new IllegalArgumentException();
         try (ArchiveReader stream = Archive.reader(String.format(query.getType().getConfig(), query.getWorld()))
@@ -25,7 +27,7 @@ public class ArchiveConfigurationReader implements ConfigurationReader {
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .open()) {
             String[] strings = stream.readLines();
-            Map<String, String> configuration = new HashMap<>();
+            Map<String, String> parameters = new HashMap<>();
             for (String string : strings) {
                 if (!string.contains("="))
                     continue;
@@ -35,9 +37,9 @@ public class ArchiveConfigurationReader implements ConfigurationReader {
                 int splitIndex = string.indexOf('=', index);
                 if (splitIndex == -1)
                     continue;
-                configuration.put(string.substring(index, splitIndex), string.substring(splitIndex + 1));
+                parameters.put(string.substring(index, splitIndex), string.substring(splitIndex + 1));
             }
-            return configuration;
+            return new Configuration(query, parameters);
         }
     }
 }

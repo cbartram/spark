@@ -1,21 +1,13 @@
-import com.iancaffey.spark.applet.AppletCreator;
 import com.iancaffey.spark.applet.GameStub;
-import com.iancaffey.spark.applet.StandardAppletCreator;
 import com.iancaffey.spark.io.ArchiveConfigurationReader;
-import com.iancaffey.spark.io.ConfigurationReader;
 import com.iancaffey.spark.io.InstructionReader;
-import com.iancaffey.spark.io.applet.AppletLoader;
-import com.iancaffey.spark.io.applet.InjectionAppletLoader;
-import com.iancaffey.spark.util.GameType;
-import com.iancaffey.spark.util.GamepackQuery;
-import com.iancaffey.spark.util.Injector;
+import com.iancaffey.spark.util.*;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.MethodNode;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Loader
@@ -28,10 +20,10 @@ public class Loader {
         ConfigurationReader reader = new ArchiveConfigurationReader();
         AppletLoader loader = new InjectionAppletLoader(new TestInjector());
         AppletCreator creator = new StandardAppletCreator();
-        GamepackQuery query = new GamepackQuery(GameType.RS3, 2);
-        Map<String, String> configuration = reader.readConfiguration(query);
+        GamepackQuery query = new GamepackQuery(GameType.OLDSCHOOL, 2);
+        Configuration configuration = reader.configure(query);
         JFrame frame = new JFrame(configuration.get(GameStub.WINDOW_TITLE));
-        frame.setContentPane(creator.create(loader.load(query, configuration), configuration));
+        frame.setContentPane(creator.create(loader.load(configuration), configuration));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

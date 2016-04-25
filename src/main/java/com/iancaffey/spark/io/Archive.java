@@ -1,4 +1,4 @@
-package com.iancaffey.spark.io.archive;
+package com.iancaffey.spark.io;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -11,7 +11,6 @@ import java.net.URL;
  */
 public class Archive {
     private Archive() {
-
     }
 
     public static ArchiveReaderBuilder reader(String path) throws MalformedURLException {

@@ -1,4 +1,4 @@
-package com.iancaffey.spark.io.archive;
+package com.iancaffey.spark.io;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

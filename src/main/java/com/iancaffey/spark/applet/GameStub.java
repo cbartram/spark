@@ -1,11 +1,12 @@
 package com.iancaffey.spark.applet;
 
+import com.iancaffey.spark.util.Configuration;
+
 import java.applet.Applet;
 import java.applet.AppletContext;
 import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Map;
 
 /**
  * GameStub
@@ -25,14 +26,14 @@ public class GameStub extends ActiveAppletStub {
     public static final String WINDOW_PREFERRED_HEIGHT = "window_preferredheight";
     public static final String WINDOW_PREFERRED_WIDTH = "window_preferredwidth";
     public static final String WINDOW_TITLE = "title";
-    private final Map<String, String> configuration;
+    private final Configuration configuration;
     private final AppletContext context;
 
-    public GameStub(Applet applet, Map<String, String> configuration) {
+    public GameStub(Applet applet, Configuration configuration) {
         this(applet, null, configuration);
     }
 
-    public GameStub(Applet applet, AppletContext context, Map<String, String> configuration) {
+    public GameStub(Applet applet, AppletContext context, Configuration configuration) {
         super(applet);
         if (configuration == null)
             throw new IllegalArgumentException();

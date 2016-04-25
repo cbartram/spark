@@ -1,12 +1,12 @@
-package com.iancaffey.spark.io.applet;
+package com.iancaffey.spark.net;
 
 import com.iancaffey.spark.applet.GameStub;
-import com.iancaffey.spark.util.GamepackQuery;
+import com.iancaffey.spark.util.AppletLoader;
+import com.iancaffey.spark.util.Configuration;
 
 import java.applet.Applet;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.Map;
 
 /**
  * URLAppletLoader
@@ -16,8 +16,8 @@ import java.util.Map;
  */
 public class URLAppletLoader implements AppletLoader {
     @Override
-    public Class<? extends Applet> load(GamepackQuery query, Map<String, String> configuration) throws Exception {
-        if (query == null || configuration == null)
+    public Class<? extends Applet> load(Configuration configuration) throws Exception {
+        if (configuration == null)
             throw new IllegalArgumentException();
         String initialClassName = configuration.get(GameStub.INITIAL_CLASS);
         if (initialClassName == null)
@@ -25,7 +25,7 @@ public class URLAppletLoader implements AppletLoader {
         String gamepack = configuration.get(GameStub.INITIAL_JAR);
         if (gamepack == null)
             throw new IllegalArgumentException("No gamepack specified in configuration.");
-        URLClassLoader loader = new URLClassLoader(new URL[]{new URL(String.format(query.getType().getGamepack(), query.getWorld(), gamepack))});
+        URLClassLoader loader = new URLClassLoader(new URL[]{new URL(String.format(configuration.query().getType().getGamepack(), configuration.query().getWorld(), gamepack))});
         Class<?> c = loader.loadClass(initialClassName.replace(".class", ""));
         if (!Applet.class.isAssignableFrom(c))
             throw new ClassCastException("Unable to cast initial class to Applet.");

@@ -1,4 +1,4 @@
-package com.iancaffey.spark.io.archive;
+package com.iancaffey.spark.io;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -31,5 +31,4 @@ public class ArchiveWriter implements AutoCloseable {
             e.printStackTrace();
         }
     }
-
 }

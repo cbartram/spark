@@ -1,17 +1,14 @@
-package com.iancaffey.spark.io.applet;
+package com.iancaffey.spark.util;
 
-import com.iancaffey.spark.util.Injector;
 import com.iancaffey.spark.applet.GameStub;
-import com.iancaffey.spark.io.archive.Archive;
-import com.iancaffey.spark.io.archive.ArchiveReader;
-import com.iancaffey.spark.io.archive.ArchiveStreamBuilder;
+import com.iancaffey.spark.io.Archive;
+import com.iancaffey.spark.io.ArchiveReader;
+import com.iancaffey.spark.io.ArchiveStreamBuilder;
 import com.iancaffey.spark.lang.ClassCreator;
 import com.iancaffey.spark.net.UserAgent;
-import com.iancaffey.spark.util.GamepackQuery;
 import org.objectweb.asm.tree.ClassNode;
 
 import java.applet.Applet;
-import java.util.Map;
 
 /**
  * InjectionAppletLoader
@@ -35,8 +32,8 @@ public class InjectionAppletLoader implements AppletLoader {
     }
 
     @Override
-    public Class<? extends Applet> load(GamepackQuery query, Map<String, String> configuration) throws Exception {
-        if (query == null || configuration == null)
+    public Class<? extends Applet> load(Configuration configuration) throws Exception {
+        if (configuration == null)
             throw new IllegalArgumentException();
         String initialClassName = configuration.get(GameStub.INITIAL_CLASS);
         if (initialClassName == null)
@@ -44,7 +41,7 @@ public class InjectionAppletLoader implements AppletLoader {
         String gamepack = configuration.get(GameStub.INITIAL_JAR);
         if (gamepack == null)
             throw new IllegalArgumentException("No gamepack specified in configuration.");
-        try (ArchiveReader reader = Archive.reader(String.format(query.getType().getGamepack(), query.getWorld(), gamepack))
+        try (ArchiveReader reader = Archive.reader(String.format(configuration.query().getType().getGamepack(), configuration.query().getWorld(), gamepack))
                 .timeout(ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT, ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT)
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .open()) {
