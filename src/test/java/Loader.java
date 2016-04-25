@@ -1,4 +1,3 @@
-import com.iancaffey.spark.applet.GameStub;
 import com.iancaffey.spark.io.ArchiveConfigurationReader;
 import com.iancaffey.spark.io.InstructionReader;
 import com.iancaffey.spark.util.*;
@@ -17,13 +16,10 @@ import java.util.List;
  */
 public class Loader {
     public static void main(String[] args) throws Exception {
-        ConfigurationReader reader = new ArchiveConfigurationReader();
-        AppletLoader loader = new InjectionAppletLoader(new TestInjector());
-        AppletCreator creator = new StandardAppletCreator();
-        GamepackQuery query = new GamepackQuery(GameType.OLDSCHOOL, 2);
-        Configuration configuration = reader.configure(query);
+        AppletLauncher launcher = new AppletLauncher(new ArchiveConfigurationReader(), new InjectionAppletLoader(new TestInjector()), new StandardAppletCreator());
+        Configuration configuration = launcher.configure(GameType.OLDSCHOOL, 2);
         JFrame frame = new JFrame(configuration.get(Configuration.WINDOW_TITLE));
-        frame.setContentPane(creator.create(loader.load(configuration), configuration));
+        frame.setContentPane(launcher.launch(configuration));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

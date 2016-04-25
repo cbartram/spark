@@ -24,7 +24,7 @@ public class URLAppletLoader implements AppletLoader {
         String gamepack = configuration.get(Configuration.INITIAL_JAR);
         if (gamepack == null)
             throw new IllegalArgumentException("No gamepack specified in configuration.");
-        URLClassLoader loader = new URLClassLoader(new URL[]{new URL(String.format(configuration.query().getType().getGamepack(), configuration.query().getWorld(), gamepack))});
+        URLClassLoader loader = new URLClassLoader(new URL[]{new URL(String.format(configuration.getType().getGamepack(), configuration.getWorld(), gamepack))});
         Class<?> c = loader.loadClass(initialClassName.replace(".class", ""));
         if (!Applet.class.isAssignableFrom(c))
             throw new ClassCastException("Unable to cast initial class to Applet.");

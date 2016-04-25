@@ -3,7 +3,7 @@ package com.iancaffey.spark.io;
 import com.iancaffey.spark.net.UserAgent;
 import com.iancaffey.spark.util.Configuration;
 import com.iancaffey.spark.util.ConfigurationReader;
-import com.iancaffey.spark.util.GamepackQuery;
+import com.iancaffey.spark.util.GameType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,10 +16,10 @@ import java.util.Map;
  */
 public class ArchiveConfigurationReader implements ConfigurationReader {
     @Override
-    public Configuration configure(GamepackQuery query) throws Exception {
-        if (query == null)
+    public Configuration configure(GameType type, int world) throws Exception {
+        if (type == null || world <= 0)
             throw new IllegalArgumentException();
-        try (ArchiveReader stream = Archive.reader(String.format(query.getType().getConfig(), query.getWorld()))
+        try (ArchiveReader stream = Archive.reader(String.format(type.getConfig(), world))
                 .timeout(ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT, ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT)
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .open()) {
@@ -36,7 +36,7 @@ public class ArchiveConfigurationReader implements ConfigurationReader {
                     continue;
                 parameters.put(string.substring(index, splitIndex), string.substring(splitIndex + 1));
             }
-            return new Configuration(query, parameters);
+            return new Configuration(type, world, parameters);
         }
     }
 }

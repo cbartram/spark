@@ -20,16 +20,22 @@ public class Configuration {
     public static final String WINDOW_PREFERRED_HEIGHT = "window_preferredheight";
     public static final String WINDOW_PREFERRED_WIDTH = "window_preferredwidth";
     public static final String WINDOW_TITLE = "title";
-    private final GamepackQuery query;
+    private final GameType type;
+    private final int world;
     private final Map<String, String> parameters;
 
-    public Configuration(GamepackQuery query, Map<String, String> parameters) {
-        this.query = query;
+    public Configuration(GameType type, int world, Map<String, String> parameters) {
+        this.type = type;
+        this.world = world;
         this.parameters = parameters;
     }
 
-    public GamepackQuery query() {
-        return query;
+    public GameType getType() {
+        return type;
+    }
+
+    public int getWorld() {
+        return world;
     }
 
     public String get(String key) {

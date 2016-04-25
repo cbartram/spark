@@ -7,6 +7,6 @@ package com.iancaffey.spark.util;
  * @since 1.0
  */
 public interface ConfigurationReader {
-    public Configuration configure(GamepackQuery query) throws Exception;
+    public Configuration configure(GameType type, int world) throws Exception;
 
 }

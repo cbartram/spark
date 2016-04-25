@@ -40,7 +40,7 @@ public class InjectionAppletLoader implements AppletLoader {
         String gamepack = configuration.get(Configuration.INITIAL_JAR);
         if (gamepack == null)
             throw new IllegalArgumentException("No gamepack specified in configuration.");
-        try (ArchiveReader reader = Archive.reader(String.format(configuration.query().getType().getGamepack(), configuration.query().getWorld(), gamepack))
+        try (ArchiveReader reader = Archive.reader(String.format(configuration.getType().getGamepack(), configuration.getWorld(), gamepack))
                 .timeout(ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT, ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT)
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .open()) {

@@ -1,5 +1,7 @@
 package com.iancaffey.spark.util;
 
+import com.iancaffey.spark.io.ArchiveConfigurationReader;
+
 import java.applet.Applet;
 
 /**
@@ -15,6 +17,10 @@ public class AppletLauncher {
 
     public AppletLauncher() {
 
+    }
+
+    public AppletLauncher(AppletLoader loader, AppletCreator creator) {
+        this(new ArchiveConfigurationReader(), loader, creator);
     }
 
     public AppletLauncher(ConfigurationReader reader, AppletLoader loader, AppletCreator creator) {
@@ -39,19 +45,28 @@ public class AppletLauncher {
         this.creator = creator;
     }
 
-    public Applet launch(GamepackQuery query) throws Exception {
-        if (query == null)
+    public Configuration configure(GameType type, int world) throws Exception {
+        if (type == null)
             throw new IllegalArgumentException();
         ConfigurationReader reader = getReader();
         if (reader == null)
             return null;
+        return reader.configure(type, world);
+    }
+
+    public Applet launch(GameType type, int world) throws Exception {
+        return launch(configure(type, world));
+    }
+
+    public Applet launch(Configuration configuration) throws Exception {
+        if (configuration == null)
+            throw new IllegalArgumentException();
         AppletLoader loader = getLoader();
         if (loader == null)
             return null;
         AppletCreator creator = getCreator();
         if (creator == null)
             return null;
-        Configuration configuration = reader.configure(query);
         return creator.create(loader.load(configuration), configuration);
     }
 
