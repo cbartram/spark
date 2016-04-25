@@ -1,6 +1,5 @@
 package com.iancaffey.spark.net;
 
-import com.iancaffey.spark.applet.GameStub;
 import com.iancaffey.spark.util.AppletLoader;
 import com.iancaffey.spark.util.Configuration;
 

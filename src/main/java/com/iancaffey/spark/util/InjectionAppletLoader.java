@@ -1,6 +1,5 @@
 package com.iancaffey.spark.util;
 
-import com.iancaffey.spark.applet.GameStub;
 import com.iancaffey.spark.io.Archive;
 import com.iancaffey.spark.io.ArchiveReader;
 import com.iancaffey.spark.io.ArchiveStreamBuilder;

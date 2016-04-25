@@ -1,8 +1,5 @@
 package com.iancaffey.spark.io;
 
-import com.iancaffey.spark.io.Archive;
-import com.iancaffey.spark.io.ArchiveReader;
-import com.iancaffey.spark.io.ArchiveStreamBuilder;
 import com.iancaffey.spark.net.UserAgent;
 import com.iancaffey.spark.util.Configuration;
 import com.iancaffey.spark.util.ConfigurationReader;
