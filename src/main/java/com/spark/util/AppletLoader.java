@@ -5,7 +5,7 @@ import java.applet.Applet;
 /**
  * AppletLoader
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
 public interface AppletLoader {

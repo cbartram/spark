@@ -6,12 +6,12 @@ import org.objectweb.asm.tree.ClassNode;
 import java.util.HashMap;
 
 /**
- * Created by christianbartram on 1/13/18.
- * <p>
- * http://github.com/cbartram
+ * RunescapeClassLoader
+ * Creates a loads the Runescape classes.
+ * @author christian bartram
  */
 public class RunescapeClassLoader extends ClassLoader {
-    private HashMap<String, ClassNode> nodes = new HashMap<>();
+    private HashMap<String, ClassNode> nodes;
 
     public RunescapeClassLoader(HashMap<String, ClassNode> nodes) {
         this.nodes = nodes;

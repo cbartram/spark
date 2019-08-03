@@ -2,7 +2,7 @@ package com.spark.net;
 
 /**
  * StandardBrowser
- *
+ * Sets up a mock browser environment so that the Applet can run the gamepack in.
  * @author Ian Caffey
  * @since 1.0
  */

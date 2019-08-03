@@ -22,8 +22,10 @@ import java.util.zip.GZIPInputStream;
 
 /**
  * ArchiveReader
+ * Parses and reads a JAR Archive file into a set of ClassNodes[] which ASM
+ * can then use for Bytecode manipulation
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
 public class ArchiveReader implements AutoCloseable {
@@ -387,29 +389,6 @@ public class ArchiveReader implements AutoCloseable {
         }
     }
 
-    public InputStream stream() {
-        return stream;
-    }
-
-    public int read() throws IOException {
-        return stream == null ? -1 : stream.read();
-    }
-
-    public int read(byte[] b) throws IOException {
-        return stream == null ? -1 : stream.read(b);
-    }
-
-    public int read(byte[] b, int off, int len) throws IOException {
-        return stream == null ? -1 : stream.read(b, off, len);
-    }
-
-    public long skip(long n) throws IOException {
-        return stream == null ? -1 : stream.skip(n);
-    }
-
-    public int available() throws IOException {
-        return stream == null ? -1 : stream.available();
-    }
 
     @Override
     public void close() throws IOException {
@@ -418,22 +397,13 @@ public class ArchiveReader implements AutoCloseable {
         stream.close();
     }
 
-    public synchronized void mark(int readlimit) {
-        if (stream == null)
-            return;
-        stream.mark(readlimit);
-    }
 
-    public synchronized void reset() throws IOException {
-        if (stream == null)
-            return;
-        stream.reset();
-    }
-
-    public boolean markSupported() {
-        return stream != null && stream.markSupported();
-    }
-
+    /**
+     * Reads an input string and returns a string[] of UTF-8 characters
+     * from the stream.
+     * @return String[]
+     * @throws IOException
+     */
     public String[] readLines() throws IOException {
         if (stream == null)
             return new String[0];
@@ -445,30 +415,13 @@ public class ArchiveReader implements AutoCloseable {
         return lines.toArray(new String[lines.size()]);
     }
 
-    public String readLines(char delimiter) throws IOException {
-        return readLines(String.valueOf(delimiter));
-    }
 
-    public String readLines(String delimiter) throws IOException {
-        if (stream == null)
-            return null;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-        StringBuilder builder = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null)
-            builder.append(line).append(delimiter);
-        return builder.toString();
-    }
-
-    public byte[] readFully() throws IOException {
-        if (stream == null)
-            return new byte[0];
-        byte[] data = new byte[stream.available()];
-        if (stream.read(data) == -1)
-            return new byte[0];
-        return data;
-    }
-
+    /**
+     * Returns a set of actual Java Classes using reflecting. This will not return
+     * a set of useable classNodes for ASM injection.
+     * @return Class[]
+     * @throws IOException
+     */
     public Class<?>[] readClasses() throws IOException {
         if (stream == null)
             return new Class[0];
@@ -488,11 +441,26 @@ public class ArchiveReader implements AutoCloseable {
         return classes.toArray(new Class[classes.size()]);
     }
 
+    /**
+     * Wrapper for reading the class Nodes from the JAR file
+     * @param key
+     * @param ivpc
+     * @return ClassNode[]
+     * @throws Exception
+     */
     public ClassNode[] readNodes(String key, String ivpc) throws Exception {
         return readNodes(ClassReader.SKIP_DEBUG, key, ivpc);
     }
 
-    public ClassNode[] readNodes(int flags, String key, String ivpc) throws Exception {
+    /**
+     * Wrapper for reading the class Nodes for the JAR file
+     * @param flags
+     * @param key
+     * @param ivpc
+     * @return ClassNode[]
+     * @throws Exception
+     */
+    ClassNode[] readNodes(int flags, String key, String ivpc) throws Exception {
         if (stream == null)
             return new ClassNode[0];
         JarInputStream jis = new JarInputStream(stream);
@@ -501,6 +469,15 @@ public class ArchiveReader implements AutoCloseable {
         return nodes.toArray(new ClassNode[nodes.size()]);
     }
 
+    /**
+     * Reads the JAR file into a set of class Nodes recursively
+     * @param nodes
+     * @param jis
+     * @param flags
+     * @param key
+     * @param ivpc
+     * @throws Exception
+     */
     private void read(List<ClassNode> nodes, JarInputStream jis, int flags, String key, String ivpc) throws Exception {
         JarEntry entry;
         while ((entry = jis.getNextJarEntry()) != null) {

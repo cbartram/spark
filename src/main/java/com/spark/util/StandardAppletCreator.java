@@ -7,8 +7,9 @@ import java.awt.*;
 
 /**
  * StandardAppletCreator
- *
- * @author Ian Caffey
+ * Creates a basic Apples given a Class and Configuration object. The Runescape game will
+ * be loaded into the applet created by this Class.
+ * @author Christian Bartram
  * @since 1.0
  */
 public class StandardAppletCreator implements AppletCreator {

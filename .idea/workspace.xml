@@ -2,11 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d159918-84b5-41db-97e6-844fe52dbc04" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/net/URLAppletLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/net/UserAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/net/UserAgent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/util/AppletLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/util/AppletLauncher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/util/Configuration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/util/Configuration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/util/StandardAppletCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/util/StandardAppletCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/net/StandardBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/net/StandardBrowser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/net/URLAppletLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/net/UserAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/net/UserAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/ConfigurationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/ConfigurationReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/StandardAppletCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/StandardAppletCreator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -68,14 +81,14 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="6" />
+          <entry key="java" value="22" />
           <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="22" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="1" />
         </counts>
@@ -84,13 +97,13 @@
         <counts>
           <entry key="dummy" value="14" />
           <entry key="gitignore" value="5" />
-          <entry key="java" value="888" />
+          <entry key="java" value="3182" />
           <entry key="properties" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="888" />
+          <entry key="JAVA" value="3182" />
           <entry key="PLAIN_TEXT" value="19" />
           <entry key="Properties" value="4" />
         </counts>
@@ -102,20 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+            <state relative-caret-position="450">
+              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,10 +125,48 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/AppletCreator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1116">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1917#1918#0" expanded="true" />
+                <element signature="e#1991#1992#0" expanded="true" />
+                <element signature="e#2029#2030#0" expanded="true" />
+                <element signature="e#2103#2104#0" expanded="true" />
+                <element signature="e#2146#2147#0" expanded="true" />
+                <element signature="e#2175#2176#0" expanded="true" />
+                <element signature="e#2218#2219#0" expanded="true" />
+                <element signature="e#2252#2253#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+              <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/UserAgent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -145,34 +184,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9486">
-              <caret line="535" column="27" selection-start-line="535" selection-start-column="27" selection-end-line="535" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/transform/AbstractClassTransform.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
+            <state relative-caret-position="54">
               <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -605,13 +620,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/spark/io/ModifiedMethodReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/ChangeVersionAdapter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java" />
         <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/transform/AbstractClassTransform.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/util/Injector.java" />
         <option value="$PROJECT_DIR$/src/test/java/Loader.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -619,6 +631,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/spark/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/Configuration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/StandardAppletCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/ConfigurationReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLauncher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/AppletCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/net/UserAgent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/net/URLAppletLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/net/StandardBrowser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java" />
       </list>
     </option>
   </component>
@@ -681,6 +705,15 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="spark" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spark" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spark" type="462c0819:PsiDirectoryNode" />
               <item name="printer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -702,7 +735,7 @@
     <property name="SearchEverywhereHistoryKey" value="ClassIn&#9;PSI&#9;JAVA://Loader.ClassInjector&#10;APPL&#9;FILE&#9;file:///Users/christianbartram/IdeaProjects/spark/src/main/java/com/spark/util/AppletLauncher.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564864036464" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564866368033" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -850,18 +883,18 @@
       <workItem from="1516296366112" duration="1001000" />
       <workItem from="1516664392169" duration="124000" />
       <workItem from="1516665033554" duration="3646000" />
-      <workItem from="1564861604259" duration="1973000" />
+      <workItem from="1564861604259" duration="3857000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66562000" />
+    <option name="totallyTimeSpent" value="68446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.200556" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.200556" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -872,7 +905,7 @@
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.328879" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30066815" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30066815" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -880,7 +913,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.17297699" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.328879" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.328879" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -931,9 +964,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modified/file-el.class" />
-    <entry file="file://$PROJECT_DIR$/modified/file-em.class" />
-    <entry file="file://$PROJECT_DIR$/injected/TestClass.class" />
     <entry file="file://$PROJECT_DIR$/modified/file-kn.class" />
     <entry file="file://$PROJECT_DIR$/modified/file-kw.class" />
     <entry file="file://$PROJECT_DIR$/modified/file-kx.class" />
@@ -965,13 +995,6 @@
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/reflect/Method.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/StandardBrowser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/GameType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -985,13 +1008,6 @@
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/security/ProtectionDomain.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/security/Permissions.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/io/PrintWriter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/URLAppletLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="26" column="115" selection-start-line="26" selection-start-column="115" selection-end-line="26" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -1006,31 +1022,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" />
-            <element signature="e#407#408#0" />
-            <element signature="e#441#442#0" />
-            <element signature="e#499#500#0" />
-            <element signature="e#559#560#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveWriterBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" selection-start-line="11" selection-end-line="50" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1073,20 +1068,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/AppletCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/AppletLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" selection-start-line="10" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveConfigurationReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1094,58 +1075,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/StandardAppletCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/AppletLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-          <folding>
-            <element signature="e#2003#2004#0" expanded="true" />
-            <element signature="e#2039#2040#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9486">
-          <caret line="535" column="27" selection-start-line="535" selection-start-column="27" selection-end-line="535" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1166,9 +1099,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="14" lean-forward="true" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-428">
+          <caret line="459" column="26" selection-start-line="459" selection-start-column="26" selection-end-line="459" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="80" column="14" lean-forward="true" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/transform/AbstractClassTransform.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
+        <state relative-caret-position="54">
           <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
         </state>
       </provider>
@@ -1183,13 +1143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="14" lean-forward="true" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1197,10 +1150,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#1426#1427#0" expanded="true" />
+            <element signature="e#1507#1508#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/StandardAppletCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/ConfigurationReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/AppletLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
+          <folding>
+            <element signature="e#723#724#0" expanded="true" />
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+        <state relative-caret-position="450">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1209,11 +1200,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="142">
           <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/AppletCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/AppletLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/URLAppletLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/Browser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/StandardBrowser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="81" selection-start-line="4" selection-start-column="81" selection-end-line="4" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/UserAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1917#1918#0" expanded="true" />
+            <element signature="e#1991#1992#0" expanded="true" />
+            <element signature="e#2029#2030#0" expanded="true" />
+            <element signature="e#2103#2104#0" expanded="true" />
+            <element signature="e#2146#2147#0" expanded="true" />
+            <element signature="e#2175#2176#0" expanded="true" />
+            <element signature="e#2218#2219#0" expanded="true" />
+            <element signature="e#2252#2253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
         </state>
       </provider>
     </entry>

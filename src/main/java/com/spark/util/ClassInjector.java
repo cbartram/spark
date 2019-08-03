@@ -58,10 +58,7 @@ public class ClassInjector implements Injector {
 
 		try {
 			Class<?> c = new RunescapeClassLoader(classTree).findClass("jt");
-			for (Method m : c.getMethods()) {
-//                     System.out.println(m.getName() + " => " + m.invoke(null, null));
-			}
-
+			for (Method m : c.getMethods()) {}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

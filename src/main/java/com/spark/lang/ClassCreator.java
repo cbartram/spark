@@ -13,8 +13,9 @@ import java.util.Map;
 
 /**
  * ClassCreator
- *
- * @author Ian Caffey
+ * Returns a set of ClassNode objects which can be used by ASM by storing them
+ * sequentially in a HashMap
+ * @author Christian Bartram
  * @since 1.0
  */
 public class ClassCreator extends ClassLoader {
@@ -38,6 +39,10 @@ public class ClassCreator extends ClassLoader {
             this.nodes.put(node.name, node);
     }
 
+    /**
+     * Adds a ClassNode to the list of classes
+     * @param node ClassNode
+     */
     public void add(ClassNode node) {
         if (node == null)
             return;
@@ -47,6 +52,10 @@ public class ClassCreator extends ClassLoader {
         nodes.put(node.name, node);
     }
 
+    /**
+     * Removes a classNode from the list of classes
+     * @param node
+     */
     public void remove(ClassNode node) {
         if (node == null)
             return;
@@ -70,11 +79,24 @@ public class ClassCreator extends ClassLoader {
         return permissions;
     }
 
+    /**
+     * Loads a class given the class name
+     * @param name String the class name to search for and load
+     * @return Class
+     * @throws ClassNotFoundException
+     */
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {
         return findClass(name);
     }
 
+    /**
+     * Searches a list of Class Nodes for a specific class given the class name and attempts
+     * to load the class
+     * @param name String the class name to search for
+     * @return
+     * @throws ClassNotFoundException
+     */
     @Override
     public Class<?> findClass(String name) throws ClassNotFoundException {
         if (name == null)
