@@ -6,10 +6,11 @@ import static org.objectweb.asm.Opcodes.ASM4;
 
 /**
  * Created by christianbartram on 1/11/18.
- * <p>
- * This class prints the bytecode class structure for a given stream of bytes
- * </p>
- * http://github.com/cbartram
+ * This class prints the bytecode class structure for a given stream of bytes by
+ * visiting the method declarations and fields within the class. It does not currently
+ * print or parse the source, outer class, or annotations
+ *
+ * @author Christian Bartram
  */
 public class ClassPrinter extends ClassVisitor {
 

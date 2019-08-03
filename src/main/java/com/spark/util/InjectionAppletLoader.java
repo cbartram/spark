@@ -31,7 +31,7 @@ public class InjectionAppletLoader implements AppletLoader {
     }
 
     /**
-     * Loads the Classes from Runescape and Passes them to the Loader Class as ClassNode[] objects
+     * Loads the Classes from Runescape and Passes them to the Application Class as ClassNode[] objects
      * @param configuration
      * @return
      * @throws Exception

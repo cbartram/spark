@@ -2,72 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d159918-84b5-41db-97e6-844fe52dbc04" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_tree_5_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_util_5_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/spark_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/spark_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/spark_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/spark_test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/adapter/AddInterfaceAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/adapter/InjectAccessorAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/adapter/MutateSuperClassAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/applet/ActiveAppletStub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/applet/GameStub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/io/Archive.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/io/ArchiveConfigurationReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/io/ArchiveReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/io/ArchiveReaderBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/io/ArchiveStreamBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/io/ArchiveWriter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/io/ArchiveWriterBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/io/InstructionReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/lang/ClassCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/lang/RunescapeClassLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/net/Browser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/net/StandardBrowser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/net/URLAppletLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/net/UserAgent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/printer/ClassPrinter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/transform/AbstractClassTransform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/util/AppletCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/util/AppletLauncher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/util/AppletLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/util/Configuration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/util/ConfigurationReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/util/GameType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/util/InjectionAppletLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/util/Injector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/spark/util/StandardAppletCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/test/Loader$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/test/Loader$ClassInjector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/test/Loader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/spark-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/binary/test/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/binary/test/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/binary/test/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/test/jar_extract_6840749854166607503_tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/adapter/InjectAccessorAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/adapter/InjectAccessorAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveConfigurationReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveConfigurationReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/transform/AbstractClassTransform.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/transform/AbstractClassTransform.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/util/InjectionAppletLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/util/InjectionAppletLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/Loader$ClassInjector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/Loader$ClassInjector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/transform/AbstractClassTransform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/transform/AbstractClassTransform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/Injector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/Injector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/Application.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -129,29 +68,30 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="4" />
+          <entry key="java" value="6" />
           <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="4" />
+          <entry key="JAVA" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="dummy" value="14" />
           <entry key="gitignore" value="5" />
-          <entry key="java" value="348" />
+          <entry key="java" value="888" />
           <entry key="properties" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="348" />
-          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="JAVA" value="888" />
+          <entry key="PLAIN_TEXT" value="19" />
           <entry key="Properties" value="4" />
         </counts>
       </usages-collector>
@@ -160,19 +100,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Loader.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+            <state relative-caret-position="378">
+              <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="60">
+              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -237,6 +192,7 @@
       <find>defineClass</find>
       <find>jt</find>
       <find>classWr</find>
+      <find>ae=</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -642,7 +598,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/iancaffey/spark/io/InstructionReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/iancaffey/spark/printer/ClassPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/MutateNameAdapter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/MutateSuperClassAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/AddInterfaceAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java" />
@@ -660,6 +615,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/spark/util/Injector.java" />
         <option value="$PROJECT_DIR$/src/test/java/Loader.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/Loader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java" />
       </list>
     </option>
   </component>
@@ -715,6 +674,24 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="spark" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spark" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spark" type="462c0819:PsiDirectoryNode" />
+              <item name="printer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spark" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spark" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -725,7 +702,7 @@
     <property name="SearchEverywhereHistoryKey" value="ClassIn&#9;PSI&#9;JAVA://Loader.ClassInjector&#10;APPL&#9;FILE&#9;file:///Users/christianbartram/IdeaProjects/spark/src/main/java/com/spark/util/AppletLauncher.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564862647151" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564864036464" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -750,7 +727,7 @@
       </method>
     </configuration>
     <configuration name="Run" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Loader" />
+      <option name="MAIN_CLASS_NAME" value="com.spark.Application" />
       <module name="spark_test" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <method v="2">
@@ -873,18 +850,18 @@
       <workItem from="1516296366112" duration="1001000" />
       <workItem from="1516664392169" duration="124000" />
       <workItem from="1516665033554" duration="3646000" />
-      <workItem from="1564861604259" duration="1026000" />
+      <workItem from="1564861604259" duration="1973000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65615000" />
+    <option name="totallyTimeSpent" value="66562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.200556" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.200556" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -894,16 +871,16 @@
       <window_info anchor="bottom" id="Build" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32914045" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.328879" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.30066815" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.17297699" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.17297699" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.328879" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.328879" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -954,8 +931,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/ModifiedMethodReader.java" />
-    <entry file="file://$PROJECT_DIR$/modified/file-ej.class" />
     <entry file="file://$PROJECT_DIR$/modified/file-el.class" />
     <entry file="file://$PROJECT_DIR$/modified/file-em.class" />
     <entry file="file://$PROJECT_DIR$/injected/TestClass.class" />
@@ -1208,17 +1183,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Loader.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        <state relative-caret-position="612">
+          <caret line="34" column="14" lean-forward="true" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="180">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

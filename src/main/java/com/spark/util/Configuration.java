@@ -4,8 +4,10 @@ import java.util.Map;
 
 /**
  * Configuration
+ * Basic POJO class which contains game constants and configuration
+ * for the Runescape Bot
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
 public class Configuration {
