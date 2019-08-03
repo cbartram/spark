@@ -15,12 +15,19 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Loader - Loads the Main Applet and Provides the injection point for Accessor methods
+ * Loader - Loads the Main Applet and Provides the injection point for Accessor methods to hook
+ * into in game values
  *
  * @author Cbartram
  * @since 1.0
  */
 public class Loader {
+
+    /**
+     * Launches the GUI and loads the Runescape game pack into the Applet
+     * @param args String[] CLI args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         //Create the applet and load the classes from it
         AppletLauncher launcher = new AppletLauncher(new ArchiveConfigurationReader(), new InjectionAppletLoader(new ClassInjector()), new StandardAppletCreator());
@@ -35,6 +42,9 @@ public class Loader {
         frame.setVisible(true);
     }
 
+    /**
+     *
+     */
     private static class ClassInjector implements Injector {
         HashMap<String, ClassNode> classTree = new HashMap<String, ClassNode>();
 
@@ -47,7 +57,7 @@ public class Loader {
                     //Create ClassPrinter, reader and print the original class
                     ClassReader cr = new ClassReader(toByteArray(node));
                     ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_FRAMES);
-                classTree.put(node.name, node);
+                    classTree.put(node.name, node);
 
                     for(FieldNode field: (List<FieldNode>) node.fields) {
                       //  if(field.desc.equalsIgnoreCase("I")) {
@@ -63,13 +73,12 @@ public class Loader {
                     }
             }
 
+            System.out.println("[INFO] Class Nodes: " + classTree.toString());
+
             try {
                 Class<?> c = new RunescapeClassLoader(classTree).findClass("jt");
                 for(Method m: c.getMethods()) {
-
-                        System.out.println("iNVOKING" );
-                        System.out.println(m.getName() + " => " + m.invoke(null, null));
-
+//                     System.out.println(m.getName() + " => " + m.invoke(null, null));
                 }
 
             } catch(Exception e) {

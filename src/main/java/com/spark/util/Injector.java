@@ -1,13 +1,14 @@
 package com.spark.util;
 
+
 import org.objectweb.asm.tree.ClassNode;
 
 import java.io.IOException;
 
 /**
- * Injector
+ * Injector Provides an interface to modify an array of class nodes.
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
 public interface Injector {

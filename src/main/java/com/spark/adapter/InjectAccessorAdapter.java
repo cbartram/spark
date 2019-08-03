@@ -1,6 +1,10 @@
 package com.spark.adapter;
 
-import org.objectweb.asm.*;
+
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.FieldVisitor;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
 
 /**
  * Created by christianbartram on 1/12/18.

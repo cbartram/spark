@@ -4,7 +4,11 @@ import com.spark.adapter.AddInterfaceAdapter;
 import com.spark.adapter.InjectAccessorAdapter;
 import com.spark.adapter.MutateSuperClassAdapter;
 import com.spark.printer.ClassPrinter;
-import org.objectweb.asm.*;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.ClassNode;
 
 /**
