@@ -2,24 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d159918-84b5-41db-97e6-844fe52dbc04" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_tomas_langer_chalk_1_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_fusesource_hawtjni_hawtjni_runtime_1_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_fusesource_jansi_jansi_native_1_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_fusesource_jansi_jansi_native_windows32_1_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_fusesource_jansi_jansi_native_windows64_1_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/outputFileStates.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileContent/annotation-processors.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/spark_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/spark_main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/spark_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/spark_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/net/URLAppletLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/net/UserAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/net/UserAgent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/util/AppletLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/util/AppletLauncher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/util/Configuration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/util/Configuration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/util/StandardAppletCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/util/StandardAppletCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/adapter/InjectAccessorAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/adapter/InjectAccessorAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveConfigurationReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/io/ArchiveConfigurationReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/io/InstructionReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/io/InstructionReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/lang/ClassCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/lang/ClassCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/lang/RunescapeClassLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/lang/RunescapeClassLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/printer/ClassPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/printer/ClassPrinter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/util/ClassInjector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/util/ClassInjector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/spark/util/InjectionAppletLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/spark/util/InjectionAppletLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/io/InstructionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/io/InstructionReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/net/StandardBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/net/StandardBrowser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/net/URLAppletLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/net/UserAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/net/UserAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/AppletLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/ConfigurationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/ConfigurationReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/StandardAppletCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/StandardAppletCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -32,6 +52,9 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/spark$Run.coverage" NAME="Run Coverage Results" MODIFIED="1515952337404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -69,113 +92,34 @@
       </state>
     </system>
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="958733692">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="gitignore" value="1" />
-          <entry key="gradle" value="1" />
-          <entry key="java" value="22" />
-          <entry key="properties" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="22" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Properties" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="14" />
-          <entry key="gitignore" value="5" />
-          <entry key="java" value="3182" />
-          <entry key="properties" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="3182" />
-          <entry key="PLAIN_TEXT" value="19" />
-          <entry key="Properties" value="4" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/Application.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/Archive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="190">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/AppletCreator.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1116">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="612">
+              <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1917#1918#0" expanded="true" />
-                <element signature="e#1991#1992#0" expanded="true" />
-                <element signature="e#2029#2030#0" expanded="true" />
-                <element signature="e#2103#2104#0" expanded="true" />
-                <element signature="e#2146#2147#0" expanded="true" />
-                <element signature="e#2175#2176#0" expanded="true" />
-                <element signature="e#2218#2219#0" expanded="true" />
-                <element signature="e#2252#2253#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/UserAgent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state relative-caret-position="210">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,10 +128,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/transform/AbstractClassTransform.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+            <state relative-caret-position="158">
+              <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+              <folding>
+                <element signature="e#404#405#0" expanded="true" />
+                <element signature="e#438#439#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -204,10 +164,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>public static voi</find>
-      <find>defineClass</find>
       <find>jt</find>
       <find>classWr</find>
       <find>ae=</find>
+      <find>defineClass</find>
+      <find>: e</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -215,394 +176,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GradleLocalSettings">
-    <option name="myGradleHomes">
-      <map>
-        <entry key="$PROJECT_DIR$" value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5" />
-      </map>
-    </option>
-    <option name="myGradleVersions">
-      <map>
-        <entry key="$PROJECT_DIR$" value="5.5" />
-      </map>
-    </option>
-    <option name="availableProjects">
-      <map>
-        <entry>
-          <key>
-            <ExternalProjectPojo>
-              <option name="name" value="spark" />
-              <option name="path" value="$PROJECT_DIR$" />
-            </ExternalProjectPojo>
-          </key>
-          <value>
-            <list>
-              <ExternalProjectPojo>
-                <option name="name" value="spark" />
-                <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="availableTasks">
-      <map>
-        <entry key="$PROJECT_DIR$">
-          <value>
-            <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'spark'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildDependents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'spark'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="classes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the dependent components of components in root project 'spark'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependentComponents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in root project 'spark'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildEnvironment" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates Gradle wrapper files." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="wrapper" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles test classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="testClasses" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates Javadoc API documentation for the main source code." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="javadoc" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles a jar archive containing the main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="jar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'spark'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Processes main resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'spark'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="tasks" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Initializes a new Gradle build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="init" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs the unit tests." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="test" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Compiles main Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="compileJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'spark'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencyInsight" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="check" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the outputs of this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="assemble" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="clean" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Compiles test Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="compileTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'spark'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareKotlinBuildScriptModel" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Processes test resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="build" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildNeeded" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'spark'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="modificationStamps">
-      <map>
-        <entry key="$PROJECT_DIR$" value="6259447713000" />
-        <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="1192272880" />
-        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2866469851" />
-        <entry key="$PROJECT_DIR$/settings.gradle" value="3732693192" />
-      </map>
-    </option>
-    <option name="projectBuildClasspath">
-      <map>
-        <entry key="$PROJECT_DIR$">
-          <value>
-            <ExternalProjectBuildClasspathPojo>
-              <option name="modulesBuildClasspath">
-                <map>
-                  <entry key="$PROJECT_DIR$">
-                    <value>
-                      <ExternalModuleBuildClasspathPojo>
-                        <option name="path" value="$PROJECT_DIR$" />
-                      </ExternalModuleBuildClasspathPojo>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="name" value="spark" />
-              <option name="projectBuildClasspath">
-                <list>
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/ide" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/internal-integ-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/platform-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/reporting" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/language-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/build-option" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/launcher" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/platform-base" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/announce" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/signing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/core" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/installation-beacon" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/jvm-services" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/tooling-api" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/platform-play" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/ivy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/wrapper" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/process-services" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/snapshots" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/plugins" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/antlr" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/plugin-use" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/language-jvm" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/maven" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/testing-base" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/resources" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/version-control" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/osgi" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/testing-junit-platform" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/resources-http" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/internal-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/composite-builds" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/model-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/test-kit" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/instant-execution" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/docs" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/cli" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/build-init" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/kotlin-dsl-plugins" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/ear" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/jacoco" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/kotlin-dsl-tooling-models" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/persistent-cache" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/build-comparison" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/kotlin-dsl" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/publish" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/platform-jvm" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/resources-sftp" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/kotlin-dsl-test-fixtures" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/base-services" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/model-core" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/scala" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/kotlin-dsl-tooling-builders" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/execution" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/diagnostics" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/dependency-management" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/files" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/ide-play" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/workers" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/code-quality" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/language-java" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/build-profile" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/build-cache" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/plugin-development" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/core-api" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/javascript" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/resources-gcs" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/testing-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/internal-performance-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/ide-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/base-services-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/tooling-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/messaging" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/testing-jvm" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/tooling-api-builders" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/logging" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/language-scala" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/language-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/resources-s3" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/kotlin-dsl-provider-plugins" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/build-cache-packaging" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/internal-android-performance-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/src/build-cache-http" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-api-metadata-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-process-services-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-build-cache-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-model-core-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-core-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-installation-beacon-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-base-services-groovy-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-logging-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-execution-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/ant-launcher-1.9.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-wrapper-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-runtime-api-info-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/ant-1.9.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-build-cache-packaging-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-tooling-api-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-core-api-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-model-groovy-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-resources-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-messaging-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-build-option-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-launcher-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-instant-execution-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-jvm-services-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-kotlin-dsl-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-base-services-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-snapshots-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-files-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-cli-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-kotlin-dsl-tooling-models-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-persistent-cache-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/gradle-docs-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-ide-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-plugin-development-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-diagnostics-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-build-cache-http-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-workers-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-build-profile-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-composite-builds-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-testing-junit-platform-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-publish-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-ear-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-testing-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-dependency-management-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-platform-base-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-language-jvm-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-kotlin-dsl-tooling-builders-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-plugin-use-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-language-scala-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-ide-play-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-announce-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-tooling-api-builders-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-javascript-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-tooling-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-plugins-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-build-comparison-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-platform-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-jacoco-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-version-control-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-language-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-signing-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-resources-sftp-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-code-quality-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-resources-s3-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-test-kit-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-ivy-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/ivy-2.3.0.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-testing-base-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-platform-jvm-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-testing-jvm-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-build-init-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-maven-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-ide-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-platform-play-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-resources-gcs-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-scala-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-resources-http-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-kotlin-dsl-provider-plugins-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-language-groovy-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-language-java-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-osgi-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-antlr-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-all/byeise1led9a3w3p149d02kfj/gradle-5.5/lib/plugins/gradle-reporting-5.5.jar" />
-                </list>
-              </option>
-            </ExternalProjectBuildClasspathPojo>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
-      </map>
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -615,22 +188,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/MutateNameAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/MutateSuperClassAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/AddInterfaceAdapter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/io/InstructionReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/io/ModifiedMethodReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/ChangeVersionAdapter.java" />
         <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/transform/AbstractClassTransform.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/util/Injector.java" />
         <option value="$PROJECT_DIR$/src/test/java/Loader.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/Loader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/util/Configuration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/util/StandardAppletCreator.java" />
@@ -641,21 +208,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/spark/net/UserAgent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/net/URLAppletLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/net/StandardBrowser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/io/InstructionReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1680" />
-    <option name="height" value="1027" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -663,8 +229,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -705,7 +271,43 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="spark" type="462c0819:PsiDirectoryNode" />
+              <item name="adapter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spark" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spark" type="462c0819:PsiDirectoryNode" />
+              <item name="applet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spark" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spark" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spark" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spark" type="462c0819:PsiDirectoryNode" />
               <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spark" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spark" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spark" type="b2602c69:ProjectViewProjectNode" />
@@ -723,6 +325,15 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="spark" type="462c0819:PsiDirectoryNode" />
+              <item name="transform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spark" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spark" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -732,12 +343,17 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="ClassIn&#9;PSI&#9;JAVA://Loader.ClassInjector&#10;APPL&#9;FILE&#9;file:///Users/christianbartram/IdeaProjects/spark/src/main/java/com/spark/util/AppletLauncher.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564866368033" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
@@ -753,7 +369,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Run">
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -789,6 +413,7 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="spark [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -807,6 +432,7 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="spark [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -825,27 +451,21 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -884,28 +504,29 @@
       <workItem from="1516664392169" duration="124000" />
       <workItem from="1516665033554" duration="3646000" />
       <workItem from="1564861604259" duration="3857000" />
+      <workItem from="1564882421137" duration="9968000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68446000" />
+    <option name="totallyTimeSpent" value="81066000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="2560" height="1440" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.200556" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2039072" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Build" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="GraphQL" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.328879" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30066815" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -913,7 +534,10 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.17297699" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.328879" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32857144" />
+      <window_info anchor="bottom" id="Build" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -922,7 +546,7 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Gradle" order="8" weight="0.32922953" />
+      <window_info anchor="right" id="Gradle" order="8" weight="0.32905984" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="ASM" order="10" weight="0.3410758" />
     </layout>
@@ -960,17 +584,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modified/file-kn.class" />
-    <entry file="file://$PROJECT_DIR$/modified/file-kw.class" />
-    <entry file="file://$PROJECT_DIR$/modified/file-kx.class" />
-    <entry file="file://$PROJECT_DIR$/modified/file-l.class" />
-    <entry file="file://$PROJECT_DIR$/modified/file-r.class" />
-    <entry file="file://$PROJECT_DIR$/modified/file-w.class" />
-    <entry file="file://$PROJECT_DIR$/modified/file-s.class" />
     <entry file="file://$PROJECT_DIR$/modified/file-a.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/adapter/MutateSuperClassAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1004,7 +618,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modified/file-ka.class" />
     <entry file="file://$PROJECT_DIR$/modified/file-gh.class" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/ClassLoader.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/security/ProtectionDomain.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/security/Permissions.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/io/PrintWriter.java" />
@@ -1075,13 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1103,50 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="34" column="14" lean-forward="true" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-428">
-          <caret line="459" column="26" selection-start-line="459" selection-start-column="26" selection-end-line="459" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="80" column="14" lean-forward="true" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/transform/AbstractClassTransform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1177,33 +739,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/AppletLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
+        <state relative-caret-position="430">
+          <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
           <folding>
-            <element signature="e#723#724#0" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#909#910#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2039#2040#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1222,13 +761,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/URLAppletLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/URLAppletLoader.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/net/Browser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1250,37 +783,241 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/5.0.4/112ff54474f1f04ccf1384c92e39fdc566f0bb5e/asm-tree-5.0.4-sources.jar!/org/objectweb/asm/tree/ClassNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="220">
+          <caret line="193" column="11" selection-start-line="193" selection-start-column="11" selection-end-line="193" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/transform/AbstractClassTransform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1033">
+          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1917#1918#0" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
-            <element signature="e#2029#2030#0" expanded="true" />
-            <element signature="e#2103#2104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/InstructionReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="641" column="26" selection-start-line="641" selection-start-column="15" selection-end-line="641" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/classes/com/spark/applet/GameStub.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#1826#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/Archive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/io/ArchiveReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="510" column="35" selection-start-line="510" selection-start-column="35" selection-end-line="510" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="77" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AE.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="40" column="15" lean-forward="true" selection-start-line="40" selection-end-line="41" />
+          <folding>
+            <element signature="e#0#1341#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/ClassCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2072#2073#0" expanded="true" />
             <element signature="e#2146#2147#0" expanded="true" />
-            <element signature="e#2175#2176#0" expanded="true" />
+            <element signature="e#2189#2190#0" expanded="true" />
             <element signature="e#2218#2219#0" expanded="true" />
-            <element signature="e#2252#2253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/InjectionAppletLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="60" column="31" selection-start-line="60" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/lang/RunescapeClassLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+        <state relative-caret-position="392">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/112ff54474f1f04ccf1384c92e39fdc566f0bb5e/asm-5.0.4-sources.jar!/org/objectweb/asm/ClassVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-908">
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/util/ClassInjector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/112ff54474f1f04ccf1384c92e39fdc566f0bb5e/asm-5.0.4-sources.jar!/org/objectweb/asm/Opcodes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/printer/ClassPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/spark/adapter/InjectAccessorAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -13,8 +13,13 @@
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm-tree:5.0.4" level="project" />
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm:5.0.4" level="project" />
     <orderEntry type="library" name="Gradle: commons-io:commons-io:2.4" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.tomas-langer:chalk:1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.11" level="project" />
+    <orderEntry type="library" name="Gradle: org.fusesource.jansi:jansi-native:1.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.fusesource.hawtjni:hawtjni-runtime:1.11" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.fusesource.jansi:jansi-native:windows32:1.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.fusesource.jansi:jansi-native:windows64:1.5" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="spark_main" />
 </module>

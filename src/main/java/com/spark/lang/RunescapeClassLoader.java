@@ -17,6 +17,8 @@ public class RunescapeClassLoader extends ClassLoader {
         this.nodes = nodes;
     }
 
+    public RunescapeClassLoader() {}
+
     public Class<?> defineClass(String name, byte[] b) {
             return defineClass(name, b, 0, b.length);
     }

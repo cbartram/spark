@@ -5,11 +5,13 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.signature.SignatureVisitor;
 
 /**
- * Created by christianbartram on 1/12/18.
- * <p>
- * http://github.com/cbartram
+ * Modifies existing bytecode to inject a public accessor
+ * method into the provided field name. This will be called using
+ * reflection to access the field and get its value at runtime
+ * @author Christian Bartram
  */
 public class InjectAccessorAdapter extends ClassVisitor implements Opcodes {
 
@@ -36,6 +38,11 @@ public class InjectAccessorAdapter extends ClassVisitor implements Opcodes {
         this.getterName = getterName;
         this.targetClass = targetClass;
         this.fieldType = fieldType;
+    }
+
+    @Override
+    public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
+        cv.visit(V1_5, ACC_PUBLIC, name, signature, superName, interfaces);
     }
 
     @Override

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.fusesource.jansi:jansi-native:windows32:1.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.fusesource.jansi/jansi-native/1.5/ebbb24de4c387304ea22faee07bc563c527a24a4/jansi-native-1.5-windows32.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.fusesource.jansi/jansi-native/1.5/aabe133ec322173ee00ad2f04a25f5cd2c982efd/jansi-native-1.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -14,7 +14,8 @@ import java.util.Map;
 /**
  * ClassCreator
  * Returns a set of ClassNode objects which can be used by ASM by storing them
- * sequentially in a HashMap
+ * sequentially in a HashMap. It will then load a ClassNode as an actual Class
+ * for the JVM to read and execute the reflection API on.
  * @author Christian Bartram
  * @since 1.0
  */

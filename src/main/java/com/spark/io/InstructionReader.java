@@ -8,8 +8,9 @@ import java.io.IOException;
 
 /**
  * InstructionReader
- *
- * @author Ian Caffey
+ * Reads a set of OPCode instructions and parses them into
+ * Abstract instruction node objects.
+ * @author Christian Bartram
  * @since 1.0
  */
 public class InstructionReader implements AutoCloseable {

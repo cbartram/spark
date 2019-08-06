@@ -2,6 +2,9 @@ package com.spark.printer;
 
 import org.objectweb.asm.*;
 
+import java.util.Arrays;
+
+import static org.objectweb.asm.Opcodes.ACC_ABSTRACT;
 import static org.objectweb.asm.Opcodes.ASM4;
 
 /**
@@ -19,7 +22,12 @@ public class ClassPrinter extends ClassVisitor {
     }
 
     public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
-        System.out.println(name + " extends " + superName + " {");
+        String builder = access + " " + name +
+                " extends " +
+                superName +
+                " implements " +
+                String.join(" ,", interfaces);
+        System.out.println(builder);
     }
     public void visitSource(String source, String debug) {
 

@@ -1,14 +1,23 @@
 package com.spark.util;
 
+import com.spark.adapter.InjectAccessorAdapter;
+import com.spark.io.InstructionReader;
 import com.spark.lang.RunescapeClassLoader;
 import com.spark.printer.ClassPrinter;
 import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.util.TraceClassVisitor;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +33,13 @@ import java.util.List;
 public class ClassInjector implements Injector {
 	HashMap<String, ClassNode> classTree = new HashMap<String, ClassNode>();
 
+	public ClassNode readClassFromBytes(byte[] bytes) {
+		ClassNode classNode = new ClassNode();
+		ClassReader classReader = new ClassReader(bytes);
+		classReader.accept(classNode, 0);
+		return classNode;
+	}
+
 	@Override
 	public void modify(ClassNode[] nodes) throws IOException {
 		ClassPrinter cp = new ClassPrinter();
@@ -35,44 +51,74 @@ public class ClassInjector implements Injector {
 			ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_FRAMES);
 			classTree.put(node.name, node);
 
-			if(node.name.equals("ae")) {
+//			ClassReader cr2 = new ClassReader(toByteArray(node));
+//			cr2.accept(cp, ClassWriter.COMPUTE_FRAMES);
+
+			if(node.name.equals("e")) {
+				// Prints the class
 				cr.accept(cp, 0);
-			}
-
-
-			for (FieldNode field : (List<FieldNode>) node.fields) {
-				//  if(field.desc.equalsIgnoreCase("I")) {
-				//Create ClassWriter and a MutateNameAdapter (injects new field into each class)
-//                            ClassVisitor injection = new InjectAccessorAdapter(cw, field.name, field.desc, "get" + field.name.toUpperCase(), node.name);
-//                            cr.accept(injection, ClassWriter.COMPUTE_FRAMES);
-//                            byte[] injectedClass = cw.toByteArray();
-//
-//                            //Create new Byte Array for Mutated Class and add it to the hashmap
-//                            ClassReader cr2 = new ClassReader(injectedClass);
-//                            cr2.accept(cp, ClassWriter.COMPUTE_FRAMES);
-				//}
+				for (FieldNode field : (List<FieldNode>) node.fields) {
+					if(field.desc.equalsIgnoreCase("I")) {
+						// Create ClassWriter and a MutateNameAdapter (injects new field into each class)
+						System.out.println("MA Field: " + field.name + " " + field.desc + " " + field.signature);
+						ClassVisitor injection = new InjectAccessorAdapter(cw, field.name, field.desc, "get" + field.name.toUpperCase(), node.name);
+						cr.accept(injection, ClassWriter.COMPUTE_FRAMES);
+						byte[] injectedClass = cw.toByteArray();
+//						//Create new Byte Array for Mutated Class and add it to the hashmap
+//						ClassReader cr2 = new ClassReader(injectedClass);
+//						cr2.accept(cp, ClassWriter.COMPUTE_FRAMES);
+						classTree.remove(node.name);
+						classTree.put(node.name, readClassFromBytes(injectedClass));
+					}
+				}
 			}
 		}
 
-		System.out.println("[INFO] Class Nodes: " + classTree.toString());
-
 		try {
-			Class<?> c = new RunescapeClassLoader(classTree).findClass("jt");
-			for (Method m : c.getMethods()) {}
-		} catch (Exception e) {
+			Class<?> clazz = new RunescapeClassLoader(classTree).findClass("e");
+			Object t = clazz.newInstance();
+			Method method = clazz.getMethod("getB");
+			method.setAccessible(true);
+			Object o = method.invoke(t);
+			System.out.println(o.toString());
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 
-		//Iterate over the newly created classes (with injected code)
-		for (ClassNode node : nodes) {
-			for (MethodNode method : (List<MethodNode>) node.methods) {
-//                    InstructionReader reader = new InstructionReader(method.instructions);
-//                    StringBuilder builder = new StringBuilder(node.name + " -> " + method.name + " :: ");
-//                    reader.read(builder, " ");
-//                    System.out.println(builder);
+
+
+		for(ClassNode node : nodes) {
+			try {
+				Class<?> clazz = new RunescapeClassLoader(classTree).findClass(node.name);
+
+//				System.out.println("[INFO] Class Name: " + node.name);
+//				System.out.println("--------------------------------------------");
+				for( Method m : clazz.getMethods()) {
+//					System.out.println(m.getName());
+				}
+
+//							 Method method = clazz.getMethod("getMJ");
+//							 method.invoke(null, null);
+			} catch(Exception e) {
+				e.printStackTrace();
 			}
 		}
+	}
 
+	/**
+	 * Writes an array of bytes to a class file given the file name and an
+	 * array of bytes
+	 * @param bytes Byte[] array of bytes to write
+	 * @param className String the className of the file to write to
+	 */
+	private static void toFile(byte[] bytes, String className) {
+		try {
+			OutputStream os = new FileOutputStream(new File("/Users/christianbartram/IdeaProjects/spark/" + className + ".class"));
+			os.write(bytes);
+			os.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
