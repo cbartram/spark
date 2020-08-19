@@ -12,5 +12,5 @@ import java.io.IOException;
  * @since 1.0
  */
 public interface Injector {
-    public void modify(ClassNode[] nodes) throws IOException;
+    void modify(ClassNode[] nodes) throws IOException;
 }

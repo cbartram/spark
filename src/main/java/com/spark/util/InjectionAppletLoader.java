@@ -9,26 +9,23 @@ import org.objectweb.asm.tree.ClassNode;
 
 import java.applet.Applet;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
+
 /**
  * InjectionAppletLoader
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
+@AllArgsConstructor
 public class InjectionAppletLoader implements AppletLoader {
+
+    @Getter
+    @Setter
     private Injector injector;
-
-    public InjectionAppletLoader(Injector injector) {
-        this.injector = injector;
-    }
-
-    public Injector getInjector() {
-        return injector;
-    }
-
-    public void setInjector(Injector injector) {
-        this.injector = injector;
-    }
 
     /**
      * Loads the Classes from Runescape and Passes them to the Application Class as ClassNode[] objects
@@ -37,9 +34,7 @@ public class InjectionAppletLoader implements AppletLoader {
      * @throws Exception
      */
     @Override
-    public Class<? extends Applet> load(Configuration configuration) throws Exception {
-        if (configuration == null)
-            throw new IllegalArgumentException();
+    public Class<? extends Applet> load(final @NonNull Configuration configuration) throws Exception {
         String initialClassName = configuration.get(Configuration.INITIAL_CLASS);
         if (initialClassName == null)
             throw new ClassNotFoundException("Unable to find initial class in configuration.");

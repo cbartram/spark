@@ -13,6 +13,7 @@ import java.awt.*;
  * @since 1.0
  */
 public class StandardAppletCreator implements AppletCreator {
+
     @Override
     public Applet create(Class<? extends Applet> c, Configuration configuration) throws Exception {
         Applet applet = c.newInstance();

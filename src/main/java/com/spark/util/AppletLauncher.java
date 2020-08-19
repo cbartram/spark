@@ -4,6 +4,7 @@ import java.applet.Applet;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NonNull;
 
 /**
  * AppletLauncher
@@ -14,12 +15,16 @@ import lombok.Getter;
  */
 @AllArgsConstructor
 public class AppletLauncher {
+
+    @NonNull
     private final ConfigurationReader reader;
 
     @Getter
+    @NonNull
     private final AppletLoader loader;
 
     @Getter
+    @NonNull
     private final AppletCreator creator;
 
     /**
@@ -29,12 +34,7 @@ public class AppletLauncher {
      * @return Configuration object
      * @throws Exception
      */
-    public Configuration configure(final GameType type, final int world) throws Exception {
-        if (type == null)
-            throw new IllegalArgumentException();
-        ConfigurationReader reader = this.reader;
-        if (reader == null)
-            return null;
+    public Configuration configure(final @NonNull GameType type, final int world) throws Exception {
         return reader.configure(type, world);
     }
 
@@ -45,15 +45,7 @@ public class AppletLauncher {
      * @return
      * @throws Exception
      */
-    public Applet launch(Configuration configuration) throws Exception {
-        if (configuration == null)
-            throw new IllegalArgumentException();
-        AppletLoader loader = getLoader();
-        if (loader == null)
-            return null;
-        AppletCreator creator = getCreator();
-        if (creator == null)
-            return null;
+    public Applet launch(final @NonNull Configuration configuration) throws Exception {
         return creator.create(loader.load(configuration), configuration);
     }
 }
