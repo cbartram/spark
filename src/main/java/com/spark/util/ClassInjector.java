@@ -61,29 +61,29 @@ public class ClassInjector implements Injector {
 					if(field.desc.equalsIgnoreCase("I")) {
 						// Create ClassWriter and a MutateNameAdapter (injects new field into each class)
 						System.out.println("MA Field: " + field.name + " " + field.desc + " " + field.signature);
-						ClassVisitor injection = new InjectAccessorAdapter(cw, field.name, field.desc, "get" + field.name.toUpperCase(), node.name);
-						cr.accept(injection, ClassWriter.COMPUTE_FRAMES);
-						byte[] injectedClass = cw.toByteArray();
+//						ClassVisitor injection = new InjectAccessorAdapter(cw, field.name, field.desc, "get" + field.name.toUpperCase(), node.name);
+//						cr.accept(injection, ClassWriter.COMPUTE_FRAMES);
+//						byte[] injectedClass = cw.toByteArray();
 //						//Create new Byte Array for Mutated Class and add it to the hashmap
 //						ClassReader cr2 = new ClassReader(injectedClass);
 //						cr2.accept(cp, ClassWriter.COMPUTE_FRAMES);
-						classTree.remove(node.name);
-						classTree.put(node.name, readClassFromBytes(injectedClass));
+//						classTree.remove(node.name);
+//						classTree.put(node.name, readClassFromBytes(injectedClass));
 					}
 				}
 			}
 		}
 
-		try {
-			Class<?> clazz = new RunescapeClassLoader(classTree).findClass("e");
-			Object t = clazz.newInstance();
-			Method method = clazz.getMethod("getB");
-			method.setAccessible(true);
-			Object o = method.invoke(t);
-			System.out.println(o.toString());
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Class<?> clazz = new RunescapeClassLoader(classTree).findClass("e");
+//			Object t = clazz.newInstance();
+//			Method method = clazz.getMethod("getB");
+//			method.setAccessible(true);
+//			Object o = method.invoke(t);
+//			System.out.println(o.toString());
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
 
 
 
