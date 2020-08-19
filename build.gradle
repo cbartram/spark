@@ -1,8 +1,11 @@
+plugins {
+    id "io.freefair.lombok" version "5.1.1"
+}
+
 group 'spark'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-
 sourceCompatibility = 1.8
 
 repositories {

@@ -2,6 +2,9 @@ package com.spark.util;
 
 import java.applet.Applet;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * AppletLauncher
  * Creates and Launches a new Applet which loads the Runescape Game
@@ -9,25 +12,15 @@ import java.applet.Applet;
  * @author Christian Bartram
  * @since 1.0
  */
+@AllArgsConstructor
 public class AppletLauncher {
-    // All interfaces for loading and launching the applet
-    private AppletLoader loader;
-    private AppletCreator creator;
-    private ConfigurationReader reader;
+    private final ConfigurationReader reader;
 
-    public AppletLauncher(ConfigurationReader reader, AppletLoader loader, AppletCreator creator) {
-        this.loader = loader;
-        this.creator = creator;
-        this.reader = reader;
-    }
+    @Getter
+    private final AppletLoader loader;
 
-    public AppletLoader getLoader() {
-        return loader;
-    }
-
-    public AppletCreator getCreator() {
-        return creator;
-    }
+    @Getter
+    private final AppletCreator creator;
 
     /**
      * Given the GameType and world number this sets up the configuration for the Applet
@@ -36,7 +29,7 @@ public class AppletLauncher {
      * @return Configuration object
      * @throws Exception
      */
-    public Configuration configure(GameType type, int world) throws Exception {
+    public Configuration configure(final GameType type, final int world) throws Exception {
         if (type == null)
             throw new IllegalArgumentException();
         ConfigurationReader reader = this.reader;
