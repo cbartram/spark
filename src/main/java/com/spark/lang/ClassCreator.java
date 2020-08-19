@@ -11,6 +11,8 @@ import java.security.cert.Certificate;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
 /**
  * ClassCreator
  * Returns a set of ClassNode objects which can be used by ASM by storing them
@@ -22,7 +24,11 @@ import java.util.Map;
 public class ClassCreator extends ClassLoader {
     private final Map<String, Class<?>> classes = new HashMap<>();
     private final Map<String, ClassNode> nodes = new HashMap<>();
+
+    @Getter
     private final ProtectionDomain domain;
+
+    @Getter
     private final Permissions permissions;
 
     public ClassCreator(ClassCreator creator) {
@@ -70,14 +76,6 @@ public class ClassCreator extends ClassLoader {
 
     public Class<?>[] getClasses() {
         return classes.values().toArray(new Class[classes.size()]);
-    }
-
-    public ProtectionDomain getDomain() {
-        return domain;
-    }
-
-    public Permissions getPermissions() {
-        return permissions;
     }
 
     /**

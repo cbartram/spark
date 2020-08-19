@@ -9,5 +9,5 @@ import java.applet.Applet;
  * @since 1.0
  */
 public interface AppletCreator {
-    public Applet create(Class<? extends Applet> c, Configuration configuration) throws Exception;
+    Applet create(Class<? extends Applet> c, Configuration configuration) throws Exception;
 }

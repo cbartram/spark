@@ -29,6 +29,7 @@ public class ClassPrinter extends ClassVisitor {
                 String.join(" ,", interfaces);
         System.out.println(builder);
     }
+
     public void visitSource(String source, String debug) {
 
     }
@@ -48,10 +49,12 @@ public class ClassPrinter extends ClassVisitor {
     public void visitInnerClass(String name, String outerName, String innerName, int access) {
 
     }
+
     public FieldVisitor visitField(int access, String name, String desc, String signature, Object value) {
         System.out.println(" " + desc + " " + name);
         return null;
     }
+
     public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
         System.out.println( " " + name + desc);
         return null;

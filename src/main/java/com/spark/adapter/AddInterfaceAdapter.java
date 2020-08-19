@@ -7,12 +7,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Created by christianbartram on 1/12/18.
  * Adds an interface to a given class via a ClassVisitor (ClassWriter).
- * http://github.com/cbartram
+ * @Author Christian Bartram
  */
 public class AddInterfaceAdapter extends ClassVisitor implements Opcodes {
-    private String[] interfacesToAdd;
+    private final String[] interfacesToAdd;
 
     public AddInterfaceAdapter(final ClassVisitor cv, final String... interfacesToAdd){
         super(ASM4, cv);

@@ -11,7 +11,7 @@ import org.objectweb.asm.Opcodes;
  */
 public class MutateSuperClassAdapter extends ClassVisitor implements Opcodes {
 
-        private String superClass;
+        private final String superClass;
 
         public MutateSuperClassAdapter(final ClassVisitor cv, final String superClass){
             super(ASM4, cv);

@@ -15,14 +15,13 @@ import org.objectweb.asm.signature.SignatureVisitor;
  */
 public class InjectAccessorAdapter extends ClassVisitor implements Opcodes {
 
-    private String fieldName = null;
-    private String getterName = null;
-    private String fieldType = null;
+    private final String fieldName;
+    private final String getterName;
+    private final String fieldType;
     private String signature = null;
-    private String targetClass = null;
+    private final String targetClass;
 
-    private boolean isFieldPresent = false,
-                    isMethodPresent = false;
+    private boolean isFieldPresent = false, isMethodPresent = false;
 
     /**
      * Constructor for Transforming a ByteCode Class

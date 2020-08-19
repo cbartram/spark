@@ -1,11 +1,12 @@
 package com.spark.net;
 
 /**
- * Browser
+ * Browser interface to be implemented by all browser classes.
+ * For example: there is a mock browser environment to load the game pack into.
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
 public interface Browser {
-    public String getAgent();
+    String getAgent();
 }

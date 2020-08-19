@@ -14,14 +14,9 @@ import lombok.RequiredArgsConstructor;
  */
 @RequiredArgsConstructor
 public class ArchiveWriter implements AutoCloseable {
-    public static final ArchiveWriter NIL = new ArchiveWriter();
 
     @NonNull
     private final OutputStream stream;
-
-    private ArchiveWriter() {
-        this(null);
-    }
 
     @Override
     public void close() {

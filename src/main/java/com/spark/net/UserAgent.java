@@ -1,5 +1,8 @@
 package com.spark.net;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * UserAgent
  * Basic POJO getting the system user agent information from the machine
@@ -7,8 +10,8 @@ package com.spark.net;
  * @author Christian Bartram
  * @since 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserAgent {
-    private UserAgent() {}
 
     public static String getSystemUserAgent() {
         return getSystemUserAgent(StandardBrowser.CHROME_46);

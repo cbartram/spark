@@ -5,19 +5,18 @@ import org.objectweb.asm.tree.ClassNode;
 
 import java.util.HashMap;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 /**
- * RunescapeClassLoader
- * Creates a loads the Runescape classes.
- * @author christian bartram
+ * Runescape ClassLoader
+ * Creates and loads the Runescape classes from the JAR file.
+ * @author Christian Bartram
  */
+@NoArgsConstructor
+@AllArgsConstructor
 public class RunescapeClassLoader extends ClassLoader {
     private HashMap<String, ClassNode> nodes;
-
-    public RunescapeClassLoader(HashMap<String, ClassNode> nodes) {
-        this.nodes = nodes;
-    }
-
-    public RunescapeClassLoader() {}
 
     public Class<?> defineClass(String name, byte[] b) {
             return defineClass(name, b, 0, b.length);

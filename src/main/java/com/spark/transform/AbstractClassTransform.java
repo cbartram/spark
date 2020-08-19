@@ -21,9 +21,9 @@ import org.objectweb.asm.tree.ClassNode;
  */
 
 public class AbstractClassTransform implements Opcodes {
-    private ClassReader cr = null;
-    private ClassWriter cw = null;
-    private ClassNode node = null;
+    private ClassReader cr;
+    private ClassWriter cw;
+    private ClassNode node;
 
     private ClassVisitor changer = null;  // ChangeSuperAdapter
     private ClassVisitor interfaceAdder = null; // AddInterfaceAdapter

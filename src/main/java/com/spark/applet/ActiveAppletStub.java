@@ -4,30 +4,26 @@ import java.applet.Applet;
 import java.applet.AppletStub;
 import java.awt.*;
 
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 /**
  * ActiveAppletStub
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
+@RequiredArgsConstructor
 public abstract class ActiveAppletStub implements AppletStub {
+
+    @Getter
+    @Setter
     private boolean active;
-    private Applet applet;
 
-    protected ActiveAppletStub(Applet applet) {
-        if (applet == null)
-            throw new IllegalArgumentException();
-        this.applet = applet;
-    }
-
-    @Override
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
+    @NonNull
+    private final Applet applet;
 
     @Override
     public void appletResize(int width, int height) {

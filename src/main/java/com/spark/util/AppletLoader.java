@@ -9,5 +9,5 @@ import java.applet.Applet;
  * @since 1.0
  */
 public interface AppletLoader {
-    public Class<? extends Applet> load(Configuration configuration) throws Exception;
+    Class<? extends Applet> load(Configuration configuration) throws Exception;
 }

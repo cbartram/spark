@@ -8,15 +8,19 @@ import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import lombok.Getter;
+
 /**
  * GameStub
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
 public class GameStub extends ActiveAppletStub {
     private final Configuration configuration;
-    private final AppletContext context;
+
+    @Getter
+    private final AppletContext appletContext;
 
     public GameStub(Applet applet, Configuration configuration) {
         this(applet, null, configuration);
@@ -26,7 +30,7 @@ public class GameStub extends ActiveAppletStub {
         super(applet);
         if (configuration == null)
             throw new IllegalArgumentException();
-        this.context = context;
+        this.appletContext = context;
         this.configuration = configuration;
         applet.setMaximumSize(new Dimension(Integer.parseInt(getParameter(Configuration.APPLET_MAXIMUM_WIDTH)), Integer.parseInt(getParameter(Configuration.APPLET_MAXIMUM_HEIGHT))));
         applet.setMinimumSize(new Dimension(Integer.parseInt(getParameter(Configuration.APPLET_MINIMUM_WIDTH)), Integer.parseInt(getParameter(Configuration.APPLET_MINIMUM_HEIGHT))));
@@ -50,12 +54,7 @@ public class GameStub extends ActiveAppletStub {
     }
 
     @Override
-    public String getParameter(String name) {
+    public String getParameter(final String name) {
         return configuration.get(name);
-    }
-
-    @Override
-    public AppletContext getAppletContext() {
-        return context;
     }
 }
