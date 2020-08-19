@@ -7,5 +7,5 @@ package com.spark.util;
  * @since 1.0
  */
 public interface ConfigurationReader {
-    public Configuration configure(GameType type, int world) throws Exception;
+    Configuration configure(final GameType type, final int world) throws Exception;
 }

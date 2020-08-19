@@ -28,6 +28,9 @@ release.properties
 *.ipr
 *.iws
 .idea_modules/
+.idea
+out
+
 
 ##########################
 ## Eclipse

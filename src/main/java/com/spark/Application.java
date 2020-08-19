@@ -20,7 +20,11 @@ public class Application {
 	 */
 	public static void main(String[] args) throws Exception {
 		//Create the applet and load the classes from it
-		AppletLauncher launcher = new AppletLauncher(new ArchiveConfigurationReader(), new InjectionAppletLoader(new ClassInjector()), new StandardAppletCreator());
+		AppletLauncher launcher = new AppletLauncher(
+				new ArchiveConfigurationReader(),
+				new InjectionAppletLoader(new ClassInjector()),
+				new StandardAppletCreator()
+		);
 
 		//Create Configuration, JFrame and Load the game
 		Configuration configuration = launcher.configure(GameType.OLDSCHOOL, 2);

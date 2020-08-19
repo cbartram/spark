@@ -7,7 +7,7 @@ import java.net.URL;
 /**
  * ArchiveReaderBuilder
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
 public class ArchiveReaderBuilder extends ArchiveStreamBuilder<ArchiveReaderBuilder> {

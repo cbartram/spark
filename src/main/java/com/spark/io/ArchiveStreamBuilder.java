@@ -8,20 +8,30 @@ import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
 /**
  * ConnectionBuilder
  *
- * @author Ian Caffey
+ * @author Christian Bartram
  * @since 1.0
  */
 public abstract class ArchiveStreamBuilder<S extends ArchiveStreamBuilder> {
     public static final int DEFAULT_CONNECT_TIMEOUT = 10000;
     private final URL url;
-    private final Map<String, String> requests = new HashMap<>();
-    private int connect = -1;
 
-    private int read = -1;
+
+    @Getter
+    private final Map<String, String> requestProperties = new HashMap<>();
+
+    @Getter
+    private int connectTimeout = -1;
+
+    @Getter
+    private int readTimeout = -1;
     private boolean cache;
+
+    @Getter
     private Proxy proxy;
 
     ArchiveStreamBuilder(String path) throws MalformedURLException {
@@ -36,24 +46,8 @@ public abstract class ArchiveStreamBuilder<S extends ArchiveStreamBuilder> {
 
     protected abstract S getThis();
 
-    public int getConnectTimeout() {
-        return connect;
-    }
-
-    public int getReadTimeout() {
-        return read;
-    }
-
-    public Map<String, String> getRequestProperties() {
-        return new HashMap<>(requests);
-    }
-
     public boolean isUsingCache() {
         return cache;
-    }
-
-    public Proxy getProxy() {
-        return proxy;
     }
 
     public S proxy(Proxy proxy) {
@@ -71,19 +65,19 @@ public abstract class ArchiveStreamBuilder<S extends ArchiveStreamBuilder> {
     }
 
     public S timeout(int connect, int read) {
-        this.connect = connect;
-        this.read = read;
+        this.connectTimeout = connect;
+        this.readTimeout = read;
         return getThis();
     }
 
     public S property(Map<String, String> properties) {
         if (properties != null)
-            requests.putAll(properties);
+            requestProperties.putAll(properties);
         return getThis();
     }
 
     public S property(String key, String value) {
-        requests.put(key, value);
+        requestProperties.put(key, value);
         return getThis();
     }
 

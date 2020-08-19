@@ -417,8 +417,8 @@ public class ArchiveReader implements AutoCloseable {
 
 
     /**
-     * Returns a set of actual Java Classes using reflecting. This will not return
-     * a set of useable classNodes for ASM injection.
+     * Returns a set of actual Java Classes using reflection. Note: This will NOT return
+     * a set of use-able classNodes for ASM injection.
      * @return Class[]
      * @throws IOException
      */

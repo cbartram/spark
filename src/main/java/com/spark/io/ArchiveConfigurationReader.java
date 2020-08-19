@@ -15,6 +15,8 @@ import java.util.Map;
  * @since 1.0
  */
 public class ArchiveConfigurationReader implements ConfigurationReader {
+
+
     @Override
     public Configuration configure(GameType type, int world) throws Exception {
         if (type == null || world <= 0)
