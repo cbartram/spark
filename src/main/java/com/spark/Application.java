@@ -1,16 +1,21 @@
 package com.spark;
 
-import com.spark.io.ArchiveConfigurationReader;
-import com.spark.util.*;
-
 import javax.annotation.PostConstruct;
 import javax.swing.*;
+
+import com.spark.io.ArchiveConfigurationReader;
+import com.spark.util.AppletLauncher;
+import com.spark.util.ClassInjector;
+import com.spark.util.Configuration;
+import com.spark.util.GameType;
+import com.spark.util.InjectionAppletLoader;
+import com.spark.util.StandardAppletCreator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * com.spark.Application - Loads the Main Applet and Provides the injection point for Accessor methods to hook
+ * Application - Loads the Main Applet and Provides the injection point for Accessor methods to hook
  * into in game values
  *
  * @author Cbartram
