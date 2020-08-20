@@ -15,7 +15,7 @@ import java.awt.*;
 public class StandardAppletCreator implements AppletCreator {
 
     @Override
-    public Applet create(Class<? extends Applet> c, Configuration configuration) throws Exception {
+    public Applet create(Class<? extends Applet> c, final Configuration configuration) throws Exception {
         Applet applet = c.newInstance();
         applet.setStub(new GameStub(applet, configuration));
         applet.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));

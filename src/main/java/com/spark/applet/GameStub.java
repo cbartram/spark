@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import lombok.Getter;
+import lombok.NonNull;
 
 /**
  * GameStub
@@ -26,10 +27,8 @@ public class GameStub extends ActiveAppletStub {
         this(applet, null, configuration);
     }
 
-    public GameStub(Applet applet, AppletContext context, Configuration configuration) {
+    public GameStub(final Applet applet, final AppletContext context, final @NonNull Configuration configuration) {
         super(applet);
-        if (configuration == null)
-            throw new IllegalArgumentException();
         this.appletContext = context;
         this.configuration = configuration;
         applet.setMaximumSize(new Dimension(Integer.parseInt(getParameter(Configuration.APPLET_MAXIMUM_WIDTH)), Integer.parseInt(getParameter(Configuration.APPLET_MAXIMUM_HEIGHT))));

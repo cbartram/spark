@@ -3,7 +3,11 @@ package com.spark;
 import com.spark.io.ArchiveConfigurationReader;
 import com.spark.util.*;
 
+import javax.annotation.PostConstruct;
 import javax.swing.*;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * com.spark.Application - Loads the Main Applet and Provides the injection point for Accessor methods to hook
@@ -12,6 +16,7 @@ import javax.swing.*;
  * @author Cbartram
  * @since 1.0
  */
+@SpringBootApplication
 public class Application {
 
 	/**
@@ -19,7 +24,12 @@ public class Application {
 	 * @param args String[] CLI args
 	 * @throws Exception
 	 */
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+	@PostConstruct
+	public void postConstruct() throws Exception {
 		//Create the applet and load the classes from it
 		AppletLauncher launcher = new AppletLauncher(
 				new ArchiveConfigurationReader(),
