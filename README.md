@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://static.dribbble.com/users/889542/screenshots/3888121/lightning_bolt_logo_dribbble-03.jpg" alt="logo" />
+    <img height="320" width="320" src="https://static.dribbble.com/users/889542/screenshots/3888121/lightning_bolt_logo_dribbble-03.jpg" alt="logo" />
 </p>
 
 # Spark
