@@ -13,6 +13,7 @@ import javax.swing.*;
  * @since 1.0
  */
 public class Application {
+
 	/**
 	 * Launches the GUI and loads the Runescape game pack into the Applet
 	 * @param args String[] CLI args

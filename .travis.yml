@@ -6,7 +6,6 @@ before_cache:
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 script:
-  - gradle assemble
   - ./gradlew check
 
 cache:

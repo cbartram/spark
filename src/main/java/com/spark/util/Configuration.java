@@ -31,7 +31,7 @@ public class Configuration {
 
     @NonNull
     @Getter
-    private final int world;
+    private final Integer world;
 
     @NonNull
     private final Map<String, String> parameters;
