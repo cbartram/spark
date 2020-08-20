@@ -1,9 +1,11 @@
 package com.spark.util;
 
-import com.spark.applet.GameStub;
-
 import java.applet.Applet;
 import java.awt.*;
+
+import com.spark.applet.GameStub;
+
+import org.springframework.stereotype.Component;
 
 /**
  * StandardAppletCreator
@@ -12,6 +14,7 @@ import java.awt.*;
  * @author Christian Bartram
  * @since 1.0
  */
+@Component
 public class StandardAppletCreator implements AppletCreator {
 
     @Override

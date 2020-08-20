@@ -24,20 +24,19 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @SpringBootApplication
 public class Application {
 
-	/**
-	 * Launches the GUI and loads the Runescape game pack into the Applet
-	 * @param args String[] CLI args
-	 * @throws Exception
-	 */
 	public static void main(String[] args) {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(Application.class);
 		builder.headless(false);
 		builder.run(args);
 	}
 
+	/**
+	 * Launches the GUI and loads the RuneScape game pack into the Applet
+	 */
 	@PostConstruct
 	public void postConstruct() throws Exception {
 		//Create the applet and load the classes from it
+
 		AppletLauncher launcher = new AppletLauncher(
 				new ArchiveConfigurationReader(),
 				new InjectionAppletLoader(new ClassInjector()),

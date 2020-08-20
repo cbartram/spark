@@ -1,26 +1,21 @@
 package com.spark.util;
 
-import com.spark.adapter.InjectAccessorAdapter;
-import com.spark.io.InstructionReader;
-import com.spark.lang.RunescapeClassLoader;
-import com.spark.printer.ClassPrinter;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.FieldNode;
-import org.objectweb.asm.tree.MethodNode;
-import org.objectweb.asm.util.TraceClassVisitor;
-
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
+
+import com.spark.lang.RunescapeClassLoader;
+import com.spark.printer.ClassPrinter;
+
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.FieldNode;
+import org.springframework.stereotype.Component;
 
 /**
  * ClassInjector
@@ -30,6 +25,7 @@ import java.util.List;
  *
  * @author Christian Bartram
  */
+@Component
 public class ClassInjector implements Injector {
 	HashMap<String, ClassNode> classTree = new HashMap<String, ClassNode>();
 

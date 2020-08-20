@@ -1,13 +1,14 @@
 package com.spark.util;
 
+import java.applet.Applet;
+
 import com.spark.io.Archive;
 import com.spark.io.ArchiveReader;
 import com.spark.io.ArchiveStreamBuilder;
 import com.spark.lang.ClassCreator;
 import com.spark.net.UserAgent;
-import org.objectweb.asm.tree.ClassNode;
 
-import java.applet.Applet;
+import org.objectweb.asm.tree.ClassNode;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

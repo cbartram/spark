@@ -25,12 +25,12 @@ public class Configuration {
     public static final String INITIAL_JAR = "initial_jar";
     public static final String WINDOW_TITLE = "OS Runescape Bot";
 
-    @NonNull
     @Getter
+    @NonNull
     private final GameType type;
 
-    @NonNull
     @Getter
+    @NonNull
     private final Integer world;
 
     @NonNull
