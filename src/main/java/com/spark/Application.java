@@ -11,8 +11,8 @@ import com.spark.util.GameType;
 import com.spark.util.InjectionAppletLoader;
 import com.spark.util.StandardAppletCreator;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
  * Application - Loads the Main Applet and Provides the injection point for Accessor methods to hook
@@ -30,7 +30,9 @@ public class Application {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplicationBuilder builder = new SpringApplicationBuilder(Application.class);
+		builder.headless(false);
+		builder.run(args);
 	}
 
 	@PostConstruct
