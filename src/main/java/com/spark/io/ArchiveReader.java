@@ -22,6 +22,7 @@ import org.objectweb.asm.tree.ClassNode;
 
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * ArchiveReader
@@ -31,6 +32,7 @@ import lombok.NonNull;
  * @author Christian Bartram
  * @since 1.0
  */
+@Slf4j
 @AllArgsConstructor
 public class ArchiveReader implements AutoCloseable {
     private static int[] p;
@@ -39,157 +41,126 @@ public class ArchiveReader implements AutoCloseable {
     @NonNull
     private final InputStream stream;
 
-    static {
-        label0:
-        {
-            p = new int[128];
-            int i1 = 0;
-            while (~i1 > ~p.length) {
-                p[i1] = -1;
-                i1++;
-            }
-            break label0;
-
-        }
-        label1:
-        {
-            int j1 = 65;
-            while (-91 <= ~j1) {
-                p[j1] = -65 + j1;
-                j1++;
-            }
-            break label1;
-        }
-        label2:
-        {
-            int k1 = 97;
-            while (122 >= k1) {
-                p[k1] = k1 + -71;
-                k1++;
-            }
-            break label2;
-        }
-        label3:
-        {
-            int l1 = 48;
-            while (-58 <= ~l1) {
-                p[l1] = (-48 + l1) - -52;
-                l1++;
-            }
-            break label3;
-        }
-        label4:
-        {
-            p[43] = 62;
-            int ai[] = p;
-            ai[42] = 62;
-            p[47] = 63;
-            int ai1[] = p;
-            ai1[45] = 63;
-            m = new char[64];
-            int i2 = 0;
-            while (26 > i2) {
-                m[i2] = (char) (65 + i2);
-                i2++;
-            }
-            break label4;
-        }
-        label5:
-        {
-            int j2 = 26;
-            while (~j2 > -53) {
-                m[j2] = (char) (-26 + (97 - -j2));
-                j2++;
-            }
-            break label5;
-        }
-        label6:
-        {
-            int k2 = 52;
-            while (k2 < 62) {
-                m[k2] = (char) (-52 + k2 + 48);
-                k2++;
-            }
-            break label6;
-        }
-        m[63] = '/';
-        m[62] = '+';
+    @Override
+    public void close() throws IOException {
+        if (stream == null)
+            return;
+        stream.close();
     }
 
-    static {
-        label0:
-        {
-            p = new int[128];
-            int i1 = 0;
-            while (~i1 > ~p.length) {
-                p[i1] = -1;
-                i1++;
+
+    /**
+     * Reads an input string and returns a string[] of UTF-8 characters
+     * from the stream. This is necessary to read the Key value configuration
+     * as a String.
+     * @return String[]
+     * @throws IOException
+     */
+    public String[] readLines() throws IOException {
+        if (stream == null)
+            return new String[0];
+        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+        List<String> lines = new ArrayList<>();
+        String line;
+        while ((line = reader.readLine()) != null)
+            lines.add(line);
+        return lines.toArray(new String[lines.size()]);
+    }
+
+
+    /**
+     * Returns a set of actual Java Classes using reflection. Note: This will NOT return
+     * a set of use-able classNodes for ASM injection.
+     * @return Class[]
+     * @throws IOException
+     */
+    public Class<?>[] readClasses() throws IOException {
+        if (stream == null)
+            return new Class[0];
+        JarInputStream jis = new JarInputStream(stream);
+        List<Class<?>> classes = new ArrayList<>();
+        JarEntry entry;
+        while ((entry = jis.getNextJarEntry()) != null) {
+            String name = entry.getName();
+            if (!name.endsWith(".class"))
+                continue;
+            try {
+                classes.add(Class.forName(name.replace('/', '.').substring(0, name.length() - 6)));
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-            break label0;
         }
-        label1:
-        {
-            int j1 = 65;
-            while (-91 <= ~j1) {
-                p[j1] = -65 + j1;
-                j1++;
+        return classes.toArray(new Class[classes.size()]);
+    }
+
+    /**
+     * Wrapper for reading the class Nodes from the JAR file
+     * @param key
+     * @param ivpc
+     * @return ClassNode[]
+     * @throws Exception
+     */
+    public ClassNode[] readNodes(String key, String ivpc) throws Exception {
+        if (stream == null)
+            return new ClassNode[0];
+        JarInputStream jis = new JarInputStream(stream);
+        List<ClassNode> nodes = new ArrayList<>();
+        read(nodes, jis, ClassReader.SKIP_DEBUG, key, ivpc);
+        return nodes.toArray(new ClassNode[0]);
+    }
+
+    /**
+     * Reads the JAR file into a set of class Nodes recursively
+     * @param nodes
+     * @param jis
+     * @param flags
+     * @param key
+     * @param ivpc
+     * @throws Exception
+     */
+    private void read(List<ClassNode> nodes, JarInputStream jis, int flags, String key, String ivpc) throws Exception {
+        JarEntry entry;
+        while ((entry = jis.getNextJarEntry()) != null) {
+            if ("inner.pack.gz".equals(entry.getName())) {
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                int next;
+                while ((next = jis.read()) != -1)
+                    stream.write(next);
+                byte[] buffer = stream.toByteArray();
+                byte[] keyBytes = decrypt(key);
+                byte[] ivpcBytes = decrypt(ivpc);
+                SecretKeySpec spec = new SecretKeySpec(keyBytes, "AES");
+                Cipher cipherObject = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                cipherObject.init(2, spec, new IvParameterSpec(ivpcBytes));
+                GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(cipherObject.doFinal(buffer)));
+                Pack200.Unpacker unpacker = Pack200.newUnpacker();
+                ByteArrayOutputStream bos = new ByteArrayOutputStream(buffer.length);
+                JarOutputStream jos = new JarOutputStream(bos);
+                unpacker.unpack(gzip, jos);
+                jos.close();
+                read(nodes, new JarInputStream(new ByteArrayInputStream(bos.toByteArray())), flags, key, ivpc);
+                continue;
             }
-            break label1;
-        }
-        label2:
-        {
-            int k1 = 97;
-            while (122 >= k1) {
-                p[k1] = k1 + -71;
-                k1++;
+            if (!entry.getName().endsWith(".class"))
+                continue;
+            byte[] buffer;
+            long size = entry.getSize();
+            if (size == -1) {
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                int next;
+                while ((next = jis.read()) != -1)
+                    stream.write(next);
+                buffer = stream.toByteArray();
+            } else {
+                buffer = new byte[(int) size];
+                if (jis.read(buffer) == -1)
+                    continue;
             }
-            break label2;
+            ClassReader reader = new ClassReader(buffer);
+            ClassNode node = new ClassNode();
+            reader.accept(node, flags);
+            nodes.add(node);
         }
-        label3:
-        {
-            int l1 = 48;
-            while (-58 <= ~l1) {
-                p[l1] = (-48 + l1) - -52;
-                l1++;
-            }
-            break label3;
-        }
-        label4:
-        {
-            p[43] = 62;
-            int ai[] = p;
-            ai[42] = 62;
-            p[47] = 63;
-            int ai1[] = p;
-            ai1[45] = 63;
-            m = new char[64];
-            int i2 = 0;
-            while (26 > i2) {
-                m[i2] = (char) (65 + i2);
-                i2++;
-            }
-            break label4;
-        }
-        label5:
-        {
-            int j2 = 26;
-            while (~j2 > -53) {
-                m[j2] = (char) (-26 + (97 - -j2));
-                j2++;
-            }
-            break label5;
-        }
-        label6:
-        {
-            int k2 = 52;
-            while (k2 < 62) {
-                m[k2] = (char) (-52 + k2 + 48);
-                k2++;
-            }
-            break label6;
-        }
-        m[63] = '/';
-        m[62] = '+';
     }
 
     private static byte[] decrypt(String name) throws Exception {
@@ -385,126 +356,156 @@ public class ArchiveReader implements AutoCloseable {
         }
     }
 
-
-    @Override
-    public void close() throws IOException {
-        if (stream == null)
-            return;
-        stream.close();
-    }
-
-
-    /**
-     * Reads an input string and returns a string[] of UTF-8 characters
-     * from the stream. This is necessary to read the Key value configuration
-     * as a String.
-     * @return String[]
-     * @throws IOException
-     */
-    public String[] readLines() throws IOException {
-        if (stream == null)
-            return new String[0];
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-        List<String> lines = new ArrayList<>();
-        String line;
-        while ((line = reader.readLine()) != null)
-            lines.add(line);
-        return lines.toArray(new String[lines.size()]);
-    }
-
-
-    /**
-     * Returns a set of actual Java Classes using reflection. Note: This will NOT return
-     * a set of use-able classNodes for ASM injection.
-     * @return Class[]
-     * @throws IOException
-     */
-    public Class<?>[] readClasses() throws IOException {
-        if (stream == null)
-            return new Class[0];
-        JarInputStream jis = new JarInputStream(stream);
-        List<Class<?>> classes = new ArrayList<>();
-        JarEntry entry;
-        while ((entry = jis.getNextJarEntry()) != null) {
-            String name = entry.getName();
-            if (!name.endsWith(".class"))
-                continue;
-            try {
-                classes.add(Class.forName(name.replace('/', '.').substring(0, name.length() - 6)));
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+    static {
+        label0:
+        {
+            p = new int[128];
+            int i1 = 0;
+            while (~i1 > ~p.length) {
+                p[i1] = -1;
+                i1++;
             }
+            break label0;
+
         }
-        return classes.toArray(new Class[classes.size()]);
-    }
-
-    /**
-     * Wrapper for reading the class Nodes from the JAR file
-     * @param key
-     * @param ivpc
-     * @return ClassNode[]
-     * @throws Exception
-     */
-    public ClassNode[] readNodes(String key, String ivpc) throws Exception {
-        if (stream == null)
-            return new ClassNode[0];
-        JarInputStream jis = new JarInputStream(stream);
-        List<ClassNode> nodes = new ArrayList<>();
-        read(nodes, jis, ClassReader.SKIP_DEBUG, key, ivpc);
-        return nodes.toArray(new ClassNode[0]);
-    }
-
-    /**
-     * Reads the JAR file into a set of class Nodes recursively
-     * @param nodes
-     * @param jis
-     * @param flags
-     * @param key
-     * @param ivpc
-     * @throws Exception
-     */
-    private void read(List<ClassNode> nodes, JarInputStream jis, int flags, String key, String ivpc) throws Exception {
-        JarEntry entry;
-        while ((entry = jis.getNextJarEntry()) != null) {
-            if ("inner.pack.gz".equals(entry.getName())) {
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                int next;
-                while ((next = jis.read()) != -1)
-                    stream.write(next);
-                byte[] buffer = stream.toByteArray();
-                byte[] keyBytes = decrypt(key);
-                byte[] ivpcBytes = decrypt(ivpc);
-                SecretKeySpec spec = new SecretKeySpec(keyBytes, "AES");
-                Cipher cipherObject = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipherObject.init(2, spec, new IvParameterSpec(ivpcBytes));
-                GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(cipherObject.doFinal(buffer)));
-                Pack200.Unpacker unpacker = Pack200.newUnpacker();
-                ByteArrayOutputStream bos = new ByteArrayOutputStream(buffer.length);
-                JarOutputStream jos = new JarOutputStream(bos);
-                unpacker.unpack(gzip, jos);
-                jos.close();
-                read(nodes, new JarInputStream(new ByteArrayInputStream(bos.toByteArray())), flags, key, ivpc);
-                continue;
+        label1:
+        {
+            int j1 = 65;
+            while (-91 <= ~j1) {
+                p[j1] = -65 + j1;
+                j1++;
             }
-            if (!entry.getName().endsWith(".class"))
-                continue;
-            byte[] buffer;
-            long size = entry.getSize();
-            if (size == -1) {
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                int next;
-                while ((next = jis.read()) != -1)
-                    stream.write(next);
-                buffer = stream.toByteArray();
-            } else {
-                buffer = new byte[(int) size];
-                if (jis.read(buffer) == -1)
-                    continue;
-            }
-            ClassReader reader = new ClassReader(buffer);
-            ClassNode node = new ClassNode();
-            reader.accept(node, flags);
-            nodes.add(node);
+            break label1;
         }
+        label2:
+        {
+            int k1 = 97;
+            while (122 >= k1) {
+                p[k1] = k1 + -71;
+                k1++;
+            }
+            break label2;
+        }
+        label3:
+        {
+            int l1 = 48;
+            while (-58 <= ~l1) {
+                p[l1] = (-48 + l1) - -52;
+                l1++;
+            }
+            break label3;
+        }
+        label4:
+        {
+            p[43] = 62;
+            int ai[] = p;
+            ai[42] = 62;
+            p[47] = 63;
+            int ai1[] = p;
+            ai1[45] = 63;
+            m = new char[64];
+            int i2 = 0;
+            while (26 > i2) {
+                m[i2] = (char) (65 + i2);
+                i2++;
+            }
+            break label4;
+        }
+        label5:
+        {
+            int j2 = 26;
+            while (~j2 > -53) {
+                m[j2] = (char) (-26 + (97 - -j2));
+                j2++;
+            }
+            break label5;
+        }
+        label6:
+        {
+            int k2 = 52;
+            while (k2 < 62) {
+                m[k2] = (char) (-52 + k2 + 48);
+                k2++;
+            }
+            break label6;
+        }
+        m[63] = '/';
+        m[62] = '+';
+    }
+
+    static {
+        label0:
+        {
+            p = new int[128];
+            int i1 = 0;
+            while (~i1 > ~p.length) {
+                p[i1] = -1;
+                i1++;
+            }
+            break label0;
+        }
+        label1:
+        {
+            int j1 = 65;
+            while (-91 <= ~j1) {
+                p[j1] = -65 + j1;
+                j1++;
+            }
+            break label1;
+        }
+        label2:
+        {
+            int k1 = 97;
+            while (122 >= k1) {
+                p[k1] = k1 + -71;
+                k1++;
+            }
+            break label2;
+        }
+        label3:
+        {
+            int l1 = 48;
+            while (-58 <= ~l1) {
+                p[l1] = (-48 + l1) - -52;
+                l1++;
+            }
+            break label3;
+        }
+        label4:
+        {
+            p[43] = 62;
+            int ai[] = p;
+            ai[42] = 62;
+            p[47] = 63;
+            int ai1[] = p;
+            ai1[45] = 63;
+            m = new char[64];
+            int i2 = 0;
+            while (26 > i2) {
+                m[i2] = (char) (65 + i2);
+                i2++;
+            }
+            break label4;
+        }
+        label5:
+        {
+            int j2 = 26;
+            while (~j2 > -53) {
+                m[j2] = (char) (-26 + (97 - -j2));
+                j2++;
+            }
+            break label5;
+        }
+        label6:
+        {
+            int k2 = 52;
+            while (k2 < 62) {
+                m[k2] = (char) (-52 + k2 + 48);
+                k2++;
+            }
+            break label6;
+        }
+        m[63] = '/';
+        m[62] = '+';
     }
 }

@@ -9,6 +9,7 @@ import com.spark.lang.ClassCreator;
 import com.spark.net.UserAgent;
 
 import org.objectweb.asm.tree.ClassNode;
+import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,20 +24,23 @@ import lombok.extern.slf4j.Slf4j;
  * @since 1.0
  */
 @Slf4j
+@Component
 @AllArgsConstructor
 public class InjectionAppletLoader implements AppletLoader {
 
     @Getter
     @Setter
+    @NonNull
     private Injector injector;
 
     /**
      * Loads the Classes from RuneScape and Passes them to the Application Class as ClassNode[] objects
-     * @param configuration
-     * @return
+     * @param configuration Configuration fully set configuration object.
+     * @return Class Returns a class which extends the Applet class.
      * @throws Exception
      */
     @Override
+    @SuppressWarnings("unchecked")
     public Class<? extends Applet> load(final @NonNull Configuration configuration) throws Exception {
         final String initialClassName = configuration.get(Configuration.INITIAL_CLASS);
         if (initialClassName == null)
@@ -55,10 +59,10 @@ public class InjectionAppletLoader implements AppletLoader {
             .property("User-Agent", UserAgent.getSystemUserAgent())
             .create();
 
+        // Classes are parsed from JAR archive and injected with accessor & mutator methods.
         ClassNode[] nodes = reader.readNodes(configuration.get("0"), configuration.get("-1"));
-        Injector injector = getInjector();
-        if (injector != null)
-            injector.modify(nodes);
+        injector.modify(nodes);
+
         ClassLoader loader = new ClassCreator(nodes);
         Class<?> c = loader.loadClass(initialClassName.replace(".class", ""));
         if (!Applet.class.isAssignableFrom(c))

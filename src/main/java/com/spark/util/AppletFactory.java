@@ -6,9 +6,11 @@ import java.awt.*;
 import com.spark.Factory;
 import com.spark.applet.GameStub;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 /**
  * AppletLauncher
@@ -17,15 +19,15 @@ import lombok.NonNull;
  * @author Christian Bartram
  * @since 1.0
  */
-@AllArgsConstructor
+@Component
+@RequiredArgsConstructor
 public class AppletFactory implements Factory<Applet> {
-
-    @Getter
-    @NonNull
-    private final AppletLoader loader;
 
     @NonNull
     private final Configuration configuration;
+
+    @Autowired
+    private final AppletLoader loader;
 
     /**
      * Launches the applet by both creating and loading it with configuration. This is directly

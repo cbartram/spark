@@ -1,8 +1,5 @@
 package com.spark.lang;
 
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.tree.ClassNode;
-
 import java.security.AllPermission;
 import java.security.CodeSource;
 import java.security.Permissions;
@@ -10,6 +7,9 @@ import java.security.ProtectionDomain;
 import java.security.cert.Certificate;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.tree.ClassNode;
 
 import lombok.Getter;
 
@@ -29,19 +29,12 @@ public class ClassCreator extends ClassLoader {
     private final ProtectionDomain domain;
 
     @Getter
-    private final Permissions permissions;
-
-    public ClassCreator(ClassCreator creator) {
-        this(creator.getNodes());
-    }
+    private final Permissions permissions = new Permissions();
 
     public ClassCreator(ClassNode... nodes) {
-        Permissions permissions = new Permissions();
         permissions.add(new AllPermission());
-        this.permissions = permissions;
         domain = new ProtectionDomain(new CodeSource(null, (Certificate[]) null), this.permissions);
-        if (nodes == null)
-            return;
+        if (nodes == null) return;
         for (ClassNode node : nodes)
             this.nodes.put(node.name, node);
     }
@@ -112,7 +105,7 @@ public class ClassCreator extends ClassLoader {
             ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
             node.accept(cw);
             byte[] b = cw.toByteArray();
-            Class<?> c = defineClass(node.name.replace('.', '/'), b, 0, b.length, getDomain());
+            Class<?> c = defineClass(node.name.replace('.', '/'), b, 0, b.length, this.domain);
             classes.put(key, c);
             return c;
         }
