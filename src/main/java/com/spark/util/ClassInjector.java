@@ -15,7 +15,6 @@ import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
-import org.springframework.stereotype.Component;
 
 /**
  * ClassInjector
@@ -25,7 +24,6 @@ import org.springframework.stereotype.Component;
  *
  * @author Christian Bartram
  */
-@Component
 public class ClassInjector implements Injector {
 	HashMap<String, ClassNode> classTree = new HashMap<String, ClassNode>();
 

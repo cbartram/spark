@@ -18,6 +18,13 @@ import lombok.NonNull;
  */
 public class ArchiveConfigurationReader implements ConfigurationReader {
 
+    /**
+     * Initializes the Configuration Class by reading the runescape configuration.
+     * @param type
+     * @param world
+     * @return
+     * @throws Exception
+     */
     @Override
     public Configuration configure(@NonNull final GameType type, final int world) throws Exception {
         if (world <= 0) throw new IllegalArgumentException();
