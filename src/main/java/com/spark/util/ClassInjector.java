@@ -15,7 +15,6 @@ import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
-import org.springframework.stereotype.Component;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +28,6 @@ import lombok.extern.slf4j.Slf4j;
  * @author Christian Bartram
  */
 @Slf4j
-@Component
 @NoArgsConstructor
 public class ClassInjector implements Injector {
 	HashMap<String, ClassNode> classTree = new HashMap<String, ClassNode>();

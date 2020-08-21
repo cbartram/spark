@@ -12,9 +12,7 @@ import org.objectweb.asm.tree.ClassNode;
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NonNull;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -27,11 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @AllArgsConstructor
 public class InjectionAppletLoader implements AppletLoader {
-
-    @Getter
-    @Setter
-    @NonNull
-    private Injector injector;
+    private final Injector injector = new ClassInjector();
 
     /**
      * Loads the Classes from RuneScape and Passes them to the Application Class as ClassNode[] objects

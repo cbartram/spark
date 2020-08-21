@@ -9,8 +9,7 @@ import com.spark.applet.GameStub;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
 /**
  * AppletLauncher
@@ -20,10 +19,10 @@ import lombok.RequiredArgsConstructor;
  * @since 1.0
  */
 @Component
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class AppletFactory implements Factory<Applet> {
 
-    @NonNull
+    @Autowired
     private final Configuration configuration;
 
     @Autowired
