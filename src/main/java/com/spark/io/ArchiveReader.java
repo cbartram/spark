@@ -1,11 +1,5 @@
 package com.spark.io;
 
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.tree.ClassNode;
-
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -19,6 +13,15 @@ import java.util.jar.JarInputStream;
 import java.util.jar.JarOutputStream;
 import java.util.jar.Pack200;
 import java.util.zip.GZIPInputStream;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.tree.ClassNode;
+
+import lombok.AllArgsConstructor;
+import lombok.NonNull;
 
 /**
  * ArchiveReader
@@ -28,172 +31,165 @@ import java.util.zip.GZIPInputStream;
  * @author Christian Bartram
  * @since 1.0
  */
+@AllArgsConstructor
 public class ArchiveReader implements AutoCloseable {
-    public static final ArchiveReader NIL = new ArchiveReader();
     private static int[] p;
     private static char[] m;
 
-    static {
-        label0:
-        {
-            p = new int[128];
-            int i1 = 0;
-            while (~i1 > ~p.length) {
-                p[i1] = -1;
-                i1++;
-            }
-            break label0;
-
-        }
-        label1:
-        {
-            int j1 = 65;
-            while (-91 <= ~j1) {
-                p[j1] = -65 + j1;
-                j1++;
-            }
-            break label1;
-        }
-        label2:
-        {
-            int k1 = 97;
-            while (122 >= k1) {
-                p[k1] = k1 + -71;
-                k1++;
-            }
-            break label2;
-        }
-        label3:
-        {
-            int l1 = 48;
-            while (-58 <= ~l1) {
-                p[l1] = (-48 + l1) - -52;
-                l1++;
-            }
-            break label3;
-        }
-        label4:
-        {
-            p[43] = 62;
-            int ai[] = p;
-            ai[42] = 62;
-            p[47] = 63;
-            int ai1[] = p;
-            ai1[45] = 63;
-            m = new char[64];
-            int i2 = 0;
-            while (26 > i2) {
-                m[i2] = (char) (65 + i2);
-                i2++;
-            }
-            break label4;
-        }
-        label5:
-        {
-            int j2 = 26;
-            while (~j2 > -53) {
-                m[j2] = (char) (-26 + (97 - -j2));
-                j2++;
-            }
-            break label5;
-        }
-        label6:
-        {
-            int k2 = 52;
-            while (k2 < 62) {
-                m[k2] = (char) (-52 + k2 + 48);
-                k2++;
-            }
-            break label6;
-        }
-        m[63] = '/';
-        m[62] = '+';
-    }
-
-    static {
-        label0:
-        {
-            p = new int[128];
-            int i1 = 0;
-            while (~i1 > ~p.length) {
-                p[i1] = -1;
-                i1++;
-            }
-            break label0;
-        }
-        label1:
-        {
-            int j1 = 65;
-            while (-91 <= ~j1) {
-                p[j1] = -65 + j1;
-                j1++;
-            }
-            break label1;
-        }
-        label2:
-        {
-            int k1 = 97;
-            while (122 >= k1) {
-                p[k1] = k1 + -71;
-                k1++;
-            }
-            break label2;
-        }
-        label3:
-        {
-            int l1 = 48;
-            while (-58 <= ~l1) {
-                p[l1] = (-48 + l1) - -52;
-                l1++;
-            }
-            break label3;
-        }
-        label4:
-        {
-            p[43] = 62;
-            int ai[] = p;
-            ai[42] = 62;
-            p[47] = 63;
-            int ai1[] = p;
-            ai1[45] = 63;
-            m = new char[64];
-            int i2 = 0;
-            while (26 > i2) {
-                m[i2] = (char) (65 + i2);
-                i2++;
-            }
-            break label4;
-        }
-        label5:
-        {
-            int j2 = 26;
-            while (~j2 > -53) {
-                m[j2] = (char) (-26 + (97 - -j2));
-                j2++;
-            }
-            break label5;
-        }
-        label6:
-        {
-            int k2 = 52;
-            while (k2 < 62) {
-                m[k2] = (char) (-52 + k2 + 48);
-                k2++;
-            }
-            break label6;
-        }
-        m[63] = '/';
-        m[62] = '+';
-    }
-
+    @NonNull
     private final InputStream stream;
 
-    private ArchiveReader() {
-        this(null);
+    static {
+        label0:
+        {
+            p = new int[128];
+            int i1 = 0;
+            while (~i1 > ~p.length) {
+                p[i1] = -1;
+                i1++;
+            }
+            break label0;
+
+        }
+        label1:
+        {
+            int j1 = 65;
+            while (-91 <= ~j1) {
+                p[j1] = -65 + j1;
+                j1++;
+            }
+            break label1;
+        }
+        label2:
+        {
+            int k1 = 97;
+            while (122 >= k1) {
+                p[k1] = k1 + -71;
+                k1++;
+            }
+            break label2;
+        }
+        label3:
+        {
+            int l1 = 48;
+            while (-58 <= ~l1) {
+                p[l1] = (-48 + l1) - -52;
+                l1++;
+            }
+            break label3;
+        }
+        label4:
+        {
+            p[43] = 62;
+            int ai[] = p;
+            ai[42] = 62;
+            p[47] = 63;
+            int ai1[] = p;
+            ai1[45] = 63;
+            m = new char[64];
+            int i2 = 0;
+            while (26 > i2) {
+                m[i2] = (char) (65 + i2);
+                i2++;
+            }
+            break label4;
+        }
+        label5:
+        {
+            int j2 = 26;
+            while (~j2 > -53) {
+                m[j2] = (char) (-26 + (97 - -j2));
+                j2++;
+            }
+            break label5;
+        }
+        label6:
+        {
+            int k2 = 52;
+            while (k2 < 62) {
+                m[k2] = (char) (-52 + k2 + 48);
+                k2++;
+            }
+            break label6;
+        }
+        m[63] = '/';
+        m[62] = '+';
     }
 
-    public ArchiveReader(InputStream stream) {
-        this.stream = stream;
+    static {
+        label0:
+        {
+            p = new int[128];
+            int i1 = 0;
+            while (~i1 > ~p.length) {
+                p[i1] = -1;
+                i1++;
+            }
+            break label0;
+        }
+        label1:
+        {
+            int j1 = 65;
+            while (-91 <= ~j1) {
+                p[j1] = -65 + j1;
+                j1++;
+            }
+            break label1;
+        }
+        label2:
+        {
+            int k1 = 97;
+            while (122 >= k1) {
+                p[k1] = k1 + -71;
+                k1++;
+            }
+            break label2;
+        }
+        label3:
+        {
+            int l1 = 48;
+            while (-58 <= ~l1) {
+                p[l1] = (-48 + l1) - -52;
+                l1++;
+            }
+            break label3;
+        }
+        label4:
+        {
+            p[43] = 62;
+            int ai[] = p;
+            ai[42] = 62;
+            p[47] = 63;
+            int ai1[] = p;
+            ai1[45] = 63;
+            m = new char[64];
+            int i2 = 0;
+            while (26 > i2) {
+                m[i2] = (char) (65 + i2);
+                i2++;
+            }
+            break label4;
+        }
+        label5:
+        {
+            int j2 = 26;
+            while (~j2 > -53) {
+                m[j2] = (char) (-26 + (97 - -j2));
+                j2++;
+            }
+            break label5;
+        }
+        label6:
+        {
+            int k2 = 52;
+            while (k2 < 62) {
+                m[k2] = (char) (-52 + k2 + 48);
+                k2++;
+            }
+            break label6;
+        }
+        m[63] = '/';
+        m[62] = '+';
     }
 
     private static byte[] decrypt(String name) throws Exception {
@@ -400,7 +396,8 @@ public class ArchiveReader implements AutoCloseable {
 
     /**
      * Reads an input string and returns a string[] of UTF-8 characters
-     * from the stream.
+     * from the stream. This is necessary to read the Key value configuration
+     * as a String.
      * @return String[]
      * @throws IOException
      */
@@ -449,24 +446,12 @@ public class ArchiveReader implements AutoCloseable {
      * @throws Exception
      */
     public ClassNode[] readNodes(String key, String ivpc) throws Exception {
-        return readNodes(ClassReader.SKIP_DEBUG, key, ivpc);
-    }
-
-    /**
-     * Wrapper for reading the class Nodes for the JAR file
-     * @param flags
-     * @param key
-     * @param ivpc
-     * @return ClassNode[]
-     * @throws Exception
-     */
-    ClassNode[] readNodes(int flags, String key, String ivpc) throws Exception {
         if (stream == null)
             return new ClassNode[0];
         JarInputStream jis = new JarInputStream(stream);
         List<ClassNode> nodes = new ArrayList<>();
-        read(nodes, jis, flags, key, ivpc);
-        return nodes.toArray(new ClassNode[nodes.size()]);
+        read(nodes, jis, ClassReader.SKIP_DEBUG, key, ivpc);
+        return nodes.toArray(new ClassNode[0]);
     }
 
     /**

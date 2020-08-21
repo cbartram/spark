@@ -46,10 +46,8 @@ public class Application {
 	public void postConstruct() throws Exception {
 		//Create the applet and load the classes from it
 		//Read configuration from URL Configuration, JFrame and Load the game
-		Configuration configuration = configurationService.readConfiguration();
-
-		AppletFactory launcher = new AppletFactory(new InjectionAppletLoader(new ClassInjector()), configuration);
-
+		final Configuration configuration = configurationService.readConfiguration();
+		final AppletFactory launcher = new AppletFactory(new InjectionAppletLoader(new ClassInjector()), configuration);
 
 		JFrame frame = new JFrame(configuration.get(Configuration.WINDOW_TITLE));
 		frame.setContentPane(launcher.create());

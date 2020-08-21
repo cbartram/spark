@@ -60,7 +60,7 @@ public class ArchiveReaderFactory implements Factory<ArchiveReader> {
             return new ArchiveReader(connection.getInputStream());
         } catch (IOException e) {
             log.error("IOException thrown while opening URL connection to retrieve GamePack Jar: {}.", url.getHost() + ":" + url.getPort() + url.getPath(), e);
-            return ArchiveReader.NIL;
+            return null;
         }
     }
 }

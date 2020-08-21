@@ -31,7 +31,7 @@ public class InjectionAppletLoader implements AppletLoader {
     private Injector injector;
 
     /**
-     * Loads the Classes from Runescape and Passes them to the Application Class as ClassNode[] objects
+     * Loads the Classes from RuneScape and Passes them to the Application Class as ClassNode[] objects
      * @param configuration
      * @return
      * @throws Exception
@@ -46,16 +46,14 @@ public class InjectionAppletLoader implements AppletLoader {
         if (gamepack == null)
             throw new IllegalArgumentException("No GamePack specified in configuration.");
 
-        // Builds a url to retrieve the gamepack from the configuration (gamepack_6388569.jar) for a given world.
+        // Builds a url to retrieve the game pack from the configuration (gamepack_6388569.jar) for a given world.
+        // The key here which makes this different from configuration ArchiveReader is that we are reading the game pack.
+        // with #getGamepack() and not a string of key value pairs.
         ArchiveReader reader = ArchiveReaderFactory.builder()
             .url(new URL(String.format(configuration.getType().getGamepack(), configuration.getWorld(), gamepack)))
             .build()
             .property("User-Agent", UserAgent.getSystemUserAgent())
             .create();
-//        ArchiveReader reader = Archive.reader(String.format(configuration.getType().getGamepack(), configuration.getWorld(), gamepack))
-//            .timeout(ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT, ArchiveStreamBuilder.DEFAULT_CONNECT_TIMEOUT)
-//            .property("User-Agent", UserAgent.getSystemUserAgent())
-//            .open();
 
         ClassNode[] nodes = reader.readNodes(configuration.get("0"), configuration.get("-1"));
         Injector injector = getInjector();
