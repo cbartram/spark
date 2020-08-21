@@ -16,9 +16,6 @@ import lombok.NonNull;
 @AllArgsConstructor
 public class AppletLauncher {
 
-    @NonNull
-    private final ConfigurationReader reader;
-
     @Getter
     @NonNull
     private final AppletLoader loader;
@@ -26,17 +23,6 @@ public class AppletLauncher {
     @Getter
     @NonNull
     private final AppletCreator creator;
-
-    /**
-     * Given the GameType and world number this sets up the configuration for the Applet
-     * @param type GameType
-     * @param world int World number
-     * @return Configuration object
-     * @throws Exception
-     */
-    public Configuration configure(final @NonNull GameType type, final int world) throws Exception {
-        return reader.configure(type, world);
-    }
 
     /**
      * Launches the applet by both creating and loading it with configuration. This is directly

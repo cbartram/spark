@@ -3,14 +3,15 @@ package com.spark;
 import javax.annotation.PostConstruct;
 import javax.swing.*;
 
-import com.spark.io.ArchiveConfigurationReader;
+import com.spark.io.ConfigurationService;
 import com.spark.util.AppletLauncher;
 import com.spark.util.ClassInjector;
 import com.spark.util.Configuration;
-import com.spark.util.GameType;
 import com.spark.util.InjectionAppletLoader;
 import com.spark.util.StandardAppletCreator;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
@@ -24,6 +25,15 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @SpringBootApplication
 public class Application {
 
+	@Value("${gametype.type}")
+	private String gameType;
+
+	@Value("${gametype.world}")
+	private int world;
+
+	@Autowired
+	private ConfigurationService configurationService;
+
 	public static void main(String[] args) {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(Application.class);
 		builder.headless(false);
@@ -36,15 +46,14 @@ public class Application {
 	@PostConstruct
 	public void postConstruct() throws Exception {
 		//Create the applet and load the classes from it
-
 		AppletLauncher launcher = new AppletLauncher(
-				new ArchiveConfigurationReader(),
 				new InjectionAppletLoader(new ClassInjector()),
 				new StandardAppletCreator()
 		);
 
-		//Create Configuration, JFrame and Load the game
-		Configuration configuration = launcher.configure(GameType.OLDSCHOOL, 2);
+		//Read configuration from URL Configuration, JFrame and Load the game
+		Configuration configuration = configurationService.readConfiguration();
+
 		JFrame frame = new JFrame(configuration.get(Configuration.WINDOW_TITLE));
 		frame.setContentPane(launcher.launch(configuration));
 		frame.pack();

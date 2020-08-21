@@ -11,6 +11,7 @@ import lombok.Getter;
  */
 @AllArgsConstructor
 public enum GameType {
+    // %d is an integer representing the game world the %s represents the gamepath which will be a string like: gamepack_6388569.jar
     OLDSCHOOL("http://oldschool%d.runescape.com/jav_config.ws", "http://oldschool%d.runescape.com/%s"),
     RS3("http://world%d.runescape.com/jav_config.ws", "http://world%d.runescape.com/%s");
 
