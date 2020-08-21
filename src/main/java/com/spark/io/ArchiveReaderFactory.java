@@ -7,6 +7,8 @@ import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.spark.Factory;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Builder
-public class ArchiveReaderFactory {
+public class ArchiveReaderFactory implements Factory<ArchiveReader> {
     public static final int DEFAULT_CONNECT_TIMEOUT = 10000;
 
     private final URL url;
@@ -48,6 +50,7 @@ public class ArchiveReaderFactory {
      */
     public ArchiveReader create() {
         try {
+            log.debug("Opening URL connection to: {} to retrieve JAR archive.", url.getHost() + url.getPath());
             URLConnection connection = url.openConnection();
             connection.setConnectTimeout(connectTimeout);
             connection.setReadTimeout(readTimeout);
