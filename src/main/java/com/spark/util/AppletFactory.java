@@ -42,7 +42,6 @@ public class AppletFactory implements Factory<Applet> {
         Applet applet = c.newInstance();
         gameStub.setApplet(applet);
         applet.setStub(gameStub);
-//        applet.setStub(new GameStub(applet, configuration));
         applet.setMaximumSize(new Dimension(Integer.parseInt(configuration.get(Configuration.APPLET_MAXIMUM_WIDTH)), Integer.parseInt(configuration.get(Configuration.APPLET_MAXIMUM_HEIGHT))));
         applet.setMinimumSize(new Dimension(Integer.parseInt(configuration.get(Configuration.APPLET_MINIMUM_WIDTH)), Integer.parseInt(configuration.get(Configuration.APPLET_MINIMUM_HEIGHT))));
         applet.setSize(applet.getMinimumSize());

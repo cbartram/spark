@@ -1,5 +1,6 @@
 package com.spark;
 
+import java.awt.*;
 import javax.annotation.PostConstruct;
 import javax.swing.*;
 
@@ -40,6 +41,7 @@ public class Application {
 		frame.setContentPane(launcher.create());
 		frame.pack();
 		frame.setLocationRelativeTo(null);
+		frame.setMinimumSize(new Dimension(100, 100));
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
