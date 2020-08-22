@@ -1,4 +1,4 @@
-package com.spark.net;
+package com.spark.http;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

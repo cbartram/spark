@@ -1,4 +1,4 @@
-package com.spark.util;
+package com.spark.asm;
 
 import java.applet.Applet;
 import java.net.MalformedURLException;
@@ -6,8 +6,8 @@ import java.net.URL;
 
 import com.spark.io.ArchiveReader;
 import com.spark.io.ArchiveReaderFactory;
-import com.spark.lang.RunescapeClassLoader;
-import com.spark.net.UserAgent;
+import com.spark.http.UserAgent;
+import com.spark.configuration.Configuration;
 
 import org.objectweb.asm.tree.ClassNode;
 import org.springframework.beans.factory.annotation.Autowired;

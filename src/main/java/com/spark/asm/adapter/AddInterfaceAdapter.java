@@ -1,4 +1,4 @@
-package com.spark.adapter;
+package com.spark.asm.adapter;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.Opcodes;

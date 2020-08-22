@@ -1,4 +1,4 @@
-package com.spark.net;
+package com.spark.http;
 
 /**
  * Browser interface to be implemented by all browser classes.

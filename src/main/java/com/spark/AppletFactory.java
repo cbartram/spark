@@ -1,10 +1,11 @@
-package com.spark.util;
+package com.spark;
 
 import java.applet.Applet;
 import java.awt.*;
 
-import com.spark.Factory;
 import com.spark.applet.GameStub;
+import com.spark.asm.InjectionAppletLoader;
+import com.spark.configuration.Configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

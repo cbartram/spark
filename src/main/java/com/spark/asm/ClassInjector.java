@@ -1,4 +1,4 @@
-package com.spark.util;
+package com.spark.asm;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
-
-import com.spark.printer.ClassPrinter;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;

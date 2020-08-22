@@ -1,4 +1,4 @@
-package com.spark.lang;
+package com.spark.asm;
 
 import java.security.AllPermission;
 import java.security.CodeSource;

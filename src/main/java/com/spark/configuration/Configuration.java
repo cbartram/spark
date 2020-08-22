@@ -1,4 +1,4 @@
-package com.spark.util;
+package com.spark.configuration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -7,7 +7,8 @@ import java.util.Map;
 
 import com.spark.io.ArchiveReader;
 import com.spark.io.ArchiveReaderFactory;
-import com.spark.net.UserAgent;
+import com.spark.http.UserAgent;
+import com.spark.GameType;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

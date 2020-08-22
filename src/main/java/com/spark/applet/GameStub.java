@@ -7,7 +7,7 @@ import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.spark.util.Configuration;
+import com.spark.configuration.Configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
