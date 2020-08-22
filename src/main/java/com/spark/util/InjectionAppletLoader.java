@@ -25,7 +25,6 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @AllArgsConstructor
 public class InjectionAppletLoader implements AppletLoader {
-    private final Injector injector = new ClassInjector();
 
     /**
      * Loads the Classes from RuneScape and Passes them to the Application Class as ClassNode[] objects
@@ -53,9 +52,10 @@ public class InjectionAppletLoader implements AppletLoader {
             .property("User-Agent", UserAgent.getSystemUserAgent())
             .create();
 
+
         // Classes are parsed from JAR archive and injected with accessor & mutator methods.
         ClassNode[] nodes = reader.readNodes(configuration.get("0"), configuration.get("-1"));
-        injector.modify(nodes);
+        new ClassInjector().modify(nodes);
 
         ClassLoader loader = new ClassCreator(nodes);
         Class<?> c = loader.loadClass(initialClassName.replace(".class", ""));
