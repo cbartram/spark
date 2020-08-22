@@ -26,7 +26,10 @@ public class AppletFactory implements Factory<Applet> {
     private final Configuration configuration;
 
     @Autowired
-    private final AppletLoader loader;
+    private final InjectionAppletLoader loader;
+
+    @Autowired
+    private final GameStub gameStub;
 
     /**
      * Launches the applet by both creating and loading it with configuration. This is directly
@@ -35,9 +38,15 @@ public class AppletFactory implements Factory<Applet> {
      * @throws Exception IllegalAccessException Exception thrown if a new instance of the applet class cannot be instantiated.
      */
     public Applet create() throws Exception {
-        Class<? extends Applet> c = loader.load(configuration);
+        Class<? extends Applet> c = loader.load();
         Applet applet = c.newInstance();
-        applet.setStub(new GameStub(applet, configuration));
+        gameStub.setApplet(applet);
+        applet.setStub(gameStub);
+//        applet.setStub(new GameStub(applet, configuration));
+        applet.setMaximumSize(new Dimension(Integer.parseInt(configuration.get(Configuration.APPLET_MAXIMUM_WIDTH)), Integer.parseInt(configuration.get(Configuration.APPLET_MAXIMUM_HEIGHT))));
+        applet.setMinimumSize(new Dimension(Integer.parseInt(configuration.get(Configuration.APPLET_MINIMUM_WIDTH)), Integer.parseInt(configuration.get(Configuration.APPLET_MINIMUM_HEIGHT))));
+        applet.setSize(applet.getMinimumSize());
+        applet.setPreferredSize(applet.getSize());
         applet.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         applet.setBackground(Color.BLACK);
         applet.init();

@@ -4,11 +4,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 
-import com.spark.lang.RunescapeClassLoader;
 import com.spark.printer.ClassPrinter;
 
 import org.objectweb.asm.ClassReader;
@@ -40,7 +38,7 @@ public class ClassInjector implements Injector {
 	}
 
 	@Override
-	public void modify(ClassNode[] nodes) throws IOException {
+	public void modify(ClassNode[] nodes) {
 		ClassPrinter cp = new ClassPrinter();
 
 		for (ClassNode node : nodes) {
@@ -72,36 +70,6 @@ public class ClassInjector implements Injector {
 				}
 			}
 		}
-
-//		try {
-//			Class<?> clazz = new RunescapeClassLoader(classTree).findClass("e");
-//			Object t = clazz.newInstance();
-//			Method method = clazz.getMethod("getB");
-//			method.setAccessible(true);
-//			Object o = method.invoke(t);
-//			System.out.println(o.toString());
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//		}
-
-
-
-		for(ClassNode node : nodes) {
-			try {
-				Class<?> clazz = new RunescapeClassLoader(classTree).findClass(node.name);
-
-//				System.out.println("[INFO] Class Name: " + node.name);
-//				System.out.println("--------------------------------------------");
-				for( Method m : clazz.getMethods()) {
-//					System.out.println(m.getName());
-				}
-
-//							 Method method = clazz.getMethod("getMJ");
-//							 method.invoke(null, null);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
 	}
 
 	/**
@@ -112,7 +80,7 @@ public class ClassInjector implements Injector {
 	 */
 	private static void toFile(byte[] bytes, String className) {
 		try {
-			OutputStream os = new FileOutputStream(new File("/Users/christianbartram/IdeaProjects/spark/" + className + ".class"));
+			OutputStream os = new FileOutputStream(new File("/Users/christianbartram/IdeaProjects/spark/classes/" + className + ".class"));
 			os.write(bytes);
 			os.close();
 		} catch(IOException e) {
@@ -123,12 +91,12 @@ public class ClassInjector implements Injector {
 	/**
 	 * Converts a ClassNode to a ByteArray for use in loading the class
 	 *
-	 * @param cnode ClassNode Object
+	 * @param classNode ClassNode Object
 	 * @return Byte[]
 	 */
-	private static byte[] toByteArray(ClassNode cnode) {
+	private static byte[] toByteArray(ClassNode classNode) {
 		ClassWriter cw = new ClassWriter(0);
-		cnode.accept(cw);
+		classNode.accept(cw);
 		return cw.toByteArray();
 	}
 

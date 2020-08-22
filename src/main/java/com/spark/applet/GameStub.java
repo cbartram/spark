@@ -1,15 +1,20 @@
 package com.spark.applet;
 
-import com.spark.util.Configuration;
-
 import java.applet.Applet;
 import java.applet.AppletContext;
+import java.applet.AppletStub;
 import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.spark.util.Configuration;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import lombok.Getter;
-import lombok.NonNull;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * GameStub
@@ -17,24 +22,26 @@ import lombok.NonNull;
  * @author Christian Bartram
  * @since 1.0
  */
-public class GameStub extends ActiveAppletStub {
-    private final Configuration configuration;
+@Slf4j
+@Component
+public class GameStub implements AppletStub {
+
+    @Autowired
+    private Configuration configuration;
 
     @Getter
-    private final AppletContext appletContext;
+    private AppletContext appletContext;
 
-    public GameStub(Applet applet, Configuration configuration) {
-        this(applet, null, configuration);
-    }
+    @Getter
+    @Setter
+    private boolean active;
 
-    public GameStub(final Applet applet, final AppletContext context, final @NonNull Configuration configuration) {
-        super(applet);
-        this.appletContext = context;
-        this.configuration = configuration;
-        applet.setMaximumSize(new Dimension(Integer.parseInt(getParameter(Configuration.APPLET_MAXIMUM_WIDTH)), Integer.parseInt(getParameter(Configuration.APPLET_MAXIMUM_HEIGHT))));
-        applet.setMinimumSize(new Dimension(Integer.parseInt(getParameter(Configuration.APPLET_MINIMUM_WIDTH)), Integer.parseInt(getParameter(Configuration.APPLET_MINIMUM_HEIGHT))));
-        applet.setSize(applet.getMinimumSize());
-        applet.setPreferredSize(applet.getSize());
+    @Setter
+    private Applet applet;
+
+    @Override
+    public void appletResize(final int width, final int height) {
+        applet.setSize(new Dimension(width, height));
     }
 
     @Override
