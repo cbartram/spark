@@ -1,9 +1,9 @@
-package com.spark;
+package com.spark.applet;
 
 import java.applet.Applet;
 import java.awt.*;
 
-import com.spark.applet.GameStub;
+import com.spark.Factory;
 import com.spark.asm.InjectionAppletLoader;
 import com.spark.configuration.Configuration;
 

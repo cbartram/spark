@@ -5,10 +5,9 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.spark.io.ArchiveReader;
-import com.spark.io.ArchiveReaderFactory;
+import com.spark.jar.ArchiveReader;
+import com.spark.jar.ArchiveReaderFactory;
 import com.spark.http.UserAgent;
-import com.spark.GameType;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

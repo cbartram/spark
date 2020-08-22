@@ -1,4 +1,4 @@
-package com.spark.io;
+package com.spark.jar;
 
 import java.io.IOException;
 import java.net.Proxy;

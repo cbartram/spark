@@ -1,4 +1,4 @@
-package com.spark;
+package com.spark.configuration;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,10 +1,10 @@
-package com.spark.io;
+package com.spark.jar;
+
+import java.io.IOException;
 
 import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.util.Printer;
-
-import java.io.IOException;
 
 /**
  * InstructionReader
