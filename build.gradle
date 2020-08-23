@@ -16,13 +16,6 @@ repositories {
     }
 }
 
-configurations {
-    all {
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
-        exclude group: 'ch.qos.logback', module: 'logback-classic'
-        exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
-    }
-}
 
 dependencies {
     compile 'org.ow2.asm:asm:5.0.4', 'org.ow2.asm:asm-tree:5.0.4', 'org.ow2.asm:asm-util:5.0.4'
