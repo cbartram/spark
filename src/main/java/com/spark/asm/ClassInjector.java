@@ -12,6 +12,8 @@ import com.spark.asm.transformer.ClientClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,8 +27,13 @@ import lombok.extern.slf4j.Slf4j;
  * @author Christian Bartram
  */
 @Slf4j
+@Component
 @NoArgsConstructor
 public class ClassInjector implements Injector {
+
+	@Value("${output.classfiles.write}")
+	private boolean writeClassFilesToDisk;
+
 	HashMap<String, ClassNode> classTree = new HashMap<>();
 
 	public ClassNode readClassFromBytes(byte[] bytes) {
@@ -56,7 +63,12 @@ public class ClassInjector implements Injector {
 				newReader.accept(cp, 0);
 			}
 
-			toFile(toByteArray(node), node.name);
+			if(writeClassFilesToDisk)  {
+				log.info("Writing {} class files from JAR archive to disk....", nodes.length);
+				toFile(toByteArray(node), node.name);
+			} else {
+				log.info("Skipping writing class files to disk.");
+			}
 		}
 	}
 
@@ -68,7 +80,7 @@ public class ClassInjector implements Injector {
 	 */
 	private static void toFile(byte[] bytes, String className) {
 		try {
-			if(className.contains("/")) className = className.substring(className.lastIndexOf('/') + 1, className.length());
+			if(className.contains("/")) className = className.substring(className.lastIndexOf('/') + 1);
 			OutputStream os = new FileOutputStream(new File("/Users/christianbartram/IdeaProjects/spark/classes/" + className + ".class"));
 			os.write(bytes);
 			os.close();

@@ -31,6 +31,9 @@ public class InjectionAppletLoader {
     @Autowired
     private Configuration configuration;
 
+    @Autowired
+    private ClassInjector classInjector;
+
     @Value("${jar.obfuscated.path}")
     private String obfuscatedJarPath;
 
@@ -51,7 +54,7 @@ public class InjectionAppletLoader {
         ClassNode[] nodes = readArchive();
 
         // This is where the bytecode is actually injected.
-        new ClassInjector().modify(nodes);
+        classInjector.modify(nodes);
         return nodes;
     }
 
