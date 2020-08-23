@@ -68,6 +68,7 @@ public class ClassInjector implements Injector {
 	 */
 	private static void toFile(byte[] bytes, String className) {
 		try {
+			if(className.contains("/")) className = className.substring(className.lastIndexOf('/') + 1, className.length());
 			OutputStream os = new FileOutputStream(new File("/Users/christianbartram/IdeaProjects/spark/classes/" + className + ".class"));
 			os.write(bytes);
 			os.close();

@@ -58,7 +58,7 @@ public class ArchiveReaderFactory implements Factory<ArchiveReader> {
      */
     public ArchiveReader create() {
         try {
-            log.debug("Opening URL connection to: {} to retrieve JAR archive.", url.getHost() + url.getPath());
+            log.info("Opening URL connection to: {} to retrieve JAR archive.", url.getHost() + url.getPath());
             URLConnection connection = url.openConnection();
             connection.setConnectTimeout(connectTimeout);
             connection.setReadTimeout(readTimeout);

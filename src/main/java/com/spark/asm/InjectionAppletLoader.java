@@ -59,8 +59,6 @@ public class InjectionAppletLoader {
     public Class<? extends Applet> load() {
         ClassNode[] injectedGameClient = inject();
         ClassLoader loader = new RunescapeClassLoader(injectedGameClient);
-
-        log.info("Configuration: {}", configuration.getParameters());
         final String className = configuration.get(Configuration.INITIAL_CLASS).replace(".class", "");
         try {
             Class<?> c = loader.loadClass(className);
