@@ -11,6 +11,7 @@ import com.spark.configuration.Configuration;
 
 import org.objectweb.asm.tree.ClassNode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
@@ -31,6 +32,15 @@ public class InjectionAppletLoader {
 
     @Autowired
     private final Configuration configuration;
+
+    @Value("${jar.obfuscated.path}")
+    private String obfuscatedJarPath;
+
+    @Value("${jar.deobfuscated.path}")
+    private String deobfuscatedJarPath;
+
+    @Value("${jar.obfuscated.save}")
+    private boolean saveObfuscatedJar;
 
     /**
      * Reads the JAR archive and retrieves all the class files contained in the JAR and
@@ -79,6 +89,9 @@ public class InjectionAppletLoader {
                     configuration.getWorld(),
                     configuration.get(Configuration.INITIAL_JAR)
                 )))
+                .deobfuscatedPath(deobfuscatedJarPath)
+                .obfuscatedPath(obfuscatedJarPath)
+                .saveObfuscatedJar(saveObfuscatedJar)
                 .build()
                 .property("User-Agent", UserAgent.getSystemUserAgent())
                 .create();

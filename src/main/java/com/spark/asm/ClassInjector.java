@@ -57,8 +57,6 @@ public class ClassInjector implements Injector {
 			}
 
 			toFile(toByteArray(node), node.name);
-
-
 		}
 	}
 

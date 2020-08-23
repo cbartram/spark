@@ -34,6 +34,9 @@ public class ArchiveReaderFactory implements Factory<ArchiveReader> {
     private final int connectTimeout = DEFAULT_CONNECT_TIMEOUT;
     private final int readTimeout = DEFAULT_CONNECT_TIMEOUT;
     private final boolean cache;
+    private final boolean saveObfuscatedJar;
+    private final String obfuscatedPath;
+    private final String deobfuscatedPath;
 
     @Getter
     private final Proxy proxy;
@@ -57,7 +60,7 @@ public class ArchiveReaderFactory implements Factory<ArchiveReader> {
             connection.setUseCaches(cache);
             for (Map.Entry<String, String> entry : requestProperties.entrySet())
                 connection.setRequestProperty(entry.getKey(), entry.getValue());
-            return new ArchiveReader(connection.getInputStream());
+            return new ArchiveReader(connection.getInputStream(), obfuscatedPath, deobfuscatedPath, saveObfuscatedJar);
         } catch (IOException e) {
             log.error("IOException thrown while opening URL connection to retrieve GamePack Jar: {}.", url.getHost() + ":" + url.getPort() + url.getPath(), e);
             return null;

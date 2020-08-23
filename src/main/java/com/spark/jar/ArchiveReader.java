@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 import java.util.jar.JarOutputStream;
@@ -17,11 +19,15 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import com.spark.util.JarUtils;
+import com.spark.util.StringUtils;
+
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.tree.ClassNode;
 
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -34,12 +40,16 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class ArchiveReader implements AutoCloseable {
     private static int[] p;
     private static char[] m;
 
     @NonNull
     private final InputStream stream;
+    private String obfuscatedJarPath;
+    private String deobfuscatedJarPath;
+    private boolean saveObfuscatedJar;
 
     @Override
     public void close() throws IOException {
@@ -47,7 +57,6 @@ public class ArchiveReader implements AutoCloseable {
             return;
         stream.close();
     }
-
 
     /**
      * Reads an input string and returns a string[] of UTF-8 characters
@@ -94,7 +103,8 @@ public class ArchiveReader implements AutoCloseable {
     }
 
     /**
-     * Wrapper for reading the class Nodes from the JAR file
+     * Wrapper for reading the class Nodes from the JAR file. This will read the JAR from an input
+     * stream opened via a URL connection.
      * @param key
      * @param ivpc
      * @return ClassNode[]
@@ -106,7 +116,24 @@ public class ArchiveReader implements AutoCloseable {
         JarInputStream jis = new JarInputStream(stream);
         List<ClassNode> nodes = new ArrayList<>();
         read(nodes, jis, ClassReader.SKIP_DEBUG, key, ivpc);
+
+        Map<String, ClassNode> map = new HashMap<>();
+        for(ClassNode node : nodes) {
+            map.put(node.name, node);
+        }
+
+        if(saveObfuscatedJar) JarUtils.save(map, obfuscatedJarPath.replace("{id}", StringUtils.uniqueId()));
         return nodes.toArray(new ClassNode[0]);
+    }
+
+
+    /**
+     * This method will read a JAR file from a local filesystem.
+     * @param jarFilePath String path to read jar file from
+     * @return
+     */
+    public ClassNode[] readNodes(final String jarFilePath) {
+        return JarUtils.read(jarFilePath);
     }
 
     /**
@@ -118,7 +145,7 @@ public class ArchiveReader implements AutoCloseable {
      * @param ivpc
      * @throws Exception
      */
-    private void read(List<ClassNode> nodes, JarInputStream jis, int flags, String key, String ivpc) throws Exception {
+    public void read(List<ClassNode> nodes, JarInputStream jis, int flags, String key, String ivpc) throws Exception {
         JarEntry entry;
         while ((entry = jis.getNextJarEntry()) != null) {
             if ("inner.pack.gz".equals(entry.getName())) {
