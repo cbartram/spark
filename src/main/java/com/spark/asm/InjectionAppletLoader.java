@@ -60,6 +60,7 @@ public class InjectionAppletLoader {
         ClassNode[] injectedGameClient = inject();
         ClassLoader loader = new RunescapeClassLoader(injectedGameClient);
 
+        log.info("Configuration: {}", configuration.getParameters());
         final String className = configuration.get(Configuration.INITIAL_CLASS).replace(".class", "");
         try {
             Class<?> c = loader.loadClass(className);
@@ -92,7 +93,7 @@ public class InjectionAppletLoader {
                 .saveObfuscatedJar(saveObfuscatedJar)
                 .build()
                 .property("User-Agent", UserAgent.getSystemUserAgent())
-                .create();
+                .createArchiveReader();
 
             return reader.readNodes(configuration.get("0"), configuration.get("-1"));
         } catch(MalformedURLException e) {

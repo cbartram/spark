@@ -1,11 +1,15 @@
 package com.spark.jar;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import com.spark.Factory;
 
@@ -48,7 +52,8 @@ public class ArchiveReaderFactory implements Factory<ArchiveReader> {
 
     /**
      * Creates a new instance of the ArchiveReader class from a stream of input bytes. The ArchiveReader class
-     *  is capable of decoding a JAR file.
+     * is capable of decoding a JAR file BUT is also used to read the key/value text configuration from:
+     * http://oldschool.runescape.com/jav_config.ws
      * @return ArchiveReader reader instance.
      */
     public ArchiveReader create() {
@@ -64,6 +69,25 @@ public class ArchiveReaderFactory implements Factory<ArchiveReader> {
         } catch (IOException e) {
             log.error("IOException thrown while opening URL connection to retrieve GamePack Jar: {}.", url.getHost() + ":" + url.getPort() + url.getPath(), e);
             return null;
+        }
+    }
+
+    public ArchiveReader createArchiveReader() {
+        final String jarPath = "src/main/resources/jar/deobfuscated";
+        try {
+            File deobFolder = new File(jarPath);
+            if (deobFolder.isDirectory() && Objects.requireNonNull(deobFolder.listFiles()).length > 0) {
+                // Grab the first file
+                final File deobJarFile = Objects.requireNonNull(deobFolder.listFiles())[0];
+                log.info("Loading pre-deobfuscated Jar file from: {}/{}", jarPath, deobJarFile.getName());
+                return new ArchiveReader(new FileInputStream(deobJarFile));
+            } else {
+                log.info("No deobfuscated JAR files exist in dir: {}. Retrieving RS GamePack and will attempt to deobfuscate...", jarPath);
+                return create();
+            }
+        } catch(FileNotFoundException e) {
+            log.warn("No file found in deob directory: {} even though directory has more than 1 file. Loading from RS Config...", jarPath, e);
+            return create();
         }
     }
 }

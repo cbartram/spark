@@ -29,6 +29,7 @@ import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.runelite.deob.Deob;
 
 /**
  * ArchiveReader
@@ -122,7 +123,17 @@ public class ArchiveReader implements AutoCloseable {
             map.put(node.name, node);
         }
 
-        if(saveObfuscatedJar) JarUtils.save(map, obfuscatedJarPath.replace("{id}", StringUtils.uniqueId()));
+        // TODO cache this bc it takes 2-3 minutes to deob a client and only needs to happen 1 time
+        // subsequent runs should just directly load the deob jar file
+        if(saveObfuscatedJar) {
+            final String id = StringUtils.uniqueId();
+            final String obfuscatedPath = obfuscatedJarPath.replace("{id}", id);
+            final String deobfuscatedPath = deobfuscatedJarPath.replace("{id}", id);
+            JarUtils.save(map, obfuscatedPath);
+            Deob.deobfuscate(obfuscatedPath, deobfuscatedPath);
+            return readNodes(deobfuscatedPath);
+        }
+
         return nodes.toArray(new ClassNode[0]);
     }
 
