@@ -5,12 +5,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
-import java.util.List;
+
+import com.spark.asm.transformer.AbstractClassTransformer;
+import com.spark.asm.transformer.ClientClassTransformer;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.FieldNode;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @NoArgsConstructor
 public class ClassInjector implements Injector {
-	HashMap<String, ClassNode> classTree = new HashMap<String, ClassNode>();
+	HashMap<String, ClassNode> classTree = new HashMap<>();
 
 	public ClassNode readClassFromBytes(byte[] bytes) {
 		ClassNode classNode = new ClassNode();
@@ -38,35 +39,26 @@ public class ClassInjector implements Injector {
 	@Override
 	public void modify(ClassNode[] nodes) {
 		ClassPrinter cp = new ClassPrinter();
+		AbstractClassTransformer transformer = new ClientClassTransformer();
 
 		for (ClassNode node : nodes) {
-
-			//Create ClassPrinter, reader and print the original class
+			// Create ClassPrinter, reader and print the original class
 			ClassReader cr = new ClassReader(toByteArray(node));
 			ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_FRAMES);
 			classTree.put(node.name, node);
-
-//			ClassReader cr2 = new ClassReader(toByteArray(node));
-//			cr2.accept(cp, ClassWriter.COMPUTE_FRAMES);
-
-			if(node.name.equals("e")) {
-				// Prints the class
+			if(node.name.equals("client")) {
+				log.info("----------- Client Before -------------");
 				cr.accept(cp, 0);
-				for (FieldNode field : (List<FieldNode>) node.fields) {
-					if(field.desc.equalsIgnoreCase("I")) {
-						// Create ClassWriter and a MutateNameAdapter (injects new field into each class)
-						System.out.println("MA Field: " + field.name + " " + field.desc + " " + field.signature);
-//						ClassVisitor injection = new InjectAccessorAdapter(cw, field.name, field.desc, "get" + field.name.toUpperCase(), node.name);
-//						cr.accept(injection, ClassWriter.COMPUTE_FRAMES);
-//						byte[] injectedClass = cw.toByteArray();
-//						//Create new Byte Array for Mutated Class and add it to the hashmap
-//						ClassReader cr2 = new ClassReader(injectedClass);
-//						cr2.accept(cp, ClassWriter.COMPUTE_FRAMES);
-//						classTree.remove(node.name);
-//						classTree.put(node.name, readClassFromBytes(injectedClass));
-					}
-				}
+				log.info("#######################\n######################\n#####################");
+				log.info("----------- Client After -------------");
+				ClassNode modifiedNode = transformer.transform(node);
+				ClassReader newReader = new ClassReader(toByteArray(modifiedNode));
+				newReader.accept(cp, 0);
 			}
+
+			toFile(toByteArray(node), node.name);
+
+
 		}
 	}
 
