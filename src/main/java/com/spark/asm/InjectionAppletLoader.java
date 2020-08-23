@@ -4,17 +4,16 @@ import java.applet.Applet;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.spark.configuration.Configuration;
+import com.spark.http.UserAgent;
 import com.spark.jar.ArchiveReader;
 import com.spark.jar.ArchiveReaderFactory;
-import com.spark.http.UserAgent;
-import com.spark.configuration.Configuration;
 
 import org.objectweb.asm.tree.ClassNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -27,11 +26,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Component
-@AllArgsConstructor
 public class InjectionAppletLoader {
 
     @Autowired
-    private final Configuration configuration;
+    private Configuration configuration;
 
     @Value("${jar.obfuscated.path}")
     private String obfuscatedJarPath;
