@@ -52,7 +52,6 @@ public class InjectionAppletLoader {
      */
     public ClassNode[] inject() {
         ClassNode[] nodes = readArchive();
-
         // This is where the bytecode is actually injected.
         classInjector.modify(nodes);
         return nodes;

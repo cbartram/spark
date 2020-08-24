@@ -6,6 +6,8 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.MethodVisitor;
 
+import lombok.extern.slf4j.Slf4j;
+
 import static org.objectweb.asm.Opcodes.ASM4;
 
 /**
@@ -16,10 +18,34 @@ import static org.objectweb.asm.Opcodes.ASM4;
  *
  * @author Christian Bartram
  */
+@Slf4j
 public class ClassPrinter extends ClassVisitor {
+    private String name;
 
     public ClassPrinter() {
         super(ASM4);
+    }
+
+    @Slf4j
+    static class ClassAnnotationValueScanner extends AnnotationVisitor {
+        private String description;
+        private String className;
+
+        ClassAnnotationValueScanner(final String description, final String className) {
+            super(ASM4);
+            this.description = description;
+            this.className = className;
+        }
+
+        @Override
+        public void visit(String name, Object value) {
+            String annotationName = description.substring(description.lastIndexOf('/') + 1, description.length() - 1);
+            log.info("@{}({}=\"{}\")", annotationName, name, value);
+            if(annotationName.equalsIgnoreCase("ObfuscatedName") && value.toString().equalsIgnoreCase("bd")) {
+                log.info("THE CLASS: {} IS ACTUALLY: Player", className);
+            }
+            super.visit(name, value);
+        }
     }
 
     public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
@@ -29,6 +55,7 @@ public class ClassPrinter extends ClassVisitor {
                 " implements " +
                 String.join(" ,", interfaces);
         System.out.println(builder);
+        this.name = name;
     }
 
     public void visitSource(String source, String debug) {
@@ -40,7 +67,7 @@ public class ClassPrinter extends ClassVisitor {
     }
 
     public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
-        return null;
+        return new ClassAnnotationValueScanner(desc, name);
     }
 
     public void visitAttribute(Attribute attr) {

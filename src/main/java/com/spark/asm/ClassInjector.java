@@ -53,22 +53,12 @@ public class ClassInjector implements Injector {
 			ClassReader cr = new ClassReader(toByteArray(node));
 			ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_FRAMES);
 			classTree.put(node.name, node);
-			if(node.name.equals("client")) {
+//			if(nodde.name.equals("client")) {
 				log.info("----------- Client Before -------------");
 				cr.accept(cp, 0);
-				log.info("#######################\n######################\n#####################");
-				log.info("----------- Client After -------------");
-				ClassNode modifiedNode = transformer.transform(node);
-				ClassReader newReader = new ClassReader(toByteArray(modifiedNode));
-				newReader.accept(cp, 0);
-			}
+//			}
 
-			if(writeClassFilesToDisk)  {
-				log.info("Writing {} class files from JAR archive to disk....", nodes.length);
-				toFile(toByteArray(node), node.name);
-			} else {
-				log.info("Skipping writing class files to disk.");
-			}
+			if(writeClassFilesToDisk) toFile(toByteArray(node), node.name);
 		}
 	}
 
