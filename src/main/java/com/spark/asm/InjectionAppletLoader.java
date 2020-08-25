@@ -4,7 +4,7 @@ import java.applet.Applet;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.spark.configuration.Configuration;
+import com.spark.configuration.RunescapeConfiguration;
 import com.spark.http.UserAgent;
 import com.spark.jar.ArchiveReader;
 import com.spark.jar.ArchiveReaderFactory;
@@ -29,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 public class InjectionAppletLoader {
 
     @Autowired
-    private Configuration configuration;
+    private RunescapeConfiguration configuration;
 
     @Autowired
     private ClassInjector classInjector;
@@ -61,7 +61,7 @@ public class InjectionAppletLoader {
     public Class<? extends Applet> load() {
         ClassNode[] injectedGameClient = inject();
         ClassLoader loader = new RunescapeClassLoader(injectedGameClient);
-        final String className = configuration.get(Configuration.INITIAL_CLASS).replace(".class", "");
+        final String className = configuration.get(RunescapeConfiguration.INITIAL_CLASS).replace(".class", "");
         try {
             Class<?> c = loader.loadClass(className);
             if (!Applet.class.isAssignableFrom(c))
@@ -86,7 +86,7 @@ public class InjectionAppletLoader {
                 .url(new URL(String.format(
                     configuration.getType().getGamepack(),
                     configuration.getWorld(),
-                    configuration.get(Configuration.INITIAL_JAR)
+                    configuration.get(RunescapeConfiguration.INITIAL_JAR)
                 )))
                 .deobfuscatedPath(deobfuscatedJarPath)
                 .obfuscatedPath(obfuscatedJarPath)
@@ -100,13 +100,13 @@ public class InjectionAppletLoader {
             log.error("There was an error forming a URL from the string: {}.", String.format(
                 configuration.getType().getGamepack(),
                 configuration.getWorld(),
-                configuration.get(Configuration.INITIAL_JAR)), e);
+                configuration.get(RunescapeConfiguration.INITIAL_JAR)), e);
             return new ClassNode[] {};
         } catch(Exception e) {
             log.error("There was some exception thrown while attempting to read the RuneScape JAR Archive from URL: {}.", String.format(
                 configuration.getType().getGamepack(),
                 configuration.getWorld(),
-                configuration.get(Configuration.INITIAL_JAR)), e);
+                configuration.get(RunescapeConfiguration.INITIAL_JAR)), e);
             return new ClassNode[] {};
         }
     }

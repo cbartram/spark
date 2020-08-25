@@ -7,7 +7,7 @@ import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.spark.configuration.Configuration;
+import com.spark.configuration.RunescapeConfiguration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 public class GameStub implements AppletStub {
 
     @Autowired
-    private Configuration configuration;
+    private RunescapeConfiguration configuration;
 
     @Getter
     private AppletContext appletContext;
@@ -52,7 +52,7 @@ public class GameStub implements AppletStub {
     @Override
     public URL getCodeBase() {
         try {
-            return new URL(getParameter(Configuration.CODEBASE));
+            return new URL(getParameter(RunescapeConfiguration.CODEBASE));
         } catch (MalformedURLException e) {
             e.printStackTrace();
             return null;

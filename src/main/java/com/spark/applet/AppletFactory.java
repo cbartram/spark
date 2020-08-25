@@ -5,7 +5,7 @@ import java.awt.*;
 
 import com.spark.Factory;
 import com.spark.asm.InjectionAppletLoader;
-import com.spark.configuration.Configuration;
+import com.spark.configuration.RunescapeConfiguration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,7 +24,7 @@ import lombok.AllArgsConstructor;
 public class AppletFactory implements Factory<Applet> {
 
     @Autowired
-    private final Configuration configuration;
+    private final RunescapeConfiguration configuration;
 
     @Autowired
     private final InjectionAppletLoader loader;
@@ -43,8 +43,8 @@ public class AppletFactory implements Factory<Applet> {
         Applet applet = c.newInstance();
         gameStub.setApplet(applet);
         applet.setStub(gameStub);
-        applet.setMaximumSize(new Dimension(Integer.parseInt(configuration.get(Configuration.APPLET_MAXIMUM_WIDTH)), Integer.parseInt(configuration.get(Configuration.APPLET_MAXIMUM_HEIGHT))));
-        applet.setMinimumSize(new Dimension(Integer.parseInt(configuration.get(Configuration.APPLET_MINIMUM_WIDTH)), Integer.parseInt(configuration.get(Configuration.APPLET_MINIMUM_HEIGHT))));
+        applet.setMaximumSize(new Dimension(Integer.parseInt(configuration.get(RunescapeConfiguration.APPLET_MAXIMUM_WIDTH)), Integer.parseInt(configuration.get(RunescapeConfiguration.APPLET_MAXIMUM_HEIGHT))));
+        applet.setMinimumSize(new Dimension(Integer.parseInt(configuration.get(RunescapeConfiguration.APPLET_MINIMUM_WIDTH)), Integer.parseInt(configuration.get(RunescapeConfiguration.APPLET_MINIMUM_HEIGHT))));
         applet.setSize(applet.getMinimumSize());
         applet.setPreferredSize(applet.getSize());
         applet.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));

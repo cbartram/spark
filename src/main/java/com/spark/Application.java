@@ -5,7 +5,7 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 
 import com.spark.applet.AppletFactory;
-import com.spark.configuration.Configuration;
+import com.spark.configuration.RunescapeConfiguration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,7 +21,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 public class Application {
 
 	@Autowired
-	private Configuration configuration;
+	private RunescapeConfiguration configuration;
 
 	@Autowired
 	private AppletFactory launcher;
@@ -37,7 +37,7 @@ public class Application {
 	 */
 	@PostConstruct
 	public void postConstruct() throws Exception {
-		JFrame frame = new JFrame(configuration.get(Configuration.WINDOW_TITLE));
+		JFrame frame = new JFrame(configuration.get(RunescapeConfiguration.WINDOW_TITLE));
 		frame.setContentPane(launcher.create());
 		frame.pack();
 		frame.setLocationRelativeTo(null);

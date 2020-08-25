@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Component
-public class Configuration {
+public class RunescapeConfiguration {
 
     public static final String APPLET_MAXIMUM_HEIGHT = "applet_maxheight";
     public static final String APPLET_MAXIMUM_WIDTH = "applet_maxwidth";
@@ -46,7 +46,7 @@ public class Configuration {
     @Getter
     private final Map<String, String> parameters = new HashMap<>();
 
-    public Configuration(@Value("${gametype.type}") final String gameType, @Value("${gametype.world}") final int world) {
+    public RunescapeConfiguration(@Value("${gametype.type}") final String gameType, @Value("${gametype.world}") final int world) {
         this.type = GameType.valueOf(gameType);
         this.world = world;
 
