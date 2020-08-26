@@ -192,22 +192,36 @@ public class JarArchiveReader extends AbstractReader<ClassNode[]> implements Aut
 
 
     /**
-     * This method will read a JAR file from a local filesystem.
+     * This method will read a JAR file from the local filesystem.
      * @param jarFilePath String path to read jar file from
-     * @return
+     * @return ClassNode array of class nodes which comprise the JAR archive.
      */
     public ClassNode[] readNodes(final String jarFilePath) {
-        return JarUtils.read(jarFilePath);
+        try {
+            JarInputStream jis = new JarInputStream(new FileInputStream(new File(jarFilePath)));
+            List<ClassNode> nodes = new ArrayList<>();
+            read(nodes, jis, ClassReader.SKIP_DEBUG, "null", "null");
+            return nodes.toArray(new ClassNode[0]);
+        } catch(FileNotFoundException e) {
+            log.error("There was an error reading the file: {}. While attempting to load the JAR file. File could not be found.", jarFilePath, e);
+            return new ClassNode[] {};
+        } catch (IOException e) {
+            log.error("IOException thrown while attempting to read JAR file from local filesystem. File = {}", jarFilePath, e);
+            return new ClassNode[] {};
+        } catch(Exception e) {
+            log.error("Generic exception thrown while attempting to read JAR file: {} from local filesystem.", jarFilePath, e);
+            return new ClassNode[] {};
+        }
     }
 
     /**
      * Reads the JAR file into a set of class Nodes recursively
-     * @param nodes
-     * @param jis
-     * @param flags
-     * @param key
-     * @param ivpc
-     * @throws Exception
+     * @param nodes List of class nodes objects
+     * @param jis JarInputStream an input stream to read the JAR file from
+     * @param flags Integer flags
+     * @param key String key
+     * @param ivpc String ivpc
+     * @throws Exception Thrown when an exception occurs.
      */
     public void read(List<ClassNode> nodes, JarInputStream jis, int flags, String key, String ivpc) throws Exception {
         JarEntry entry;

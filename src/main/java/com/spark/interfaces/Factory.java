@@ -1,4 +1,4 @@
-package com.spark;
+package com.spark.interfaces;
 
 /**
  * Interface implemented by all factories which force

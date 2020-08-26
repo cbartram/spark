@@ -1,22 +1,20 @@
 package com.spark.asm;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.HashMap;
-
 import com.spark.asm.transformer.AbstractClassTransformer;
 import com.spark.asm.transformer.ClientClassTransformer;
-
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.HashMap;
 
 /**
  * ClassInjector
@@ -31,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor
 public class ClassInjector implements Injector {
 
-	@Value("${output.classfiles.write}")
+	@Value("${jar.classfiles.save}")
 	private boolean writeClassFilesToDisk;
 
 	HashMap<String, ClassNode> classTree = new HashMap<>();

@@ -1,6 +1,6 @@
 package com.spark.applet;
 
-import com.spark.Factory;
+import com.spark.interfaces.Factory;
 import com.spark.asm.AppletLoader;
 import com.spark.configuration.RunescapeConfiguration;
 import lombok.AllArgsConstructor;
