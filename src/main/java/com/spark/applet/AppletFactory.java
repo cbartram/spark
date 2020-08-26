@@ -1,16 +1,14 @@
 package com.spark.applet;
 
-import java.applet.Applet;
-import java.awt.*;
-
 import com.spark.Factory;
-import com.spark.asm.InjectionAppletLoader;
+import com.spark.asm.AppletLoader;
 import com.spark.configuration.RunescapeConfiguration;
-
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import lombok.AllArgsConstructor;
+import java.applet.Applet;
+import java.awt.*;
 
 /**
  * AppletLauncher
@@ -27,7 +25,7 @@ public class AppletFactory implements Factory<Applet> {
     private final RunescapeConfiguration configuration;
 
     @Autowired
-    private final InjectionAppletLoader loader;
+    private final AppletLoader loader;
 
     @Autowired
     private final GameStub gameStub;
