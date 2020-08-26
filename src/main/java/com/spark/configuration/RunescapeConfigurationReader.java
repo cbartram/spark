@@ -1,10 +1,10 @@
-package com.spark.interfaces;
+package com.spark.configuration;
 
-import com.spark.configuration.GameType;
+import com.spark.interfaces.AbstractReader;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-@Service
+@Component
 @NoArgsConstructor
 public class RunescapeConfigurationReader extends AbstractReader<Map<String, String>> {
 

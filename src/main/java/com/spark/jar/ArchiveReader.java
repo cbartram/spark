@@ -1,11 +1,22 @@
 package com.spark.jar;
 
-import java.io.BufferedReader;
+import com.spark.util.JarUtils;
+import com.spark.util.StringUtils;
+import lombok.AllArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import net.runelite.deob.Deob;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.tree.ClassNode;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,21 +26,6 @@ import java.util.jar.JarInputStream;
 import java.util.jar.JarOutputStream;
 import java.util.jar.Pack200;
 import java.util.zip.GZIPInputStream;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-
-import com.spark.util.JarUtils;
-import com.spark.util.StringUtils;
-
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.tree.ClassNode;
-
-import lombok.AllArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import net.runelite.deob.Deob;
 
 /**
  * ArchiveReader
@@ -58,25 +54,6 @@ public class ArchiveReader implements AutoCloseable {
             return;
         stream.close();
     }
-
-    /**
-     * Reads an input string and returns a string[] of UTF-8 characters
-     * from the stream. This is necessary to read the Key value configuration
-     * as a String.
-     * @return String[]
-     * @throws IOException
-     */
-    public String[] readLines() throws IOException {
-        if (stream == null)
-            return new String[0];
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-        List<String> lines = new ArrayList<>();
-        String line;
-        while ((line = reader.readLine()) != null)
-            lines.add(line);
-        return lines.toArray(new String[lines.size()]);
-    }
-
 
     /**
      * Returns a set of actual Java Classes using reflection. Note: This will NOT return

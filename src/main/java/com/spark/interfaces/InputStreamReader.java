@@ -9,7 +9,7 @@ import java.net.URL;
  * is a JAR file type T may be a ClassNode[], if the data is text T may be a POJO or String[] etc...
  * @param <T>
  */
-interface InputStreamReader<T> {
+public interface InputStreamReader<T> {
   T read();
 
   InputStream open(final URL url);
