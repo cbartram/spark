@@ -49,7 +49,7 @@ public class ClassInjector implements Injector {
 		for (ClassNode node : nodes) {
 //			ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_FRAMES);
 			classTree.put(node.name, node);
-			if(node.name.equals("class340")) {
+			if(node.name.equals("class48")) {
 				transformer.transform(node);
 				ClassReader cr = new ClassReader(toByteArray(node));
 				cr.accept(cp, 0);

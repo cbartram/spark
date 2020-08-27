@@ -5,14 +5,25 @@ import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.core.type.classreading.CachingMetadataReaderFactory;
+import org.springframework.core.type.classreading.MetadataReader;
+import org.springframework.core.type.classreading.MetadataReaderFactory;
+import org.springframework.util.ClassUtils;
+import org.springframework.util.SystemPropertyUtils;
 
+import java.io.IOException;
 import java.security.AllPermission;
 import java.security.CodeSource;
 import java.security.Permissions;
 import java.security.ProtectionDomain;
 import java.security.cert.Certificate;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * ClassCreator
@@ -66,6 +77,38 @@ public class RunescapeClassLoader extends ClassLoader {
         classes.remove(node.name.replace('.', '/'));
     }
 
+    public void findOnClassPath(@NonNull final String name) throws ClassNotFoundException, IOException {
+        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
+        MetadataReaderFactory metadataReaderFactory = new CachingMetadataReaderFactory(resourcePatternResolver);
+
+        Set<Class<?>> candidates = new HashSet<>();
+        String packageSearchPath = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX +
+                ClassUtils.convertClassNameToResourcePath(SystemPropertyUtils.resolvePlaceholders("com.spark")) + "/**/*.class";
+        Resource[] resources = resourcePatternResolver.getResources(packageSearchPath);
+        for (Resource resource : resources) {
+            if (resource.isReadable()) {
+                MetadataReader metadataReader = metadataReaderFactory.getMetadataReader(resource);
+                try {
+                    Class<?> c = Class.forName(metadataReader.getClassMetadata().getClassName());
+                    final String className = c.getName().substring(c.getName().lastIndexOf(".") + 1);
+                    log.debug("Evaluating loaded class: {} against specified criteria: {}", className, name);
+                    if(className.equalsIgnoreCase(name))  {
+                        candidates.add(Class.forName(metadataReader.getClassMetadata().getClassName()));
+                    }
+                } catch(Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        log.info("Found {} class(s) which match criteria: {} searching through base package: {}", candidates.size(), name, "com.spark");
+        if(candidates.size() > 0) {
+
+        } else {
+            throw new ClassNotFoundException("No class with the name: " + name + " could be found on the classpath searching through base package: com.spark");
+        }
+    }
+
     /**
      * Searches a list of Class Nodes for a specific class given the class name and attempts
      * to load the class
@@ -84,13 +127,21 @@ public class RunescapeClassLoader extends ClassLoader {
             if (classes.containsKey(key))
                 return classes.get(key);
             ClassNode node = nodes.get(key);
-            if (node == null) throw new ClassNotFoundException();
+            if (node == null) {
+                // TODO scan through class path looking for this class before giving up.
+                try {
+                    findOnClassPath(key);
+                } catch(IOException ex) {
+                    ex.printStackTrace();
+                }
+                throw new ClassNotFoundException("No class could be found for the key: " + key);
+            }
 
-            log.info("Node name: {}", node.name);
+//            log.info("Node name: {}", node.name);
             ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
             node.accept(cw);
             byte[] b = cw.toByteArray();
-            log.info("Byte array: {}", b);
+//            log.info("Byte array: {}", b);
             Class<?> c = defineClass(node.name.replace('.', '/'), b, 0, b.length, this.domain);
             classes.put(key, c);
             return c;
