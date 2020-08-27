@@ -114,7 +114,28 @@ public class JarArchiveReader extends AbstractReader<ClassNode[]> implements Aut
         // The key here which makes this different from configuration ArchiveReader is that we are reading the game pack.
         // with #getGamepack() and not a string of key value pairs.
         try {
-            return readNodes(configuration.get("0"), configuration.get("-1"));
+            if (stream == null) return new ClassNode[0];
+            JarInputStream jis = new JarInputStream(stream);
+            List<ClassNode> nodes = new ArrayList<>();
+            read(nodes, jis, ClassReader.SKIP_DEBUG, configuration.get("0"), configuration.get("-1"));
+
+            Map<String, ClassNode> map = new HashMap<>();
+            for(ClassNode node : nodes) {
+                map.put(node.name, node);
+            }
+
+            // TODO cache this bc it takes 2-3 minutes to deob a client and only needs to happen 1 time
+            // subsequent runs should just directly load the deob jar file
+            if(saveObfuscatedJar) {
+                final String id = StringUtils.uniqueId();
+                final String obfuscatedPath = obfuscatedJarPath.replace("{id}", id);
+                final String deobfuscatedPath = deobfuscatedJarPath.replace("{id}", id);
+                JarUtils.save(map, obfuscatedPath);
+                Deob.deobfuscate(obfuscatedPath, deobfuscatedPath);
+                return readNodes(deobfuscatedPath);
+            }
+
+            return nodes.toArray(new ClassNode[0]);
         } catch(MalformedURLException e) {
             log.error("There was an error forming a URL from the string: {}.", String.format(
                 type.getGamepack(),
@@ -129,67 +150,6 @@ public class JarArchiveReader extends AbstractReader<ClassNode[]> implements Aut
             return new ClassNode[] {};
         }
     }
-
-
-    /**
-     * Returns a set of actual Java Classes using reflection. Note: This will NOT return
-     * a set of use-able classNodes for ASM injection.
-     * @return Class[]
-     * @throws IOException
-     */
-    public Class<?>[] readClasses() throws IOException {
-        if (stream == null)
-            return new Class[0];
-        JarInputStream jis = new JarInputStream(stream);
-        List<Class<?>> classes = new ArrayList<>();
-        JarEntry entry;
-        while ((entry = jis.getNextJarEntry()) != null) {
-            String name = entry.getName();
-            if (!name.endsWith(".class"))
-                continue;
-            try {
-                classes.add(Class.forName(name.replace('/', '.').substring(0, name.length() - 6)));
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        return classes.toArray(new Class[classes.size()]);
-    }
-
-    /**
-     * Wrapper for reading the class Nodes from the JAR file. This will read the JAR from an input
-     * stream opened via a URL connection.
-     * @param key
-     * @param ivpc
-     * @return ClassNode[]
-     * @throws Exception
-     */
-    public ClassNode[] readNodes(String key, String ivpc) throws Exception {
-        if (stream == null)
-            return new ClassNode[0];
-        JarInputStream jis = new JarInputStream(stream);
-        List<ClassNode> nodes = new ArrayList<>();
-        read(nodes, jis, ClassReader.SKIP_DEBUG, key, ivpc);
-
-        Map<String, ClassNode> map = new HashMap<>();
-        for(ClassNode node : nodes) {
-            map.put(node.name, node);
-        }
-
-        // TODO cache this bc it takes 2-3 minutes to deob a client and only needs to happen 1 time
-        // subsequent runs should just directly load the deob jar file
-        if(saveObfuscatedJar) {
-            final String id = StringUtils.uniqueId();
-            final String obfuscatedPath = obfuscatedJarPath.replace("{id}", id);
-            final String deobfuscatedPath = deobfuscatedJarPath.replace("{id}", id);
-            JarUtils.save(map, obfuscatedPath);
-            Deob.deobfuscate(obfuscatedPath, deobfuscatedPath);
-            return readNodes(deobfuscatedPath);
-        }
-
-        return nodes.toArray(new ClassNode[0]);
-    }
-
 
     /**
      * This method will read a JAR file from the local filesystem.
