@@ -1,5 +1,11 @@
 package com.spark.asm;
 
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.tree.ClassNode;
+
 import java.security.AllPermission;
 import java.security.CodeSource;
 import java.security.Permissions;
@@ -7,13 +13,6 @@ import java.security.ProtectionDomain;
 import java.security.cert.Certificate;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.tree.ClassNode;
-
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * ClassCreator
@@ -39,8 +38,9 @@ public class RunescapeClassLoader extends ClassLoader {
         permissions.add(new AllPermission());
         domain = new ProtectionDomain(new CodeSource(null, (Certificate[]) null), permissions);
         if (nodes == null) return;
-        for (ClassNode node : nodes)
+        for (ClassNode node : nodes) {
             this.nodes.put(node.name, node);
+        }
     }
 
     /**
@@ -79,16 +79,18 @@ public class RunescapeClassLoader extends ClassLoader {
             log.debug("Attempting to load class with name: {}", name);
             return getSystemClassLoader().loadClass(name);
         } catch (ClassNotFoundException e) {
-            log.debug("No class could be located for loading with the name: {}. Attempting to define and load class.", name, e);
+            log.debug("No class could be located for loading with the name: {}. Attempting to define and load class.", name);
             final String key = name.replace('.', '/');
             if (classes.containsKey(key))
                 return classes.get(key);
             ClassNode node = nodes.get(key);
             if (node == null) throw new ClassNotFoundException();
 
+            log.info("Node name: {}", node.name);
             ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
             node.accept(cw);
             byte[] b = cw.toByteArray();
+            log.info("Byte array: {}", b);
             Class<?> c = defineClass(node.name.replace('.', '/'), b, 0, b.length, this.domain);
             classes.put(key, c);
             return c;

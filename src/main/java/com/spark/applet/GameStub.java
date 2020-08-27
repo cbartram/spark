@@ -1,20 +1,18 @@
 package com.spark.applet;
 
+import com.spark.configuration.RunescapeConfiguration;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.applet.Applet;
 import java.applet.AppletContext;
 import java.applet.AppletStub;
 import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import com.spark.configuration.RunescapeConfiguration;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * GameStub

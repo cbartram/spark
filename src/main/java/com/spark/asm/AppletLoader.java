@@ -47,9 +47,10 @@ public class AppletLoader {
 
     @SuppressWarnings("unchecked")
     public Class<? extends Applet> load() {
-        ClassNode[] injectedGameClient = inject();
-        ClassLoader loader = new RunescapeClassLoader(injectedGameClient);
-        final String className = configuration.get(RunescapeConfiguration.INITIAL_CLASS).replace(".class", "");
+        final ClassNode[] injectedGameClient = inject();
+        final ClassLoader loader = new RunescapeClassLoader(injectedGameClient);
+        final String className = configuration.get(RunescapeConfiguration.INITIAL_CLASS)
+                .replace(".class", "");
         try {
             Class<?> c = loader.loadClass(className);
             if (!Applet.class.isAssignableFrom(c))

@@ -47,14 +47,13 @@ public class ClassInjector implements Injector {
 		AbstractClassTransformer transformer = new ClientClassTransformer();
 
 		for (ClassNode node : nodes) {
-			// Create ClassPrinter, reader and print the original class
-			ClassReader cr = new ClassReader(toByteArray(node));
-			ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_FRAMES);
+//			ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_FRAMES);
 			classTree.put(node.name, node);
-//			if(nodde.name.equals("client")) {
-				log.info("----------- Client Before -------------");
+			if(node.name.equals("class340")) {
+				transformer.transform(node);
+				ClassReader cr = new ClassReader(toByteArray(node));
 				cr.accept(cp, 0);
-//			}
+			}
 
 			if(writeClassFilesToDisk) toFile(toByteArray(node), node.name);
 		}
