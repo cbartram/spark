@@ -20,10 +20,7 @@ import java.security.CodeSource;
 import java.security.Permissions;
 import java.security.ProtectionDomain;
 import java.security.cert.Certificate;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * ClassCreator
@@ -77,33 +74,34 @@ public class RunescapeClassLoader extends ClassLoader {
         classes.remove(node.name.replace('.', '/'));
     }
 
-    public void findOnClassPath(@NonNull final String name) throws ClassNotFoundException, IOException {
+    public Class<?> findOnClassPath(@NonNull final String name) throws ClassNotFoundException {
         ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
         MetadataReaderFactory metadataReaderFactory = new CachingMetadataReaderFactory(resourcePatternResolver);
 
-        Set<Class<?>> candidates = new HashSet<>();
+        List<Class<?>> candidates = new ArrayList<>();
         String packageSearchPath = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX +
                 ClassUtils.convertClassNameToResourcePath(SystemPropertyUtils.resolvePlaceholders("com.spark")) + "/**/*.class";
-        Resource[] resources = resourcePatternResolver.getResources(packageSearchPath);
-        for (Resource resource : resources) {
-            if (resource.isReadable()) {
-                MetadataReader metadataReader = metadataReaderFactory.getMetadataReader(resource);
-                try {
+        try {
+            final Resource[] resources = resourcePatternResolver.getResources(packageSearchPath);
+            for (Resource resource : resources) {
+                if (resource.isReadable()) {
+                    final MetadataReader metadataReader = metadataReaderFactory.getMetadataReader(resource);
                     Class<?> c = Class.forName(metadataReader.getClassMetadata().getClassName());
                     final String className = c.getName().substring(c.getName().lastIndexOf(".") + 1);
                     log.debug("Evaluating loaded class: {} against specified criteria: {}", className, name);
-                    if(className.equalsIgnoreCase(name))  {
-                        candidates.add(Class.forName(metadataReader.getClassMetadata().getClassName()));
+                    if (className.equalsIgnoreCase(name)) {
+                        candidates.add(c);
                     }
-                } catch(Throwable e) {
-                    e.printStackTrace();
                 }
             }
+        } catch(IOException e) {
+            log.error("IOException thrown while searching through base package: com.spark to find class with name: {}", name, e);
+            throw new ClassNotFoundException("IOException thrown while searching through base package: com.spark to find class with name: " + name);
         }
 
-        log.info("Found {} class(s) which match criteria: {} searching through base package: {}", candidates.size(), name, "com.spark");
+        log.info("Found {} class(s) on class path which match the criteria \"name={}\" while searching through base package: {}", candidates.size(), name, "com.spark");
         if(candidates.size() > 0) {
-
+            return candidates.get(0);
         } else {
             throw new ClassNotFoundException("No class with the name: " + name + " could be found on the classpath searching through base package: com.spark");
         }
@@ -119,29 +117,28 @@ public class RunescapeClassLoader extends ClassLoader {
     @Override
     public Class<?> findClass(@NonNull final String name) throws ClassNotFoundException {
         try {
-            log.debug("Attempting to load class with name: {}", name);
+            log.info("Attempting to load class with name: {}", name);
             return getSystemClassLoader().loadClass(name);
         } catch (ClassNotFoundException e) {
-            log.debug("No class could be located for loading with the name: {}. Attempting to define and load class.", name);
+            log.info("No class could be located for loading with the name: {}. Attempting to define and load class.", name);
             final String key = name.replace('.', '/');
-            if (classes.containsKey(key))
-                return classes.get(key);
-            ClassNode node = nodes.get(key);
-            if (node == null) {
-                // TODO scan through class path looking for this class before giving up.
-                try {
-                    findOnClassPath(key);
-                } catch(IOException ex) {
-                    ex.printStackTrace();
-                }
-                throw new ClassNotFoundException("No class could be found for the key: " + key);
-            }
+            if (classes.containsKey(key)) return classes.get(key);
 
-//            log.info("Node name: {}", node.name);
+            ClassNode node = nodes.get(key);
+            log.info("Key: {}", key);
+            if (node == null) {
+                // Scan through class path looking for the class before giving up.
+                // This will usually happen when we are modifying the RS JAR classes with custom interfaces
+                // that we define on our class path
+                log.info("No class node found for node: {}", key);
+                Class<?> c = findOnClassPath(key);
+                classes.put(key, c);
+                return c;
+            }
             ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
             node.accept(cw);
             byte[] b = cw.toByteArray();
-//            log.info("Byte array: {}", b);
+            log.info("Node name: {}", node.name);
             Class<?> c = defineClass(node.name.replace('.', '/'), b, 0, b.length, this.domain);
             classes.put(key, c);
             return c;
