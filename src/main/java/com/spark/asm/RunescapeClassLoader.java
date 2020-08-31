@@ -131,7 +131,7 @@ public class RunescapeClassLoader extends ClassLoader {
                 // This will usually happen when we are modifying the RS JAR classes with custom interfaces
                 // that we define on our class path
                 log.info("No class node found for node: {}", key);
-                Class<?> c = findOnClassPath(key);
+                Class<?> c = findOnClassPath(key);//
                 classes.put(key, c);
                 return c;
             }
