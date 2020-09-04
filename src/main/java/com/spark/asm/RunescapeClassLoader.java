@@ -111,7 +111,7 @@ public class RunescapeClassLoader extends ClassLoader {
      * Searches a list of Class Nodes for a specific class given the class name and attempts
      * to load the class
      * @param name String the class name to search for
-     * @return
+     * @return Class to load
      * @throws ClassNotFoundException
      */
     @Override
@@ -131,7 +131,7 @@ public class RunescapeClassLoader extends ClassLoader {
                 // This will usually happen when we are modifying the RS JAR classes with custom interfaces
                 // that we define on our class path
                 log.info("No class node found for node: {}", key);
-                Class<?> c = findOnClassPath(key); // again
+                Class<?> c = findOnClassPath(key);
                 classes.put(key, c);
                 return c;
             }
