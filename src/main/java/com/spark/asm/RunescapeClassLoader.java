@@ -5,22 +5,14 @@ import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.core.io.support.ResourcePatternResolver;
-import org.springframework.core.type.classreading.CachingMetadataReaderFactory;
-import org.springframework.core.type.classreading.MetadataReader;
-import org.springframework.core.type.classreading.MetadataReaderFactory;
-import org.springframework.util.ClassUtils;
-import org.springframework.util.SystemPropertyUtils;
 
-import java.io.IOException;
 import java.security.AllPermission;
 import java.security.CodeSource;
 import java.security.Permissions;
 import java.security.ProtectionDomain;
 import java.security.cert.Certificate;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * ClassCreator
@@ -74,39 +66,6 @@ public class RunescapeClassLoader extends ClassLoader {
         classes.remove(node.name.replace('.', '/'));
     }
 
-    public Class<?> findOnClassPath(@NonNull final String name) throws ClassNotFoundException {
-        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
-        MetadataReaderFactory metadataReaderFactory = new CachingMetadataReaderFactory(resourcePatternResolver);
-
-        List<Class<?>> candidates = new ArrayList<>();
-        String packageSearchPath = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX +
-                ClassUtils.convertClassNameToResourcePath(SystemPropertyUtils.resolvePlaceholders("com.spark")) + "/**/*.class";
-        try {
-            final Resource[] resources = resourcePatternResolver.getResources(packageSearchPath);
-            for (Resource resource : resources) {
-                if (resource.isReadable()) {
-                    final MetadataReader metadataReader = metadataReaderFactory.getMetadataReader(resource);
-                    Class<?> c = Class.forName(metadataReader.getClassMetadata().getClassName());
-                    final String className = c.getName().substring(c.getName().lastIndexOf(".") + 1);
-                    log.debug("Evaluating loaded class: {} against specified criteria: {}", className, name);
-                    if (className.equalsIgnoreCase(name)) {
-                        candidates.add(c);
-                    }
-                }
-            }
-        } catch(IOException e) {
-            log.error("IOException thrown while searching through base package: com.spark to find class with name: {}", name, e);
-            throw new ClassNotFoundException("IOException thrown while searching through base package: com.spark to find class with name: " + name);
-        }
-
-        log.info("Found {} class(s) on class path which match the criteria \"name={}\" while searching through base package: {}", candidates.size(), name, "com.spark");
-        if(candidates.size() > 0) {
-            return candidates.get(0);
-        } else {
-            throw new ClassNotFoundException("No class with the name: " + name + " could be found on the classpath searching through base package: com.spark");
-        }
-    }
-
     /**
      * Searches a list of Class Nodes for a specific class given the class name and attempts
      * to load the class
@@ -115,12 +74,10 @@ public class RunescapeClassLoader extends ClassLoader {
      * @throws ClassNotFoundException
      */
     @Override
-    public Class<?> findClass(@NonNull final String name) throws ClassNotFoundException {
+    public Class<?> findClass(@NonNull final String name){
         try {
             log.info("Attempting to load class with name: {}", name);
-            Class<?> c = getSystemClassLoader().loadClass(name);
-            log.info("Successfully found class: {} on class path.", c.getName());
-            return c;
+            return getSystemClassLoader().loadClass(name);
         } catch (ClassNotFoundException e) {
             log.info("No class could be located for loading with the name: {}. Attempting to define and load class.", name);
             final String key = name.replace('.', '/');
