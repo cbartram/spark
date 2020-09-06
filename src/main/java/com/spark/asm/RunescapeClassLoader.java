@@ -118,23 +118,19 @@ public class RunescapeClassLoader extends ClassLoader {
     public Class<?> findClass(@NonNull final String name) throws ClassNotFoundException {
         try {
             log.info("Attempting to load class with name: {}", name);
-            return getSystemClassLoader().loadClass(name);
+            Class<?> c = getSystemClassLoader().loadClass(name);
+            log.info("Successfully found class: {} on class path.", c.getName());
+            return c;
         } catch (ClassNotFoundException e) {
             log.info("No class could be located for loading with the name: {}. Attempting to define and load class.", name);
             final String key = name.replace('.', '/');
-            if (classes.containsKey(key)) return classes.get(key);
-
-            ClassNode node = nodes.get(key);
-            log.info("Key: {}", key);
-            if (node == null) {
-                // Scan through class path looking for the class before giving up.
-                // This will usually happen when we are modifying the RS JAR classes with custom interfaces
-                // that we define on our class path
-                log.info("No class node found for node: {}", key);
-                Class<?> c = findOnClassPath(key);
-                classes.put(key, c);
-                return c;
+            if (classes.containsKey(key))  {
+                log.info("Already loaded the class: {}", key);
+                return classes.get(key);
             }
+            ClassNode node = nodes.get(key);
+            log.info("Key is not null: {}", key);
+            // Convert class node into actual class object which can be loaded and returned to the class loader.
             ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
             node.accept(cw);
             byte[] b = cw.toByteArray();
