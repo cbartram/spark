@@ -111,7 +111,7 @@ public class RunescapeClassLoader extends ClassLoader {
      * Searches a list of Class Nodes for a specific class given the class name and attempts
      * to load the class
      * @param name String the class name to search for
-     * @return Class to load
+     * @return Class to load//
      * @throws ClassNotFoundException
      */
     @Override
