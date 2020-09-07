@@ -1,13 +1,13 @@
 package com.spark.asm.transformer;
 
-import net.runelite.mapping.ObfuscatedName;
+import lombok.extern.slf4j.Slf4j;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 
 import java.util.Iterator;
 
 
-@ObfuscatedName("class48")
+@Slf4j
 public class AppletClassTransformer extends AbstractClassTransformer {
 
   @Override
@@ -32,14 +32,13 @@ public class AppletClassTransformer extends AbstractClassTransformer {
         Iterator<AbstractInsnNode> instructs = mNode.instructions.iterator();
         while (instructs.hasNext()) {
           AbstractInsnNode ain = (AbstractInsnNode) instructs.next();
-
           // INVOKESPECIAL is basically super() in a constructor
           if (ain.getOpcode() == Opcodes.INVOKESPECIAL) {
             //cast to MethodInsnNode so we can change the "owner" variable to our own
             MethodInsnNode min = (MethodInsnNode) ain;
 
             // Instead of calling Runescape's super class call our bot superclass
-            min.owner = "com/spark/asm/transformer/BotApplet";
+//            min.owner = "com/spark/asm/transformer/BotApplet";
           }
         }
       }

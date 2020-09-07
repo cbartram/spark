@@ -40,10 +40,7 @@ public class ClassPrinter extends ClassVisitor {
         @Override
         public void visit(String name, Object value) {
             String annotationName = description.substring(description.lastIndexOf('/') + 1, description.length() - 1);
-            log.info("@{}({}=\"{}\")", annotationName, name, value);
-            if(annotationName.equalsIgnoreCase("ObfuscatedName") && value.toString().equalsIgnoreCase("bd")) {
-                log.info("THE CLASS: {} IS ACTUALLY: Player", className);
-            }
+            log.debug("@{}({}=\"{}\")", annotationName, name, value);
             super.visit(name, value);
         }
     }
