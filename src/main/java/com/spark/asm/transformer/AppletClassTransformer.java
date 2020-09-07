@@ -13,7 +13,7 @@ public class AppletClassTransformer extends AbstractClassTransformer {
   @Override
   @SuppressWarnings("unchecked")
   public ClassNode transform(final ClassNode node) {
-    node.interfaces.add("com/spark/asm/transformer/GraphicsInterface"); // TODO how does the class loader find this interface defined in MY code NOT the JAR file itself?
+    node.interfaces.add("com/spark/asm/transformer/GraphicsInterface");
     MethodNode methodNode = new MethodNode(Opcodes.ACC_PUBLIC, "getCanvas", "()Ljava/awt/Canvas;", null, null);
     methodNode.instructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
     methodNode.instructions.add(new FieldInsnNode(Opcodes.GETFIELD, "class48", "field469", "Ljava/awt/Canvas;"));
