@@ -1,7 +1,7 @@
 package com.spark.asm;
 
 import com.spark.asm.transformer.AbstractClassTransformer;
-import com.spark.asm.transformer.ClientClassTransformer;
+import com.spark.asm.transformer.AppletClassTransformer;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.objectweb.asm.ClassReader;
@@ -44,10 +44,9 @@ public class ClassInjector implements Injector {
 	@Override
 	public void modify(ClassNode[] nodes) {
 		ClassPrinter cp = new ClassPrinter();
-		AbstractClassTransformer transformer = new ClientClassTransformer();
+		AbstractClassTransformer transformer = new AppletClassTransformer();
 
 		for (ClassNode node : nodes) {
-//			ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_FRAMES);
 			classTree.put(node.name, node);
 			if(node.name.equals("class48")) {
 				transformer.transform(node);

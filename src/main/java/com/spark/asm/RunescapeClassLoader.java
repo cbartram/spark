@@ -86,7 +86,6 @@ public class RunescapeClassLoader extends ClassLoader {
                 return classes.get(key);
             }
             ClassNode node = nodes.get(key);
-            log.info("Key is not null: {}", key);
             // Convert class node into actual class object which can be loaded and returned to the class loader.
             ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
             node.accept(cw);
