@@ -38,7 +38,7 @@ public class AppletClassTransformer extends AbstractClassTransformer {
             MethodInsnNode min = (MethodInsnNode) ain;
 
             // Instead of calling Runescape's super class call our bot superclass
-//            min.owner = "com/spark/asm/transformer/BotApplet";
+            min.owner = "com/spark/asm/transformer/BotApplet";
           }
         }
       }

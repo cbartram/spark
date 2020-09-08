@@ -34,6 +34,7 @@ public class RunescapeClassLoader extends ClassLoader {
     private final ProtectionDomain domain;
 
     public RunescapeClassLoader(ClassNode... nodes) {
+        log.info("Loading Injected RuneScape classes...");
         final Permissions permissions = new Permissions();
         permissions.add(new AllPermission());
         domain = new ProtectionDomain(new CodeSource(null, (Certificate[]) null), permissions);
@@ -76,21 +77,16 @@ public class RunescapeClassLoader extends ClassLoader {
     @Override
     public Class<?> findClass(@NonNull final String name){
         try {
-            log.info("Attempting to load class with name: {}", name);
             return getSystemClassLoader().loadClass(name);
         } catch (ClassNotFoundException e) {
-            log.info("No class could be located for loading with the name: {}. Attempting to define and load class.", name);
+            log.debug("No class could be located for loading with the name: {}. Attempting to define and load class.", name);
             final String key = name.replace('.', '/');
-            if (classes.containsKey(key))  {
-                log.info("Already loaded the class: {}", key);
-                return classes.get(key);
-            }
+            if (classes.containsKey(key))  return classes.get(key);
             ClassNode node = nodes.get(key);
             // Convert class node into actual class object which can be loaded and returned to the class loader.
             ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
             node.accept(cw);
             byte[] b = cw.toByteArray();
-            log.info("Node name: {}", node.name);
             Class<?> c = defineClass(node.name.replace('.', '/'), b, 0, b.length, this.domain);
             classes.put(key, c);
             return c;

@@ -55,6 +55,7 @@ public class AppletLoader {
             Class<?> c = loader.loadClass(className);
             if (!Applet.class.isAssignableFrom(c))
                 throw new ClassCastException("Unable to cast initial game class to Applet. The class: " + c.getName() + " probably does not extend the Applet class.");
+            log.info("Successfully loaded initial class: {}", configuration.get(RunescapeConfiguration.INITIAL_CLASS));
             return (Class<? extends Applet>) c;
         } catch (ClassNotFoundException e) {
             log.error("No class could be found for name: {}. Cannot load non-existent class.", className, e);

@@ -43,15 +43,18 @@ public class ClassInjector implements Injector {
 
 	@Override
 	public void modify(ClassNode[] nodes) {
-		ClassPrinter cp = new ClassPrinter();
+//		ClassPrinter cp = new ClassPrinter();
 		AbstractClassTransformer transformer = new AppletClassTransformer();
 
 		for (ClassNode node : nodes) {
 			classTree.put(node.name, node);
+
 			if(node.name.equals("class48")) {
+				log.info("Modifying RSApplet class bytecode...");
 				transformer.transform(node);
-				ClassReader cr = new ClassReader(toByteArray(node));
-				cr.accept(cp, 0);
+//				Uncomment if you want to print a rudimentary version of the modified class.
+//				ClassReader cr = new ClassReader(toByteArray(node));
+//				cr.accept(cp, 0);
 			}
 
 			if(writeClassFilesToDisk) toFile(toByteArray(node), node.name);

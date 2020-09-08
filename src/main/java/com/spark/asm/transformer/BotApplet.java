@@ -7,6 +7,10 @@ public class BotApplet extends Applet {
 
     private boolean threadStarted = false;
 
+    public BotApplet() {
+        super();
+    }
+
     @Override
     public Graphics getGraphics() {
         final Graphics g = super.getGraphics();

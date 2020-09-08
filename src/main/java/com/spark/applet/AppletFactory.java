@@ -4,6 +4,7 @@ import com.spark.interfaces.Factory;
 import com.spark.asm.AppletLoader;
 import com.spark.configuration.RunescapeConfiguration;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,7 @@ import java.awt.*;
  * @author Christian Bartram
  * @since 1.0
  */
+@Slf4j
 @Component
 @AllArgsConstructor
 public class AppletFactory implements Factory<Applet> {
@@ -37,6 +39,7 @@ public class AppletFactory implements Factory<Applet> {
      * @throws Exception IllegalAccessException Exception thrown if a new instance of the applet class cannot be instantiated.
      */
     public Applet create() throws Exception {
+        log.info("Creating new game applet instance...");
         Class<? extends Applet> c = loader.load();
         Applet applet = c.newInstance();
         gameStub.setApplet(applet);

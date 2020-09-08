@@ -1,15 +1,15 @@
 package com.spark;
 
-import java.awt.*;
-import javax.annotation.PostConstruct;
-import javax.swing.*;
-
 import com.spark.applet.AppletFactory;
 import com.spark.configuration.RunescapeConfiguration;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+
+import javax.annotation.PostConstruct;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Application - Contains the main class and launches the JFrame with the loaded Applet!
@@ -17,6 +17,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
  * @author Cbartram
  * @since 1.0
  */
+@Slf4j
 @SpringBootApplication
 public class Application {
 
@@ -37,6 +38,7 @@ public class Application {
 	 */
 	@PostConstruct
 	public void postConstruct() throws Exception {
+		log.info("Starting Spark...");
 		JFrame frame = new JFrame(configuration.get(RunescapeConfiguration.WINDOW_TITLE));
 		frame.setContentPane(launcher.create());
 		frame.pack();
